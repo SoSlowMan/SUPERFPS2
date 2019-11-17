@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public static EnemyController instance;
+
     public int health = 3;
     public GameObject explosion;
 
@@ -17,6 +19,11 @@ public class EnemyController : MonoBehaviour
     private float shotCounter; //счетчик выстрелов
     public GameObject bullet; 
     public Transform firePoint; //где спавнить пулю
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

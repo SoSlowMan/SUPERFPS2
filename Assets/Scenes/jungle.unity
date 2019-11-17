@@ -312,9 +312,10 @@ GameObject:
   - component: {fileID: 645453936}
   - component: {fileID: 645453937}
   - component: {fileID: 645453938}
+  - component: {fileID: 645453939}
   m_Layer: 0
   m_Name: BADGUYBACKHD
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,6 +394,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0d483571d3e344f8aa7019e89291ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &645453939
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645453935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &930597563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,11 +1401,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922984490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7860001, y: -0.001000002, z: -0.277}
+  m_LocalPosition: {x: 0.001000002, y: -0.22299999, z: 0.7860001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8586325279838547097}
-  m_RootOrder: 1
+  m_Father: {fileID: 8586325281736037227}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146930974
 GameObject:
@@ -52065,7 +52080,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8586325281736037227}
-  - {fileID: 1922984491}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52116,7 +52130,7 @@ MonoBehaviour:
   deadScreen: {fileID: 1856159650}
   healthText: {fileID: 1072628377}
   ammoText: {fileID: 966034572}
-  bullet: {fileID: 6370557538331269864, guid: 627dc31db6611e041b98c737e1c56766, type: 3}
+  bullet: {fileID: 6370557538331269864, guid: 70e28a5d20ebfd34ca7fd48a5148adf0, type: 3}
   firePoint: {fileID: 1922984491}
 --- !u!58 &8586325279838547100
 CircleCollider2D:
@@ -52232,24 +52246,11 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1922984491}
   m_Father: {fileID: 8586325279838547097}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
---- !u!136 &8886439639515328992
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886439639515328996}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25056773
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: -0.014207184, y: 0, z: 0}
 --- !u!212 &8886439639515328993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -52336,7 +52337,7 @@ GameObject:
   - component: {fileID: 8886439639515328995}
   - component: {fileID: 8886439639515328993}
   - component: {fileID: 8886439639515328994}
-  - component: {fileID: 8886439639515328992}
+  - component: {fileID: 8886439639515328997}
   m_Layer: 0
   m_Name: BADGUY
   m_TagString: Enemy
@@ -52344,6 +52345,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!136 &8886439639515328997
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886439639515328996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8886439640110986908
 Transform:
   m_ObjectHideFlags: 0
@@ -52417,22 +52432,6 @@ MonoBehaviour:
   fireRate: 0.5
   bullet: {fileID: 6370557538331269864, guid: 42e65d239ee21de41aeb975d8199370a, type: 3}
   firePoint: {fileID: 8886439640110986908}
---- !u!58 &8886439640455837275
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886439640455837277}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
 --- !u!4 &8886439640455837276
 Transform:
   m_ObjectHideFlags: 0
@@ -52458,9 +52457,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8886439640455837276}
-  - component: {fileID: 8886439640455837275}
   - component: {fileID: 8886439640455837274}
   - component: {fileID: 8886439640455837273}
+  - component: {fileID: 8886439640455837278}
   m_Layer: 0
   m_Name: BadGuy
   m_TagString: Enemy
@@ -52468,3 +52467,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!58 &8886439640455837278
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886439640455837277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.27875802

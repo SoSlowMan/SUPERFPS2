@@ -98,8 +98,13 @@ public class PlayerController : MonoBehaviour
                         Debug.Log("What am I looking at?");
                     }*/
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
-
-                    currentAmmo--;
+                    if (transform.tag == "Enemy")
+                    {
+                        transform.parent.GetComponent<EnemyController>().TakeDamage();
+                        //Instantiate(bulletImpact, transform.rotation);
+                    }
+                     
+                        currentAmmo--;
                     gunAnim.SetTrigger("Shoot");
                     UpdateAmmoUI();
                     AudioController.instance.PlayGunshot();
