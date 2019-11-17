@@ -25,12 +25,15 @@ public class PlayerController : MonoBehaviour
     public Animator gunAnim;
     public Animator anim; // walk anim
 
-    private int currentHealth;
+    public int currentHealth;
     public int maxHealth = 100;
     public GameObject deadScreen;
     private bool hasDied;
 
     public Text healthText, ammoText;
+
+    public GameObject bullet;
+    public Transform firePoint; //где спавнить пулю
 
     private void Awake()
     {
@@ -67,30 +70,35 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
             //UPDOWN
             viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
-
+            firePoint.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
             //shooting
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentAmmo > 0)
-                {
-                    Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        //Debug.Log("I'm looking at " + hit.transform.name);
-                        Instantiate(bulletImpact, hit.point, transform.rotation);
+                {/*
+                    //Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+                     //RaycastHit hit;
 
-                        if (hit.transform.tag == "Enemy")
-                        {
-                            hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
-                        }
+                     //if (Physics.Raycast(ray, out hit))
+                    // {
+                    //Debug.Log("I'm looking at " + hit.transform.name);
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+//                    
+
+                        if (transform.tag == "Enemy")
+                        
+                       //     transform.parent.GetComponent<EnemyController>().TakeDamage();
+                            //Instantiate(bulletImpact, hit.point, transform.rotation);
+                       // }
 
                         
-                    }
+                    //}
                     else
                     {
-                        Debug.Log("What the fuck? What am I looking at?");
-                    }
+                        Debug.Log("What am I looking at?");
+                    }*/
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+
                     currentAmmo--;
                     gunAnim.SetTrigger("Shoot");
                     UpdateAmmoUI();
@@ -140,4 +148,13 @@ public class PlayerController : MonoBehaviour
     {
         ammoText.text = currentAmmo.ToString();
     }
+
+   /* private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Destroy(bullet);
+        }
+    }*/
 }
+

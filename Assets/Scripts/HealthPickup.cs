@@ -23,14 +23,20 @@ public class HealthPickup : MonoBehaviour
         //шобы знать что конкретно игрок впилился головой в коллайдер
         if (other.tag == "Player")
         {
-            //количество патронов хранится в playercontroller, обращаемся к нему и добавляем туда патроны
-            PlayerController.instance.AddHealth(healthAmount);
-            PlayerController.instance.UpdateAmmoUI();
+            if (PlayerController.instance.currentHealth == PlayerController.instance.maxHealth)
+            {
 
-            AudioController.instance.PlayHealthPickup();
+            }
+            else
+            {
+                PlayerController.instance.AddHealth(healthAmount);
+                PlayerController.instance.UpdateAmmoUI();
 
-            Destroy(gameObject);
-             
+                AudioController.instance.PlayHealthPickup();
+
+                Destroy(gameObject);
+            }
+                         
         }
     }
 }

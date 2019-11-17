@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange)
         {
+            transform.LookAt(PlayerController.instance.transform.position, -Vector3.forward);
             Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
 
             theRB.velocity = playerDirection.normalized * moveSpeed;
