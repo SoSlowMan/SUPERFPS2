@@ -4,41 +4,42 @@ using UnityEngine;
 
 public class MyBullet : MonoBehaviour
 {
-    public int damageAmount;
+    //public int damageAmount;
 
     public float bulletSpeed = 5f;
 
-    //public Rigidbody theRB;
+    public Rigidbody2D theRB;
 
-    //private Vector3 direction;
+    private Vector3 direction;
 
-    //private Quaternion rot;
-
-    //public GameObject Player;
+    public GameObject bulletImpact;
 
     // Start is called before the first frame update
     void Start()
     {
-        //rot = PlayerController.instance.transform.rotation;
-        //rot = Quaternion.Euler(Player.transform.rotation.eulerAngles.x, Player.transform.rotation.eulerAngles.y, Player.transform.rotation.eulerAngles.z);
-        //direction = PlayerController.instance.transform.position + rot.eulerAngles;
-        //direction.Normalize();
+        //direction = PlayerController.instance.transform.position + transform.position;
+        //.Normalize();
         //direction = direction * bulletSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
-        //transform.Translate(Vector3. * bulletSpeed * Time.deltaTime);
         //theRB.velocity = direction * bulletSpeed;
+        transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+   private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if(other.tag == "Enemy")
         {
-            transform.parent.GetComponent<EnemyController>().TakeDamage();
+            EnemyController.instance.TakeDamage();
+            Instantiate(bulletImpact, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        else //if (other.tag == "Wall")
+        {
+            Instantiate(bulletImpact, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(explosion, transform.position + new Vector3(0,0,.65f), transform.rotation);
 
             AudioController.instance.PlayEnemyDeath();
 
