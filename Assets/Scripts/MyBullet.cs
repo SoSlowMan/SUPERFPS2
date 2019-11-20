@@ -37,7 +37,7 @@ public class MyBullet : MonoBehaviour
             Instantiate(bulletImpact, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        else //if (other.tag == "Wall")
+        else if (other.tag == "Wall")
         {
             Instantiate(bulletImpact, transform.position, transform.rotation);
             Destroy(gameObject);
