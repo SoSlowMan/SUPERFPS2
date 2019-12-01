@@ -33,7 +33,7 @@ public class MyBullet : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            EnemyController.instance.TakeDamage();
+            other.GetComponent<EnemyController>().TakeDamage();
             Instantiate(bulletImpact, transform.position, transform.rotation);
             Destroy(gameObject);
         }
@@ -43,4 +43,20 @@ public class MyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyController>().TakeDamage();
+            Instantiate(bulletImpact, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Wall")
+        {
+            Instantiate(bulletImpact, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+    //transform.parent.GetComponent<EnemyController>().TakeDamage();
 }

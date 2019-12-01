@@ -21,5 +21,6 @@ public class BillBoard : MonoBehaviour
     {
         //поскольку у нас 1 игрок, мы можем с помощью такой ебалы все время получать его позицию чтобы разворачивать к нему спрайты 
         transform.LookAt(PlayerController.instance.transform.position, -Vector3.forward);
+        //block(transform.rotation.w);
     }
 }

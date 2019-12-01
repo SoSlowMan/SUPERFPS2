@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public static EnemyController instance;
+    //public static EnemyController instance;
+
+    //public GameObject Enemy;
 
     public int health = 3;
     public GameObject explosion;
@@ -20,10 +22,10 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet; 
     public Transform firePoint; //где спавнить пулю
 
-    private void Awake()
+    /*private void Awake()
     {
         instance = this;
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +46,7 @@ public class EnemyController : MonoBehaviour
             if(shouldShoot)
             {
                 shotCounter -= Time.deltaTime;
-                if(shotCounter <= 0)//типа если враг не стрелял то он начинает 
+                if(shotCounter <= 0)
                 {
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                     shotCounter = fireRate;
@@ -59,7 +61,8 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage()
     {
-        health--;
+        //health--;
+        health -= PlayerController.instance.damage;
         if (health <= 0)
         {
             Destroy(gameObject);

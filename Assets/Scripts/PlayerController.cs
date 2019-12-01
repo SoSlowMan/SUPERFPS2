@@ -30,10 +30,20 @@ public class PlayerController : MonoBehaviour
     public GameObject deadScreen;
     private bool hasDied;
 
-    public Text healthText, ammoText;
+    public Text healthText, ammoText, speedText, damageText, timeText;
 
     public GameObject bullet;
     public Transform firePoint; //где спавнить пулю
+    public int damage = 1;
+
+    public float speedTime = 3f;
+    public bool speedFlag = false;
+    public float defaultMoveSpeed = 5f;
+    private float defaultSpeedMultiplier;
+    private float defaultSpeedTime = 3f;
+    public float moveSpeedMultiplier = 1f;
+    public float currentSpeed;
+
 
     private void Awake()
     {
@@ -43,9 +53,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damage = 1;
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString() + "%";
         ammoText.text = currentAmmo.ToString();
+        speedText.text = moveSpeedMultiplier.ToString() + "X"; 
     }
 
     // Update is called once per frame
@@ -53,7 +65,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!hasDied)
         {
-
             // PLAYER MOVEMENT
             //как я понял привязка ходьбы к осям
             moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -71,53 +82,46 @@ public class PlayerController : MonoBehaviour
             //UPDOWN
             viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
             firePoint.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
+            
             //shooting
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentAmmo > 0)
-                {/*
-                    //Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-                     //RaycastHit hit;
-
-                     //if (Physics.Raycast(ray, out hit))
-                    // {
-                    //Debug.Log("I'm looking at " + hit.transform.name);
+                { 
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
-//                    
-
-                        if (transform.tag == "Enemy")
-                        
-                       //     transform.parent.GetComponent<EnemyController>().TakeDamage();
-                            //Instantiate(bulletImpact, hit.point, transform.rotation);
-                       // }
-
-                        
+                    //if (transform.tag == "Enemy")
+                    //{
+                    //transform.parent.GetComponent<EnemyController>().TakeDamage();
+                    //Instantiate(bulletImpact, transform.rotation);
                     //}
-                    else
-                    {
-                        Debug.Log("What am I looking at?");
-                    }*/
-                    Instantiate(bullet, firePoint.position, firePoint.rotation);
-                    if (transform.tag == "Enemy")
-                    {
-                        transform.parent.GetComponent<EnemyController>().TakeDamage();
-                        //Instantiate(bulletImpact, transform.rotation);
-                    }
-                     
-                        currentAmmo--;
+                    
+
+                    currentAmmo--;
                     gunAnim.SetTrigger("Shoot");
                     UpdateAmmoUI();
                     AudioController.instance.PlayGunshot();
+                    
                 }
             }
 
-            if(moveInput != Vector2.zero)
+            currentSpeed = defaultMoveSpeed * moveSpeedMultiplier;
+
+            if (moveInput != Vector2.zero)
             {
                 anim.SetBool("isMoving", true);
             }
             else
             {
                 anim.SetBool("isMoving", false);
+            }
+            //для ускорителей
+            if (speedFlag == true)
+            {
+                speedTime -= Time.deltaTime;
+                if (speedTime <= 0)
+                {
+                    ReduceSpeed();
+                }
             }
         }
     }
@@ -154,12 +158,41 @@ public class PlayerController : MonoBehaviour
         ammoText.text = currentAmmo.ToString();
     }
 
-   /* private void OnTriggerEnter2D(Collider2D other)
+
+    public void AddSpeed(float speedMultiplier)
     {
-        if (other.tag == "Enemy")
+        speedFlag = true;
+        moveSpeed *= speedMultiplier;
+        defaultSpeedMultiplier = speedMultiplier;
+        speedText.text = (speedMultiplier*moveSpeedMultiplier).ToString() + "X";
+    }
+
+    public void ReduceSpeed()
+    {
+        if (moveSpeed == defaultMoveSpeed * moveSpeedMultiplier)
         {
-            Destroy(bullet);
+
         }
-    }*/
+        else
+        {
+            moveSpeed /= defaultSpeedMultiplier;
+            speedFlag = false;
+            speedTime = defaultSpeedTime;
+            speedText.text = moveSpeedMultiplier.ToString() + "X";
+        }
+
+    }
+
+    public void AddMoveSpeed()
+    {
+        moveSpeed = defaultMoveSpeed * moveSpeedMultiplier;
+        speedText.text = moveSpeedMultiplier.ToString() + "X";
+    }
+
+    public void AddDamage()
+    {
+        damage = damage + 1;
+        damageText.text = damage.ToString();
+    }
 }
 

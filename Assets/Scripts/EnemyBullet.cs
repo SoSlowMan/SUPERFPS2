@@ -34,5 +34,10 @@ public class EnemyBullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 }

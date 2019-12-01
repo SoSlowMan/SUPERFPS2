@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cddb6c429a47344b6b4970ec02d66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  bulletSpeed: 150
   theRB: {fileID: 6370557538331269868}
   bulletImpact: {fileID: 3669608970549470910, guid: 3a45138fe10a9454690a937919c8d875,
     type: 3}
@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6370557538733001764}
   - component: {fileID: 6370557538733001765}
   - component: {fileID: 6370557538733001786}
+  - component: {fileID: 5061288296404421890}
   m_Layer: 0
   m_Name: bullet-5
   m_TagString: Untagged
@@ -193,3 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0d483571d3e344f8aa7019e89291ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &5061288296404421890
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370557538733001767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.15
+  m_Height: 0.19
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
