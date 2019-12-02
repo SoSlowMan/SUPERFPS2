@@ -28,9 +28,12 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
     public int maxHealth = 100;
     public GameObject deadScreen;
+    public GameObject winScreen;
+    public GameObject startScreen;
+    public GameObject secretScreen;
     private bool hasDied;
 
-    public Text healthText, ammoText, speedText, damageText, timeText;
+    public Text healthText, ammoText, speedText, damageText;
 
     public GameObject bullet;
     public Transform firePoint; //где спавнить пулю
@@ -55,6 +58,8 @@ public class PlayerController : MonoBehaviour
     {
         damage = 1;
         currentHealth = maxHealth;
+        winScreen.SetActive(false);
+        deadScreen.SetActive(false);
         healthText.text = currentHealth.ToString() + "%";
         ammoText.text = currentAmmo.ToString();
         speedText.text = moveSpeedMultiplier.ToString() + "X"; 
@@ -80,9 +85,9 @@ public class PlayerController : MonoBehaviour
             //Quaterion тк в юнити ротейшон состоит из 4 значений, а не 2, поэтому Вектор2/3 не покатит
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
             //UPDOWN
-            viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
+            //viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
             firePoint.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
-            
+
             //shooting
             if (Input.GetMouseButtonDown(0))
             {
@@ -185,8 +190,16 @@ public class PlayerController : MonoBehaviour
 
     public void AddMoveSpeed()
     {
-        moveSpeed = defaultMoveSpeed * moveSpeedMultiplier;
-        speedText.text = moveSpeedMultiplier.ToString() + "X";
+        if (speedFlag == true)
+        {
+            moveSpeed = moveSpeed * moveSpeedMultiplier;
+            speedText.text = (2 * moveSpeedMultiplier).ToString() + "X"; //СЛОМАЕТСЯ ЕСЛИ БУДЕШЬ МЕНЯТЬ СКОРОСТЬ ДАЮЩУЮСЯ ОТ ЯБЛОК
+        }
+        else
+        {
+            moveSpeed = defaultMoveSpeed * moveSpeedMultiplier;
+            speedText.text = moveSpeedMultiplier.ToString() + "X";
+        }
     }
 
     public void AddDamage()
@@ -194,5 +207,14 @@ public class PlayerController : MonoBehaviour
         damage = damage + 1;
         damageText.text = damage.ToString();
     }
+
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "The End")
+        {
+            deadScreen.SetActive(true);
+            Destroy(gameObject);
+        }
+    }*/
 }
 
