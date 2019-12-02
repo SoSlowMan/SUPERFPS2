@@ -153,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 1696184735973210543}
   m_LocalRotation: {x: 0.50100505, y: -0.49899298, z: 0.49899292, w: -0.50100505}
   m_LocalPosition: {x: 18.41, y: 0.793, z: -0.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_Children:
   - {fileID: 1696184735032442385}
   - {fileID: 7843290067173267330}
@@ -175,11 +175,11 @@ MonoBehaviour:
   health: 3
   explosion: {fileID: 7537983940673006358, guid: e159bebdf9868694888e5335c6928cf5,
     type: 3}
-  playerRange: 5
+  playerRange: 6
   theRB: {fileID: 1696184735973210539}
-  moveSpeed: 1.5
+  moveSpeed: 2
   shouldShoot: 1
-  fireRate: 0.5
+  fireRate: 0.8
   bullet: {fileID: 6370557538331269864, guid: 42e65d239ee21de41aeb975d8199370a, type: 3}
   firePoint: {fileID: 1696184735091226990}
 --- !u!50 &1696184735973210539
@@ -202,7 +202,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1696184735973210540
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.6
 --- !u!1 &7843290067173267357
 GameObject:
   m_ObjectHideFlags: 0

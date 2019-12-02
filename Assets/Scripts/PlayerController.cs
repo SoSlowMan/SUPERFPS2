@@ -207,14 +207,5 @@ public class PlayerController : MonoBehaviour
         damage = damage + 1;
         damageText.text = damage.ToString();
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "The End")
-        {
-            deadScreen.SetActive(true);
-            Destroy(gameObject);
-        }
-    }*/
 }
 
