@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
             deadScreen.SetActive(true);
             hasDied = true;
             currentHealth = 0;
+            theRB.velocity = Vector2.zero;
         }
 
         healthText.text = currentHealth.ToString() + "%";
