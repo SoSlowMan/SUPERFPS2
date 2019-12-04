@@ -27190,7 +27190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044384436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -104598,7 +104598,7 @@ MonoBehaviour:
   viewCam: {fileID: 8586325281736037226}
   bulletImpact: {fileID: 3669608970549470910, guid: 3a45138fe10a9454690a937919c8d875,
     type: 3}
-  currentAmmo: 75
+  currentAmmo: 100
   gunAnim: {fileID: 681921570769264361}
   anim: {fileID: 8586325279838547101}
   currentHealth: 0
