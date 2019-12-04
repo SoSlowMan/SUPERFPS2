@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public GameObject winScreen;
     public GameObject startScreen;
     public GameObject secretScreen;
-    private bool hasDied;
+    public bool hasDied;
 
     public Text healthText, ammoText, speedText, damageText;
 
@@ -94,13 +94,6 @@ public class PlayerController : MonoBehaviour
                 if (currentAmmo > 0)
                 { 
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
-                    //if (transform.tag == "Enemy")
-                    //{
-                    //transform.parent.GetComponent<EnemyController>().TakeDamage();
-                    //Instantiate(bulletImpact, transform.rotation);
-                    //}
-                    
-
                     currentAmmo--;
                     gunAnim.SetTrigger("Shoot");
                     UpdateAmmoUI();

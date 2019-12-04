@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange)
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange && PlayerController.instance.hasDied == false)
         {
             transform.LookAt(PlayerController.instance.transform.position, -Vector3.forward);
             Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
