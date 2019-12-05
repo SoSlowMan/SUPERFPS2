@@ -20,6 +20,8 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet; 
     public Transform firePoint; //где спавнить пулю
 
+    public GameObject healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
