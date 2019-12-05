@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    //public static EnemyController instance;
-
-    //public GameObject Enemy;
-
     public int health = 3;
+    private int defaultHealth = 3;
     public GameObject explosion;
 
     public float playerRange = 10f;
+    public float attackRange = 15f;
 
     public Rigidbody2D theRB;
     public float moveSpeed;
@@ -22,11 +20,6 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet; 
     public Transform firePoint; //где спавнить пулю
 
-    /*private void Awake()
-    {
-        instance = this;
-    }*/
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,24 +29,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange && PlayerController.instance.hasDied == false)
+        if ((Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange || health < defaultHealth) && PlayerController.instance.hasDied == false)
         {
-            transform.LookAt(PlayerController.instance.transform.position, -Vector3.forward);
-            Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
-
-            theRB.velocity = playerDirection.normalized * moveSpeed;
-
-            if(shouldShoot)
-            {
-                shotCounter -= Time.deltaTime;
-                if(shotCounter <= 0)
-                {
-                    Instantiate(bullet, firePoint.position, firePoint.rotation);
-                    shotCounter = fireRate;
-                }
-            }
+            AttackUser();
         }
-        else
+        else if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) > attackRange)
         {
             theRB.velocity = Vector2.zero;
         }
@@ -69,11 +49,28 @@ public class EnemyController : MonoBehaviour
             Instantiate(explosion, transform.position + new Vector3(0,0,.65f), transform.rotation);
 
             AudioController.instance.PlayEnemyDeath();
-
         }
         else
         {
             AudioController.instance.PlayEnemyShot();
+        }
+    }
+
+    public void AttackUser()
+    {
+        transform.LookAt(PlayerController.instance.transform.position, -Vector3.forward);
+        Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
+
+        theRB.velocity = playerDirection.normalized * moveSpeed;
+
+        if (shouldShoot)
+        {
+            shotCounter -= Time.deltaTime;
+            if (shotCounter <= 0)
+            {
+                Instantiate(bullet, firePoint.position, firePoint.rotation);
+                shotCounter = fireRate;
+            }
         }
     }
 }
