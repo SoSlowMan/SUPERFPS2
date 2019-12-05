@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthBar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
         if ((Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange || health < defaultHealth) && PlayerController.instance.hasDied == false)
         {
             AttackUser();
+            healthBar.SetActive(true);
         }
         else if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) > attackRange)
         {

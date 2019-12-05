@@ -23,6 +23,7 @@ public class SecretTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerController.instance.secretScreen.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

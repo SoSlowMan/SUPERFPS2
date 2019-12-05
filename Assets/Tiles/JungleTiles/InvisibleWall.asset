@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: InvisibleWall
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -4178046375966092550, guid: 97595eaa9b55c85468fd06791b573d51,
-    type: 3}
+  m_DefaultSprite: {fileID: 0}
   m_DefaultGameObject: {fileID: 8959077230932287923, guid: 92a3b35949106bf489fbb59590f74f5c,
     type: 3}
   m_DefaultColliderType: 1
