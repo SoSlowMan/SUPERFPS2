@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,6 +48,14 @@ public class PlayerController : MonoBehaviour
     public float moveSpeedMultiplier = 1f;
     public float currentSpeed;
 
+    public int secretCounter;
+    public int amountOfSecrets;
+
+    public int killCounter;
+    public int kidCounter;
+
+    public int score;
+
 
     private void Awake()
     {
@@ -58,11 +67,18 @@ public class PlayerController : MonoBehaviour
     {
         damage = 1;
         currentHealth = maxHealth;
-        winScreen.SetActive(false);
+        //winScreen.SetActive(false);
         deadScreen.SetActive(false);
         healthText.text = currentHealth.ToString() + "%";
         ammoText.text = currentAmmo.ToString();
-        speedText.text = moveSpeedMultiplier.ToString() + "X"; 
+        speedText.text = moveSpeedMultiplier.ToString() + "X";
+        secretCounter = 0;
+        if (SceneManager.GetActiveScene().name == "jungle")
+        {
+            amountOfSecrets = 2;
+        }
+        killCounter = 0;
+        kidCounter = 0;
     }
 
     // Update is called once per frame
@@ -121,6 +137,8 @@ public class PlayerController : MonoBehaviour
                     ReduceSpeed();
                 }
             }
+
+            score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000);
         }
     }
 

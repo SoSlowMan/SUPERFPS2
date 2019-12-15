@@ -18,7 +18,7 @@ public class DeleteTheHighScore : MonoBehaviour
 
     public void deleteTheHighScore()
     {
-        PlayerPrefs.DeleteKey("BestTime"); //удаляю из памяти компа лучшее время
-        BestTimeScript.instance.successDeletionText.SetActive(true); //показываю надпись о том что лучшее время было удалено
+        PlayerPrefs.DeleteKey("BestScore"); 
+        //BestScoreScript.instance.successDeletionText.SetActive(true); 
     }
 }

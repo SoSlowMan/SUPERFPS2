@@ -39,6 +39,7 @@ public class FriendController : MonoBehaviour
                     PlayerController.instance.AddDamage();
                 }
                 Destroy(gameObject);
+                PlayerController.instance.kidCounter++;
                 Instantiate(explosion, transform.position + new Vector3(0, 0, .65f), transform.rotation);
                 AudioController.instance.PlayHealthPickup();
                 AudioController.instance.PlayEnemyDeath();

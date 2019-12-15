@@ -9,7 +9,7 @@ public class BestTimeScript : MonoBehaviour
     public static BestTimeScript instance;
 
     public float time;
-    public float bestTime;
+    public float bestTime = 0;
     public Text counterText;
     public float seconds, minutes, miliseconds;
     public GameObject successDeletionText;
@@ -32,6 +32,7 @@ public class BestTimeScript : MonoBehaviour
         if (bestTime == 0)
         {
             bestTime = time; //для первого запуска
+            PlayerPrefs.SetFloat("BestTime", bestTime);
         }
         successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
         counterText = GetComponent<Text>() as Text;
