@@ -22,6 +22,11 @@ public class SceneManagementScript : MonoBehaviour
         SceneManager.LoadScene("jungle");
     }
 
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene("tutor");
+    }
+
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

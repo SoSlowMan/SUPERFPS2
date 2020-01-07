@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BestScoreScript : MonoBehaviour
 {
@@ -27,27 +28,33 @@ public class BestScoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = PlayerController.instance.score;
-        if (bestScore == 0)
+        if (SceneManager.GetActiveScene().name != "tutor")
         {
-            bestScore = score; //для первого запуска
-            PlayerPrefs.SetInt("BestScore", bestScore);
+            score = PlayerController.instance.score;
+            if (bestScore == 0)
+            {
+                bestScore = score; //для первого запуска
+                PlayerPrefs.SetInt("BestScore", bestScore);
+            }
+            successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+            counterText = GetComponent<Text>() as Text;
         }
-        successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
-        counterText = GetComponent<Text>() as Text;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (score >= bestScore)
+        if (SceneManager.GetActiveScene().name != "tutor")
         {
-            bestScore = score;
+            if (score >= bestScore)
+            {
+                bestScore = score;
 
-            PlayerPrefs.SetInt("BestScore", bestScore);
+                PlayerPrefs.SetInt("BestScore", bestScore);
+            }
+
+            updateScoreText();
         }
-
-        updateScoreText();
     }
 
     /*void newbestScore()

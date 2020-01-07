@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BestTimeScript : MonoBehaviour
 {
@@ -28,27 +29,34 @@ public class BestTimeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = Time.timeSinceLevelLoad; //время со старта лвла
-        if (bestTime == 0)
+        if (SceneManager.GetActiveScene().name != "tutor")
         {
-            bestTime = time; //для первого запуска
-            PlayerPrefs.SetFloat("BestTime", bestTime);
+            time = Time.timeSinceLevelLoad; //время со старта лвла
+            if (bestTime == 0)
+            {
+                bestTime = time; //для первого запуска
+                PlayerPrefs.SetFloat("BestTime", bestTime);
+            }
+            successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+            counterText = GetComponent<Text>() as Text;
         }
-        successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
-        counterText = GetComponent<Text>() as Text;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (time <= bestTime)
+        if (SceneManager.GetActiveScene().name != "tutor")
         {
-            bestTime = time;
+            if (time <= bestTime)
+            {
+                bestTime = time;
 
-            PlayerPrefs.SetFloat("BestTime", bestTime);
+                PlayerPrefs.SetFloat("BestTime", bestTime);
+            }
+
+            updateTimeText();
         }
-
-        updateTimeText();
+            
     }
 
     /*void newBestTime()

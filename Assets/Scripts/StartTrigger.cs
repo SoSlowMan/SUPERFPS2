@@ -14,6 +14,7 @@ public class StartTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            //if (transform.parent.name == "FuckShit")
             PlayerController.instance.startScreen.SetActive(true);
         }
     }
@@ -22,7 +23,7 @@ public class StartTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            PlayerController.instance.startScreen.SetActive(false);
+           PlayerController.instance.startScreen.SetActive(false);
         }
     }
 }

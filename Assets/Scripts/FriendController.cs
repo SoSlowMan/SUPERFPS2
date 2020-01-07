@@ -19,11 +19,13 @@ public class FriendController : MonoBehaviour
     {
         tutorial.SetActive(false);
         coin = Random.Range(0, 2);
+        theRB.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        theRB.velocity = Vector2.zero;
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange) //добавить UI чтоб игрок понимал ч куда
         {
             tutorial.SetActive(true);

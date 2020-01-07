@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/jungle.unity
     guid: 1e7836d3eb5933249b37a1a86bc7c379
+  - enabled: 1
+    path: Assets/Scenes/tutor.unity
+    guid: c2f853e495eeb26478a6a1ea35273b0c
   m_configObjects: {}

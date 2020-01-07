@@ -56,6 +56,14 @@ public class PlayerController : MonoBehaviour
 
     public int score;
 
+    //tutorial screens
+    public GameObject tutorialStartScreen;
+    public GameObject tutorialUIScreen;
+    public GameObject tutorialFruitScreen;
+    public GameObject tutorialSecretScreen;
+    public GameObject tutorialEnemyScreen;
+    public GameObject tutorialKidScreen;
+    public GameObject tutorialBossScreen;
 
     private void Awake()
     {
@@ -66,7 +74,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         damage = 1;
-        currentHealth = maxHealth;
+        if (SceneManager.GetActiveScene().name == "tutor")
+        {
+            currentHealth = 75;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
         //winScreen.SetActive(false);
         deadScreen.SetActive(false);
         healthText.text = currentHealth.ToString() + "%";
@@ -140,6 +155,7 @@ public class PlayerController : MonoBehaviour
 
             score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000);
         }
+
     }
 
     public void TakeDamage(int damageAmount)
