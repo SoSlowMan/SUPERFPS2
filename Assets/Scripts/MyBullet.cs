@@ -42,6 +42,12 @@ public class MyBullet : MonoBehaviour
             Instantiate(bulletImpact, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+        else if (other.tag == "Boss")
+        {
+            other.GetComponent<BossController>().TakeDamage();
+            Instantiate(bulletImpact, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
