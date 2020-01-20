@@ -50,7 +50,7 @@ public class BossController : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(explosion, transform.position + new Vector3(0,0,.65f), transform.rotation);
-            PlayerController.instance.killCounter++;
+            PlayerController.instance.bossCounter += 1;
             AudioController.instance.PlayEnemyDeath();
         }
         else

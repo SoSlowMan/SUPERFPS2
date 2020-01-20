@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
     public GameObject tutorialKidScreen;
     public GameObject tutorialBossScreen;
 
+    public int bossCounter;
+
     private void Awake()
     {
         instance = this;
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
         }
         killCounter = 0;
         kidCounter = 0;
+        bossCounter = 0;
     }
 
     // Update is called once per frame
@@ -153,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000);
+            score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000) + (bossCounter * 10000);
         }
 
     }
