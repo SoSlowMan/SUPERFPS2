@@ -66,6 +66,12 @@ public class PlayerController : MonoBehaviour
     public GameObject tutorialBossScreen;
 
     public int bossCounter;
+    public int bossAmount;
+
+    public GameObject winCube;
+    public GameObject winCubeScreen;
+
+    public float timer = 0;
 
     private void Awake()
     {
@@ -93,10 +99,12 @@ public class PlayerController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "jungle")
         {
             amountOfSecrets = 2;
+            bossAmount = 1;
         }
         killCounter = 0;
         kidCounter = 0;
         bossCounter = 0;
+        winCube.SetActive(false);
     }
 
     // Update is called once per frame
@@ -157,6 +165,21 @@ public class PlayerController : MonoBehaviour
             }
 
             score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000) + (bossCounter * 10000);
+
+            if ((secretCounter == amountOfSecrets) || (bossCounter == bossAmount))
+            {
+                winCube.SetActive(true);
+                winCubeScreen.SetActive(true);
+                if (timer < 3f)
+                {
+                    timer += Time.deltaTime;
+                }
+                else if (timer >= 3f)
+                {
+                    winCubeScreen.SetActive(false);
+                    timer = 3.1f;
+                }
+            }
         }
 
     }

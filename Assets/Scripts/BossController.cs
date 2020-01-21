@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class BossController : MonoBehaviour
     void Start()
     {
         healthBar.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "tutor")
+        {
+            health = 5;
+        }
     }
 
     // Update is called once per frame

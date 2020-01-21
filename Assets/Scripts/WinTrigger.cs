@@ -16,6 +16,7 @@ public class WinTrigger : MonoBehaviour
         {
             PlayerController.instance.winScreen.SetActive(true);
             PlayerController.instance.hasDied = true;
+            PlayerController.instance.winCubeScreen.SetActive(false);
         }
     }
 }
