@@ -181,6 +181,14 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown("m"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
 
     }
 
