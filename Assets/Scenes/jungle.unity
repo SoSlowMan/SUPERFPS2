@@ -11289,6 +11289,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &825019036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6386338571879603862, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_Name
+      value: ZAGLUSHKA
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 284.47455
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 195.20018
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -131.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386338571879603861, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac, type: 3}
+--- !u!1 &825019037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6386338571879603862, guid: b0a52ea54ecfc8a4d8ac8e905e1c58ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 825019036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &845592569
 GameObject:
   m_ObjectHideFlags: 0
@@ -82476,6 +82551,41 @@ PrefabInstance:
       propertyPath: winCubeScreen
       value: 
       objectReference: {fileID: 5407727009488266069}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialStartScreen
+      value: 
+      objectReference: {fileID: 825019037}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialUIScreen
+      value: 
+      objectReference: {fileID: 825019037}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialFruitScreen
+      value: 
+      objectReference: {fileID: 825019037}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialSecretScreen
+      value: 
+      objectReference: {fileID: 825019037}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialEnemyScreen
+      value: 
+      objectReference: {fileID: 825019037}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialKidScreen
+      value: 
+      objectReference: {fileID: 825019037}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: tutorialBossScreen
+      value: 
+      objectReference: {fileID: 825019037}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5c9810d4e414904aac51b4bf5152bb3, type: 3}
 --- !u!1 &5128181307152015234
