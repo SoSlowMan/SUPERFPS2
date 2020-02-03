@@ -563,6 +563,8 @@ MonoBehaviour:
   gunShot: {fileID: 2937786813844744063}
   health: {fileID: 2937786813831406931}
   playerHurt: {fileID: 2937786813395693956}
+  backgroundMusic: {fileID: 0}
+  theMixer: {fileID: 24100000, guid: cbfddcc4be778294d87a99457c254f81, type: 2}
 --- !u!1 &2937786813831406930
 GameObject:
   m_ObjectHideFlags: 0

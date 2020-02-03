@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown("m"))
         {
+            hasDied = true;
             SceneManager.LoadScene("MainMenu");
         }
 
