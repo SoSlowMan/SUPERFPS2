@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneManagementScript : MonoBehaviour
 {
+    public GameObject loadingScreen, loadingIcon, loadingText;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +21,14 @@ public class SceneManagementScript : MonoBehaviour
 
     public void StartTheGame()
     {
-        SceneManager.LoadScene("jungle");
+        StartCoroutine(LoadJungle());
+        //SceneManager.LoadScene("jungle");
     }
 
     public void StartTutorial()
     {
-        SceneManager.LoadScene("tutor");
+        StartCoroutine(LoadTutor());
+        //SceneManager.LoadScene("tutor");
     }
 
     public void ResetScene()
@@ -34,11 +38,84 @@ public class SceneManagementScript : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(LoadMain());
+        //SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public IEnumerator LoadMain()
+    {
+        loadingScreen.SetActive(true);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");//грузит сцену в фоне, чтобы мог показаться товарищ лоудинг скрин
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= .9f)
+            {
+                loadingText.SetActive(true);
+                loadingIcon.SetActive(false);
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                    loadingScreen.SetActive(false);
+                }
+            }
+            yield return null;
+        }
+    }
+
+    public IEnumerator LoadJungle()
+    {
+        loadingScreen.SetActive(true);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("jungle");//грузит сцену в фоне, чтобы мог показаться товарищ лоудинг скрин
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= .9f)
+            {
+                loadingText.SetActive(true);
+                loadingIcon.SetActive(false);
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                    loadingScreen.SetActive(false);
+                }
+            }
+            yield return null;
+        }
+    }
+
+    public IEnumerator LoadTutor()
+    {
+        loadingScreen.SetActive(true);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("tutor");//грузит сцену в фоне, чтобы мог показаться товарищ лоудинг скрин
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= .9f)
+            {
+                loadingText.SetActive(true);
+                loadingIcon.SetActive(false);
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                    loadingScreen.SetActive(false);
+                }
+            }
+            yield return null;
+        }
     }
 }

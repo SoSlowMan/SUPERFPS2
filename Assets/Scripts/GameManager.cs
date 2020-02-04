@@ -18,14 +18,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerController.instance.hasDied == true || Input.GetKeyDown(KeyCode.Escape))
+        if (SceneManager.GetActiveScene().name != "MainMenu")
         {
-            UnlockCursor();
-        }
-        else if(Input.GetMouseButton(0))
-        {
-            LockCursor();
-        }
+            if (PlayerController.instance.hasDied == true || Input.GetKeyDown(KeyCode.Escape))
+            {
+                UnlockCursor();
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                LockCursor();
+            }
+        }     
     }
 
     private void LockCursor()

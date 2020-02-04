@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Time.timeScale = 0f; задел на остановку времени/паузу
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
