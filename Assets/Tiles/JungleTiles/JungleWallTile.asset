@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: JungleWallTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: f8076e9e2c4acbd4a9764c28ace42697, type: 3}
+  m_DefaultSprite: {fileID: 21300000, guid: cd0a3646a2cd22d49b50c86480956a13, type: 3}
   m_DefaultGameObject: {fileID: 3084698618417656320, guid: 5566fccbf93793846a9d02f3a7897a5a,
     type: 3}
   m_DefaultColliderType: 0

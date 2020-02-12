@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &4719798907323498113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648466620379105425}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000001, z: 1}
+  m_Center: {x: 0, y: 0.000000059604645, z: -0.5}
+--- !u!65 &4913978554339347382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967698087972109734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000001, z: 1}
+  m_Center: {x: 0, y: 0.000000059604645, z: -0.5}
 --- !u!1 &4719798907866892929
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +212,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8076e9e2c4acbd4a9764c28ace42697, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd0a3646a2cd22d49b50c86480956a13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -197,19 +223,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &4719798907323498113
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648466620379105425}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001, z: 1}
-  m_Center: {x: 0, y: 0.000000059604645, z: -0.5}
 --- !u!1 &8013915697906581019
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,19 +255,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4913978554339347382
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3967698087972109734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001, z: 1}
-  m_Center: {x: 0, y: 0.000000059604645, z: -0.5}
 --- !u!1 &8052578787300086325
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8076e9e2c4acbd4a9764c28ace42697, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd0a3646a2cd22d49b50c86480956a13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -405,12 +405,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 212d1f50bc89f944fa337874adc646cc, type: 2}
+      objectReference: {fileID: 2100000, guid: cce4a5938bf2db043a7c8b86b9698fcf, type: 2}
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d620479ce06d141418791c69e62ac577, type: 2}
+      objectReference: {fileID: 2100000, guid: cce4a5938bf2db043a7c8b86b9698fcf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
 --- !u!1 &3648466620379105425 stripped
@@ -496,12 +496,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 212d1f50bc89f944fa337874adc646cc, type: 2}
+      objectReference: {fileID: 2100000, guid: cce4a5938bf2db043a7c8b86b9698fcf, type: 2}
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d620479ce06d141418791c69e62ac577, type: 2}
+      objectReference: {fileID: 2100000, guid: cce4a5938bf2db043a7c8b86b9698fcf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
 --- !u!1 &3967698087972109734 stripped

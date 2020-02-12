@@ -784,7 +784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: JUNGLE FEVER 0.16
+  m_Text: JUNGLE FEVER 0.17
 --- !u!222 &225389254
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8694,6 +8694,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4746255022467437407, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4746255022692952299, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8803,11 +8808,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4746255022467437407, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e83556b3e4a7bfa41a121e2f8654a9fd, type: 3}

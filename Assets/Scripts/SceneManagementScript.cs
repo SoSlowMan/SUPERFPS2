@@ -38,8 +38,8 @@ public class SceneManagementScript : MonoBehaviour
 
     public void BackToMenu()
     {
-        StartCoroutine(LoadMain());
-        //SceneManager.LoadScene("MainMenu");
+        //StartCoroutine(LoadMain());
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()
