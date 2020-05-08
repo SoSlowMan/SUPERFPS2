@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public GameObject winScreen;
     public GameObject startScreen;
     public GameObject secretScreen;
+    public GameObject secretBossScreen;
     public bool hasDied;
 
     public Text healthText, ammoText, speedText, damageText;
@@ -72,7 +73,10 @@ public class PlayerController : MonoBehaviour
     public GameObject winCube;
     public GameObject winCubeScreen;
 
-    public float timer = 0;
+    public float timer = 0; public float timer2 = 0; //because i'm a retard
+    public float apocalypseTimer;
+
+    public GameObject secretBoss;
 
     private void Awake()
     {
@@ -144,9 +148,9 @@ public class PlayerController : MonoBehaviour
                     
                 }
             }
-
+            //высчитываем скорость учитывая яблоки и ускорения от детей
             currentSpeed = defaultMoveSpeed * moveSpeedMultiplier;
-
+            //анимация хождения, наверно
             if (moveInput != Vector2.zero)
             {
                 anim.SetBool("isMoving", true);
@@ -155,7 +159,7 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetBool("isMoving", false);
             }
-            //для ускорителей
+            //выключение ускорения от яблока по таймеру
             if (speedFlag == true)
             {
                 speedTime -= Time.deltaTime;
@@ -164,9 +168,9 @@ public class PlayerController : MonoBehaviour
                     ReduceSpeed();
                 }
             }
-
+            //считаем очки
             score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000) + (bossCounter * 10000);
-
+            //спавн винкуба и победной надписи
             if ((secretCounter == amountOfSecrets) || (bossCounter == bossAmount))
             {
                 winCube.SetActive(true);
@@ -181,15 +185,39 @@ public class PlayerController : MonoBehaviour
                     timer = 3.1f;
                 }
             }
+            //поставлю второго босса в первый лвл
+            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24 && bossCounter !=2)
+            {
+                secretBoss.SetActive(true);
+                secretBossScreen.SetActive(true);
+                if (timer2 < 3f)
+                {
+                    timer2 += Time.deltaTime;
+                }
+                else if (timer2 >= 3f)
+                {
+                    secretBossScreen.SetActive(false);
+                    timer2 = 3.1f;
+                }
+            }
         }
+        //рестарт левела
         if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        //возвращение в главное меню
         if (Input.GetKeyDown("m"))
         {
             hasDied = true;
             SceneManager.LoadScene("MainMenu");
+        }
+        // gamover при достижении 5 минут
+        apocalypseTimer = Time.timeSinceLevelLoad * 100;
+
+        if (apocalypseTimer > 30000)
+        {
+            hasDied = true;
         }
 
     }

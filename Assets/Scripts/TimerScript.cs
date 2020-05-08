@@ -17,9 +17,9 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        minutes = (int)(Time.timeSinceLevelLoad / 60f);
-        seconds = (int)(Time.timeSinceLevelLoad % 60f);
-        miliseconds = (int)(((Time.timeSinceLevelLoad % 60f)*100)%100);
+        minutes = (int)(5-(Time.timeSinceLevelLoad / 60f));
+        seconds = (int)(60-(Time.timeSinceLevelLoad % 60f));
+        miliseconds = (int)(100-(((Time.timeSinceLevelLoad % 60f)*100)%100));
         counterText.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
     }
 }
