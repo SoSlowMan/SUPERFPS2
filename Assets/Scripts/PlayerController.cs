@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
         kidCounter = 0;
         bossCounter = 0;
         winCube.SetActive(false);
+        //AudioController.instance.PlayBackGroundMusic();
     }
 
     // Update is called once per frame
@@ -139,13 +140,13 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentAmmo > 0)
-                { 
+                {
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                     currentAmmo--;
                     gunAnim.SetTrigger("Shoot");
                     UpdateAmmoUI();
                     AudioController.instance.PlayGunshot();
-                    
+
                 }
             }
             //высчитываем скорость учитывая яблоки и ускорения от детей
@@ -186,7 +187,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //поставлю второго босса в первый лвл
-            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24 && bossCounter !=2)
+            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24 && bossCounter != 2)
             {
                 secretBoss.SetActive(true);
                 secretBossScreen.SetActive(true);
@@ -201,6 +202,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+
         //рестарт левела
         if (Input.GetKeyDown("r"))
         {
@@ -217,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
         if (apocalypseTimer > 30000)
         {
-            hasDied = true;
+            TakeDamage(999);
         }
 
     }
@@ -232,6 +235,8 @@ public class PlayerController : MonoBehaviour
             hasDied = true;
             currentHealth = 0;
             theRB.velocity = Vector2.zero;
+            AudioController.instance.backgroundMusic.Stop();
+            AudioController.instance.PlayLoseSound();
         }
 
         healthText.text = currentHealth.ToString() + "%";

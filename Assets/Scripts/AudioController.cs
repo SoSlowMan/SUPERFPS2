@@ -6,7 +6,7 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
 
-    public AudioSource ammo, enemyDeath, enemyShot, gunShot, health, playerHurt, backgroundMusic;
+    public AudioSource ammo, enemyDeath, enemyShot, gunShot, health, playerHurt, backgroundMusic, mainMenuMusic, winSound, loseSound;
 
     public AudioMixer theMixer;
 
@@ -78,5 +78,23 @@ public class AudioController : MonoBehaviour
     {
         backgroundMusic.Stop();
         backgroundMusic.Play();
+    }
+
+    public void PlayMainMenuMusic()
+    {
+        mainMenuMusic.Stop();
+        mainMenuMusic.Play();
+    }
+
+    public void PlayWinSound()
+    {
+        winSound.Stop();
+        winSound.Play();
+    }
+
+    public void PlayLoseSound()
+    {
+        loseSound.Stop();
+        loseSound.Play();
     }
 }
