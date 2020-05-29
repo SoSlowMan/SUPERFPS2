@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  explosion: {fileID: 7537983940673006358, guid: e159bebdf9868694888e5335c6928cf5,
+  explosion: {fileID: 7537983940673006358, guid: b56e71b3af8d4da45855d2048de27345,
     type: 3}
   playerRange: 20
   attackRange: 25
