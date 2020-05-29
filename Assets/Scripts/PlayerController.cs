@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public GameObject startScreen;
     public GameObject secretScreen;
     public GameObject secretBossScreen;
+    public GameObject kidRewardScreen;
     public bool hasDied;
 
     public Text healthText, ammoText, speedText, damageText;
@@ -73,10 +74,12 @@ public class PlayerController : MonoBehaviour
     public GameObject winCube;
     public GameObject winCubeScreen;
 
-    public float timer = 0; public float timer2 = 0; //because i'm a retard
+    public float timer = 0; public float timer2 = 0; public float timer3 = 0; //because i'm a retard
     public float apocalypseTimer;
 
     public GameObject secretBoss;
+
+    private short areKidsSaved;
 
     private void Awake()
     {
@@ -111,6 +114,7 @@ public class PlayerController : MonoBehaviour
         bossCounter = 0;
         winCube.SetActive(false);
         //AudioController.instance.PlayBackGroundMusic();
+        areKidsSaved = 0;
     }
 
     // Update is called once per frame
@@ -170,7 +174,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //считаем очки
-            score = (killCounter * 200) + (kidCounter * 300) + (30000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000) + (bossCounter * 10000);
+            score = (killCounter * 200) + (kidCounter * 300) + (18000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000) + (bossCounter * 10000) + (areKidsSaved * 10000);
             //спавн винкуба и победной надписи
             if ((secretCounter == amountOfSecrets) || (bossCounter == bossAmount))
             {
@@ -201,6 +205,21 @@ public class PlayerController : MonoBehaviour
                     timer2 = 3.1f;
                 }
             }
+            //доп очки за сбор всех детей
+            if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= 7)
+            {
+                kidRewardScreen.SetActive(true);
+                areKidsSaved = 1;
+                if (timer3 < 3f)
+                {
+                    timer3 += Time.deltaTime;
+                }
+                else if (timer3 >= 3f)
+                {
+                    kidRewardScreen.SetActive(false);
+                    timer3 = 3.1f;
+                }
+            }
         }
 
 
@@ -215,10 +234,10 @@ public class PlayerController : MonoBehaviour
             hasDied = true;
             SceneManager.LoadScene("MainMenu");
         }
-        // gamover при достижении 5 минут
+        // gamover при достижении 3 минут
         apocalypseTimer = Time.timeSinceLevelLoad * 100;
 
-        if (apocalypseTimer > 30000)
+        if (apocalypseTimer > 18000)
         {
             TakeDamage(999);
         }
