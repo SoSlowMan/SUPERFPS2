@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //доп очки за сбор всех детей
-            if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= 8)
+            if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= 10)
             {
                 kidRewardScreen.SetActive(true);
                 areKidsSaved = 1;
