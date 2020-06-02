@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //считаем очки
-            score = (killCounter * 200) + (kidCounter * 300) + (18000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 5000) + (bossCounter * 10000) + (areKidsSaved * 10000);
+            score = (killCounter * 500) + (kidCounter * 1000) + (18000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 3000) + (bossCounter * 10000) + (areKidsSaved * 5000);
             //спавн винкуба и победной надписи
             if ((secretCounter == amountOfSecrets) || (bossCounter == bossAmount))
             {
