@@ -774,7 +774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &220154535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2142,7 +2142,7 @@ GameObject:
   - component: {fileID: 585131866}
   - component: {fileID: 585131865}
   m_Layer: 5
-  m_Name: Graphics label
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3004,7 +3004,7 @@ GameObject:
   - component: {fileID: 744992015}
   - component: {fileID: 744992014}
   m_Layer: 5
-  m_Name: Graphics label
+  m_Name: Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3026,8 +3026,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.299988, y: 19.400002}
-  m_SizeDelta: {x: 2482, y: 1038.3}
+  m_AnchoredPosition: {x: -5.299988, y: 10.6}
+  m_SizeDelta: {x: 2482, y: 1097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744992014
 MonoBehaviour:
@@ -3062,14 +3062,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The cult of crazy ash people from Volcano island predicted that the end
-    is near! This unfortunate fact drove them even more insane! Ash people see the
-    only way to stop apocalypse: to throw all of the children they could find to the
-    volcano on their island. So they stole kids from all nearby islands and are ready
-    to do the ultimate sacrifice. The Fruit island however stated that ash people
-    have miscalculated the day of the apocalypse and the sacrifice wouldn''t help
-    anyway, so they send you, the best warrior on the island to save the children
-    and end the crazy cult once and for all! But hurry, the time is running out!'
+  m_Text: 'The cult of crazy ash people from Volcano island have only one goal in
+    life: to start the apocalypse! To complete doomsday ritual they need to have big
+    ancient emerald and 10 innocent souls.  So, on one faithful night, they stole
+    the emerald and 10 kids from nearby Fruit island and are ready to do the ultimate
+    sacrifice. The Fruit island is in a big sorrow. Their only hope is you - the best
+    warrior on the island! Ash people are dangerous and the time is running out, so
+    you need to be careful and fast. Saved kids will help you along the way, good
+    luck! '
 --- !u!222 &744992015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8603,8 +8603,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -111, y: 32.5}
-  m_SizeDelta: {x: 579.69995, y: 124}
+  m_AnchoredPosition: {x: -103.3, y: 32.5}
+  m_SizeDelta: {x: 579.7, y: 124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725692893
 MonoBehaviour:
@@ -8737,7 +8737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.97647065, g: 0.79215693, b: 0.2901961, a: 1}
+  m_Color: {r: 0.9764706, g: 0.46884933, b: 0.2901961, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
