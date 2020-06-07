@@ -5,6 +5,8 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     public GameObject OptionsScreen;
+    public GameObject CreditsScreen;
+    public GameObject StoryScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +27,25 @@ public class MainMenu : MonoBehaviour
     public void closeOptions()
     {
         OptionsScreen.SetActive(false);
+    }
+
+    public void openCredits()
+    {
+        CreditsScreen.SetActive(true);
+    }
+
+    public void closeCredits()
+    {
+        CreditsScreen.SetActive(false);
+    }
+
+    public void openStory()
+    {
+        StoryScreen.SetActive(true);
+    }
+
+    public void closeStory()
+    {
+        StoryScreen.SetActive(false);
     }
 }
