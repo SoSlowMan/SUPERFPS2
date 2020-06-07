@@ -234,14 +234,17 @@ public class PlayerController : MonoBehaviour
             hasDied = true;
             SceneManager.LoadScene("MainMenu");
         }
-        // gamover при достижении 3 минут
-        apocalypseTimer = Time.timeSinceLevelLoad * 100;
 
-        if (apocalypseTimer > 18000)
+        if (SceneManager.GetActiveScene().name != "tutor")
         {
-            TakeDamage(999);
-        }
+            // gamover при достижении 3 минут
+            apocalypseTimer = Time.timeSinceLevelLoad * 100;
 
+            if (apocalypseTimer > 18000)
+            {
+                TakeDamage(999);
+            }
+        }
     }
 
     public void TakeDamage(int damageAmount)

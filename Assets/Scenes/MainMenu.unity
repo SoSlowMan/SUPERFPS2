@@ -3062,14 +3062,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The cult of crazy ash people from Volcano island have only one goal in
+  m_Text: "The cult of crazy ash people from Volcano island have only one goal in
     life: to start the apocalypse! To complete doomsday ritual they need to have big
-    ancient emerald and 10 innocent souls.  So, on one faithful night, they stole
-    the emerald and 10 kids from nearby Fruit island and are ready to do the ultimate
-    sacrifice. The Fruit island is in a big sorrow. Their only hope is you - the best
-    warrior on the island! Ash people are dangerous and the time is running out, so
-    you need to be careful and fast. Saved kids will help you along the way, good
-    luck! '
+    magic emerald and 10 innocent souls.  So, on one faithful night, they stole the
+    emerald and 10 kids from nearby Fruit island and are ready to do the ultimate
+    sacrifice: destroy everything in the heat of volcano. \nThe Fruit island is in
+    a big sorrow. Their only hope is you - the best warrior on the island! Ash people
+    are dangerous and the time is running out, so you need to be careful and fast.
+    Saved kids will help you along the way, the emerald will transfer them back home
+    and give you boosts. Good luck! "
 --- !u!222 &744992015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12915,10 +12916,61 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4746255021304785144, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255021540506025, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255021540506025, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255021540506025, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40.049988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255022467437376, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255022467437376, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255022467437376, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255022467437376, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.6192
+      objectReference: {fileID: 0}
     - target: {fileID: 4746255022692952298, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746255022692952294, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 493a3011d6c3d4d4b9551697d3c5ed8d,
+        type: 3}
+    - target: {fileID: 4746255022965826830, guid: e83556b3e4a7bfa41a121e2f8654a9fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e83556b3e4a7bfa41a121e2f8654a9fd, type: 3}

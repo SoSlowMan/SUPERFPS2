@@ -6619,8 +6619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -50.7}
-  m_SizeDelta: {x: 783.8, y: 181}
+  m_AnchoredPosition: {x: -4, y: -49.6}
+  m_SizeDelta: {x: 783.8, y: 178.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &474580454
 MonoBehaviour:
@@ -6670,7 +6670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Also you'll find local kids on the way, they'll give you 0.1 speed multiplier
+  m_Text: Also you'll find kidnapped kids on the way, they'll give you 0.1 speed multiplier
     or +1 damage (on random) if you'll save them by pressing "E" button.
 --- !u!222 &474580456
 CanvasRenderer:
@@ -9475,6 +9475,7 @@ MonoBehaviour:
   startScreen: {fileID: 1203524547}
   secretScreen: {fileID: 5407727008633020340}
   secretBossScreen: {fileID: 0}
+  kidRewardScreen: {fileID: 0}
   hasDied: 0
   healthText: {fileID: 4790342494145403649}
   ammoText: {fileID: 4790342494885925349}
@@ -9506,6 +9507,7 @@ MonoBehaviour:
   winCubeScreen: {fileID: 585885449}
   timer: 0
   timer2: 0
+  timer3: 0
   apocalypseTimer: 0
   secretBoss: {fileID: 0}
 --- !u!50 &5191050869183761433
