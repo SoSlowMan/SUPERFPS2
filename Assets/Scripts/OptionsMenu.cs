@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-//ПОФИКСИТЬ UI ЧТОБЫ ПРИ СМЕНЕ РАЗРЕШЕНИЯ НА ВСЯКОЕ ЕБАНОЕ КНОПКИ ВСЕ ЕЩЕ РАБОТАЛИ
+
 public class OptionsMenu : MonoBehaviour
 {
     public Toggle fullScreenTog, vsyncTog;
 
     public resItem[] resolutions;
 
+    public langItem[] languages;
+
     private int selectedResolution;
 
-    public Text resolutionLabel;
+    private string selectedLanguage;
+
+    public Text resolutionLabel, languageLabel;
 
     public AudioMixer theMixer;
 
@@ -21,6 +25,12 @@ public class OptionsMenu : MonoBehaviour
     public Text masterLabel, musicLabel, sfxLabel;
 
     public AudioSource sfxLoop;
+
+    //public GameObject localizator;
+
+    public Text bestTime, bestScore;
+
+    public string language;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +64,13 @@ public class OptionsMenu : MonoBehaviour
             resolutionLabel.text = Screen.width.ToString() + " x " + Screen.height.ToString();
         }
 
-        if(PlayerPrefs.HasKey("MasterVol"))
+
+        if (PlayerPrefs.HasKey("Language"))
+        {
+            languageLabel.text = (PlayerPrefs.GetString("Language"));
+            selectedLanguage = languageLabel.text;
+        }
+        if (PlayerPrefs.HasKey("MasterVol"))
         {
             theMixer.SetFloat("MasterVol",PlayerPrefs.GetFloat("MasterVol"));
             masterSlider.value = PlayerPrefs.GetFloat("MasterVol");
@@ -72,6 +88,8 @@ public class OptionsMenu : MonoBehaviour
         masterLabel.text = (masterSlider.value + 80f).ToString();
         musicLabel.text = (musicSlider.value + 80f).ToString();
         sfxLabel.text = (sfxSlider.value + 80f).ToString();
+
+        
     }
 
     // Update is called once per frame
@@ -100,9 +118,25 @@ public class OptionsMenu : MonoBehaviour
         UpdateResLabel();
     }
 
+    public void langChange()
+    {
+        if (selectedLanguage != "Русский")
+        {
+            selectedLanguage = "Русский";
+        }
+        else selectedLanguage = "English";
+
+        UpdateLangLabel();
+    }
+
     public void UpdateResLabel()
     {
         resolutionLabel.text = resolutions[selectedResolution].horizontal.ToString() + " x " + resolutions[selectedResolution].vertical.ToString();
+    }
+
+    public void UpdateLangLabel()
+    {
+        languageLabel.text = selectedLanguage;
     }
 
     public void ApplyGraphics()
@@ -120,12 +154,34 @@ public class OptionsMenu : MonoBehaviour
         }
         //apply resolution
         Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical, fullScreenTog.isOn);
+        //apply language
+        //SetLanguage();
     }
 
     [System.Serializable]//нужно для того чтобы значения из класса могли быть видны на экране редактора юнити
     public class resItem
     {
         public int horizontal, vertical;
+    }
+
+    [System.Serializable]//нужно для того чтобы значения из класса могли быть видны на экране редактора юнити
+    public class langItem
+    {
+        public string name;
+    }
+
+    public void SetLanguage()
+    {
+        PlayerPrefs.SetString("Language", selectedLanguage);
+        languageLabel.text = selectedLanguage;
+        if (PlayerPrefs.GetString("Language") == "Русский")
+        {
+            LocalizationScript.instance.translateToRussian();
+        }
+        else
+        {
+            LocalizationScript.instance.translateToEnglish();
+        }
     }
 
     public void SetMasterVol()
