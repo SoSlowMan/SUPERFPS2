@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject MainMenuScreen;
     public GameObject OptionsScreen;
     public GameObject CreditsScreen;
     public GameObject StoryScreen;
@@ -21,31 +22,37 @@ public class MainMenu : MonoBehaviour
 
     public void openOptions()
     {
+        MainMenuScreen.SetActive(false);
         OptionsScreen.SetActive(true);
     }
 
     public void closeOptions()
     {
+        MainMenuScreen.SetActive(true);
         OptionsScreen.SetActive(false);
     }
 
     public void openCredits()
     {
+        MainMenuScreen.SetActive(false);
         CreditsScreen.SetActive(true);
     }
 
     public void closeCredits()
     {
+        MainMenuScreen.SetActive(true);
         CreditsScreen.SetActive(false);
     }
 
     public void openStory()
     {
+        MainMenuScreen.SetActive(false);
         StoryScreen.SetActive(true);
     }
 
     public void closeStory()
     {
+        MainMenuScreen.SetActive(true);
         StoryScreen.SetActive(false);
     }
 }
