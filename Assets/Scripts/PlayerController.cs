@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
             currentHealth = maxHealth;
         }
         //winScreen.SetActive(false);
-        deadScreen.SetActive(false);
+        //deadScreen.SetActive(false);
         healthText.text = currentHealth.ToString() + "%";
         ammoText.text = currentAmmo.ToString();
         speedText.text = moveSpeedMultiplier.ToString() + "X";
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //поставлю второго босса в первый лвл
-            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24 && bossCounter != 2)
+            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24)
             {
                 secretBoss.SetActive(true);
                 secretBossScreen.SetActive(true);

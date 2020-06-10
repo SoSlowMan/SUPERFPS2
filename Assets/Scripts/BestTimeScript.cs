@@ -37,7 +37,7 @@ public class BestTimeScript : MonoBehaviour
                 bestTime = time; //для первого запуска
                 PlayerPrefs.SetFloat("BestTime", bestTime);
             }
-            successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+            //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
             counterText = GetComponent<Text>() as Text;
         }
     }

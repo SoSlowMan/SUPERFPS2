@@ -36,7 +36,7 @@ public class BestScoreScript : MonoBehaviour
                 bestScore = score; //для первого запуска
                 PlayerPrefs.SetInt("BestScore", bestScore);
             }
-            successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+            //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
             counterText = GetComponent<Text>() as Text;
         }
     }
