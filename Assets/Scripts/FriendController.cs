@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FriendController : MonoBehaviour
 {
@@ -14,12 +15,38 @@ public class FriendController : MonoBehaviour
 
     public int coin;
 
+    public string language;
+    //public static LocalizeTutorScript instance;
+    public Font rusFont, engFont;
+    public Text[] Texts;
+    public string[] RusStrings;
+    public string[] EngStrings;
+
     // Start is called before the first frame update
     void Start()
     {
         tutorial.SetActive(false);
         coin = Random.Range(0, 2);
         theRB.velocity = Vector2.zero;
+        createEngList();
+        createRusList();
+        if (PlayerPrefs.HasKey("Language"))
+        {
+            language = PlayerPrefs.GetString("Language");
+            if (PlayerPrefs.GetString("Language") == "Русский")
+            {
+                translateToRussian();
+            }
+            else
+            {
+                translateToEnglish();
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetString("Language", "English");
+            translateToEnglish();
+        }
     }
 
     // Update is called once per frame
@@ -55,4 +82,27 @@ public class FriendController : MonoBehaviour
 
                  
      }
+
+    void createRusList()
+    {
+        RusStrings[0] = "Нажми \"E\" чтобы спасти меня:";
+    }
+
+    void createEngList()
+    {
+        EngStrings[0] = "Press \"E\" to save me:";
+    }
+
+    void translateToRussian()
+    {
+            Texts[0].text = RusStrings[0];
+            Texts[0].font = rusFont;
+    }
+
+    void translateToEnglish()
+    {
+        Texts[0].text = EngStrings[0];
+        Texts[0].font = engFont;
+    }
+
 }

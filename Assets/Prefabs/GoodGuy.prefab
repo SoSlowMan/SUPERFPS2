@@ -391,3 +391,12 @@ MonoBehaviour:
   playerRange: 3
   theRB: {fileID: 5564482241888046972}
   coin: 0
+  language: 
+  rusFont: {fileID: 12800000, guid: 8f49891b6ef6b3a4dbc0f0ec2c782fa6, type: 3}
+  engFont: {fileID: 12800000, guid: e6de870a384ceb34f9e7e35b326c0511, type: 3}
+  Texts:
+  - {fileID: 3150379841015244908}
+  RusStrings:
+  - 
+  EngStrings:
+  - 
