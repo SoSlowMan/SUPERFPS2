@@ -3403,6 +3403,16 @@ PrefabInstance:
       propertyPath: attackRange
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7381425010117179908, guid: 3a2ea29d6701bdf4db3223c4f62b1d6b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343830235646195368, guid: 3a2ea29d6701bdf4db3223c4f62b1d6b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a2ea29d6701bdf4db3223c4f62b1d6b, type: 3}
 --- !u!1001 &126527937
@@ -3486,6 +3496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802403555243727985, guid: 968658b6c9fa86e4d974acbba17ae5ec,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968658b6c9fa86e4d974acbba17ae5ec, type: 3}
