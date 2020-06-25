@@ -6266,6 +6266,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI level
       objectReference: {fileID: 0}
+    - target: {fileID: 1933889710480625144, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933889711725963164, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1414168199196582675, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6370,6 +6380,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933889711414104122, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_Text
+      value: 'All kids are saved!
+
+        +3 damage and +0.3 speed!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933889710480625145, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933889711414104132, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933889711414104132, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 771.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326b90452e368ee4399a8fedc18c51f9, type: 3}

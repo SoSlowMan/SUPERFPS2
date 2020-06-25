@@ -64,7 +64,7 @@ public class LocalizeLevelScript : MonoBehaviour
         RusStrings[18] = "Выйти в главное меню";
         RusStrings[19] = "Выход открыт!";
         RusStrings[20] = "Секретный главарь появился!";
-        RusStrings[21] = "Все дети спасены! \n +5000 очков!";
+        RusStrings[21] = "Все дети спасены! \n +3 к урону и +0.3 к скорости!";
     }
 
     void createEngList()
@@ -90,7 +90,7 @@ public class LocalizeLevelScript : MonoBehaviour
         EngStrings[18] = "Return to Main Menu";
         EngStrings[19] = "Exit is opened!";
         EngStrings[20] = "Secret ash leader is here!";
-        EngStrings[21] = "All kids are saved! \n +5000 points!";
+        EngStrings[21] = "All kids are saved! \n +3 damage and +0.3 speed!";
     }
 
     public void translateToRussian()

@@ -1,4 +1,5 @@
 ﻿//Time.timeScale = 0f; задел на остановку времени/паузу
+//ПОЧЕМУ ЯБЛОКИ НЕ ДАЮТ СКОРОСТЬ НА 1.3 УСКОРЕНИИ????????
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private float defaultSpeedTime = 3f;
     public float moveSpeedMultiplier = 1f;
     public float currentSpeed;
+    private short appleBoost = 2;
 
     public int secretCounter;
     public int amountOfSecrets;
@@ -193,7 +195,10 @@ public class PlayerController : MonoBehaviour
             //поставлю второго босса в первый лвл
             if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24)
             {
-                secretBoss.SetActive(true);
+                if (bossCounter < 2)
+                {
+                    secretBoss.SetActive(true);
+                }              
                 secretBossScreen.SetActive(true);
                 if (timer2 < 3f)
                 {
@@ -312,7 +317,7 @@ public class PlayerController : MonoBehaviour
         if (speedFlag == true)
         {
             moveSpeed = moveSpeed * moveSpeedMultiplier;
-            speedText.text = (2 * moveSpeedMultiplier).ToString() + "X"; //СЛОМАЕТСЯ ЕСЛИ БУДЕШЬ МЕНЯТЬ СКОРОСТЬ ДАЮЩУЮСЯ ОТ ЯБЛОК
+            speedText.text = (appleBoost * moveSpeedMultiplier).ToString() + "X";
         }
         else
         {
@@ -324,6 +329,12 @@ public class PlayerController : MonoBehaviour
     public void AddDamage()
     {
         damage = damage + 1;
+        damageText.text = damage.ToString();
+    }
+
+    public void Add3Damage()
+    {
+        damage = damage + 3;
         damageText.text = damage.ToString();
     }
 }

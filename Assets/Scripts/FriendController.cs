@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FriendController : MonoBehaviour
 {
@@ -58,15 +59,33 @@ public class FriendController : MonoBehaviour
             tutorial.SetActive(true);
             if (Input.GetKeyDown("e"))
             {
-                if (coin == 0)
+                if (SceneManager.GetActiveScene().name == "jungle" && PlayerController.instance.kidCounter == 9)
                 {
-                    PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.1f;
+                    if (coin == 0)
+                    {
+                        PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.1f;
+                        PlayerController.instance.AddMoveSpeed();
+                    }
+                    else
+                    {
+                        PlayerController.instance.AddDamage();
+                    }
+                    PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.3f;
                     PlayerController.instance.AddMoveSpeed();
+                    PlayerController.instance.Add3Damage();
                 }
                 else
                 {
-                    PlayerController.instance.AddDamage();
-                }
+                    if (coin == 0)
+                    {
+                        PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.1f;
+                        PlayerController.instance.AddMoveSpeed();
+                    }
+                    else
+                    {
+                        PlayerController.instance.AddDamage();
+                    }
+                }                  
                 Destroy(gameObject);
                 PlayerController.instance.kidCounter++;
                 Instantiate(explosion, transform.position + new Vector3(0, 0, .65f), transform.rotation);
