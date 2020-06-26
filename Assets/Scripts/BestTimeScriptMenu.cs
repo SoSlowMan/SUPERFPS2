@@ -11,6 +11,7 @@ public class BestTimeScriptMenu : MonoBehaviour
     public float bestTime = 0;
     public Text counterText;
     public float seconds, minutes, miliseconds;
+    bool wereSavesDeleted = false;
 
     private void Awake()
     {
@@ -41,7 +42,13 @@ public class BestTimeScriptMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateTimeText();
+        //updateTimeText();
+        if (wereSavesDeleted == true)
+        {
+            bestTime = 0;
+            updateTimeText();
+            wereSavesDeleted = false;
+        }
     }
 
     void updateTimeText()
@@ -50,5 +57,10 @@ public class BestTimeScriptMenu : MonoBehaviour
         seconds = (int)(bestTime % 60f);
         miliseconds = (int)(((bestTime % 60f) * 100) % 100);
         counterText.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
+    }
+
+    public void dumbScoreFlag()
+    {
+        wereSavesDeleted = true;
     }
 }

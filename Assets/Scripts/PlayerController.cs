@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D theRB;
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 400f;
+    public float defaultMoveSpeed = 400f;
 
     private Vector2 moveInput;
     private Vector2 mouseInput;
@@ -46,9 +47,8 @@ public class PlayerController : MonoBehaviour
 
     public float speedTime = 3f;
     public bool speedFlag = false;
-    public float defaultMoveSpeed = 5f;
-    private float defaultSpeedMultiplier;
-    private float defaultSpeedTime = 3f;
+    //public float defaultSpeedMultiplier;
+    public float defaultSpeedTime = 3f;
     public float moveSpeedMultiplier = 1f;
     public float currentSpeed;
     private short appleBoost = 2;
@@ -76,12 +76,15 @@ public class PlayerController : MonoBehaviour
     public GameObject winCube;
     public GameObject winCubeScreen;
 
-    public float timer = 0; public float timer2 = 0; public float timer3 = 0; //because i'm a retard
+    public float timer = 0; public float timer2 = 0; public float timer3 = 0; //because i'm a dumbass
     public float apocalypseTimer;
 
     public GameObject secretBoss;
 
-    private short areKidsSaved;
+    public bool areKidsSaved;
+    public bool areEnemiesDead; 
+
+    bool secretBossSpawned = false; 
 
     private void Awake()
     {
@@ -116,7 +119,8 @@ public class PlayerController : MonoBehaviour
         bossCounter = 0;
         winCube.SetActive(false);
         //AudioController.instance.PlayBackGroundMusic();
-        areKidsSaved = 0;
+        areKidsSaved = false;
+        areEnemiesDead = false;
     }
 
     // Update is called once per frame
@@ -131,7 +135,7 @@ public class PlayerController : MonoBehaviour
             Vector3 moveHorizontal = transform.up * -moveInput.x;
             Vector3 moveVertical = transform.right * moveInput.y;
             //собсна движение
-            theRB.velocity = (moveHorizontal + moveVertical) * moveSpeed;
+            theRB.velocity = (moveHorizontal + moveVertical) * moveSpeed * Time.deltaTime;
 
             //PLAYER VIEW CONTROL
             mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
@@ -176,7 +180,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //считаем очки
-            score = (killCounter * 500) + (kidCounter * 1000) + (18000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 3000) + (bossCounter * 10000) + (areKidsSaved * 5000);
+            score = (killCounter * 500) + (kidCounter * 1000) + (18000 - (int)((Time.timeSinceLevelLoad) * 100)) + (secretCounter * 3000) + (bossCounter * 10000);
             //спавн винкуба и победной надписи
             if ((secretCounter == amountOfSecrets) || (bossCounter == bossAmount))
             {
@@ -195,11 +199,13 @@ public class PlayerController : MonoBehaviour
             //поставлю второго босса в первый лвл
             if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24)
             {
-                if (bossCounter < 2)
+                if (secretBossSpawned == false)
                 {
+                    secretBossSpawned = true;
                     secretBoss.SetActive(true);
                 }              
                 secretBossScreen.SetActive(true);
+                areEnemiesDead = true;
                 if (timer2 < 3f)
                 {
                     timer2 += Time.deltaTime;
@@ -214,7 +220,7 @@ public class PlayerController : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= 10)
             {
                 kidRewardScreen.SetActive(true);
-                areKidsSaved = 1;
+                areKidsSaved = true;
                 if (timer3 < 3f)
                 {
                     timer3 += Time.deltaTime;
@@ -288,12 +294,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void AddSpeed(float speedMultiplier)
+    public void AddSpeed()
     {
         speedFlag = true;
-        moveSpeed *= speedMultiplier;
-        defaultSpeedMultiplier = speedMultiplier;
-        speedText.text = (speedMultiplier*moveSpeedMultiplier).ToString() + "X";
+        moveSpeed *= appleBoost;
+        speedText.text = (appleBoost*moveSpeedMultiplier).ToString() + "X";
     }
 
     public void ReduceSpeed()
@@ -304,7 +309,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            moveSpeed /= defaultSpeedMultiplier;
+            moveSpeed /= appleBoost;
             speedFlag = false;
             speedTime = defaultSpeedTime;
             speedText.text = moveSpeedMultiplier.ToString() + "X";

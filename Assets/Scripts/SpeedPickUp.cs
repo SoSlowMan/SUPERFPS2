@@ -31,7 +31,7 @@ public class SpeedPickUp : MonoBehaviour
         {
             if (PlayerController.instance.moveSpeed == PlayerController.instance.currentSpeed)
             {
-                PlayerController.instance.AddSpeed(speedMultiplier);
+                PlayerController.instance.AddSpeed();
 
                 AudioController.instance.PlayHealthPickup();
 

@@ -9,7 +9,7 @@ public class BestScoreScript : MonoBehaviour
     public static BestScoreScript instance;
 
     int score;
-    float scoreTime;
+    float scoreTime = 0;
     public int bestScore = 0;
     public Text counterText;
     public GameObject successDeletionText;
@@ -41,6 +41,8 @@ public class BestScoreScript : MonoBehaviour
                 PlayerPrefs.SetInt("BestScore", bestScore);
                 scoreTime = Time.timeSinceLevelLoad;
                 PlayerPrefs.SetFloat("ScoreTime", scoreTime);
+                updateScoreText();
+                //scoreTime = PlayerPrefs.GetFloat("ScoreTime");
             }
             else if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
             {
@@ -50,7 +52,8 @@ public class BestScoreScript : MonoBehaviour
                     PlayerPrefs.SetInt("BestScore", bestScore);
                     scoreTime = Time.timeSinceLevelLoad;
                     PlayerPrefs.SetFloat("ScoreTime", scoreTime);
-                    scoreTime = PlayerPrefs.GetFloat("ScoreTime");
+                    //scoreTime = PlayerPrefs.GetFloat("ScoreTime");
+                    //bestScore = PlayerPrefs.GetInt("BestScore");
                 }
                 updateScoreText();
             }

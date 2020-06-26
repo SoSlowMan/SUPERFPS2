@@ -61,7 +61,7 @@ public class LocalizeLevelScript : MonoBehaviour
         RusStrings[15] = "Секретов найдено:";
         RusStrings[16] = "Счет:";
         RusStrings[17] = "Лучший счет:";
-        RusStrings[18] = "Выйти в главное меню";
+        RusStrings[18] = " Выйти в главное меню ";
         RusStrings[19] = "Выход открыт!";
         RusStrings[20] = "Секретный главарь появился!";
         RusStrings[21] = "Все дети спасены! \n +2 к урону и +0.2 к скорости!";
@@ -85,7 +85,7 @@ public class LocalizeLevelScript : MonoBehaviour
         EngStrings[13] = "Try again?";
         EngStrings[14] = "Return to Windows";
         EngStrings[15] = "Secrets found:";
-        EngStrings[16] = "SCORE:";
+        EngStrings[16] = "Score:";
         EngStrings[17] = "Best score:";
         EngStrings[18] = "Return to Main Menu";
         EngStrings[19] = "Exit is opened!";

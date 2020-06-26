@@ -214,5 +214,11 @@ public class OptionsMenu : MonoBehaviour
         sfxLoop.Stop();
     }
 
+   /* public void deleteTheHighScore()
+    {
+        PlayerPrefs.DeleteKey("BestScore");
+        PlayerPrefs.DeleteKey("ScoreTime");
+        PlayerPrefs.DeleteKey("BestTime");
+    }*/
 
 }

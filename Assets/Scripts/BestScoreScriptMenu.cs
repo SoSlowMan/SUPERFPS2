@@ -12,6 +12,7 @@ public class BestScoreScriptMenu : MonoBehaviour
     public Text counterText;
     public float seconds, minutes, miliseconds;
     float scoreTime;
+    bool wereSavesDeleted = false;
 
     private void Awake()
     {
@@ -44,7 +45,13 @@ public class BestScoreScriptMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (wereSavesDeleted == true)
+        {
+            bestScore = 0;
+            scoreTime = 0;
+            updateScoreText();
+            wereSavesDeleted = false;
+        }
     }
 
     void updateScoreText()
@@ -54,4 +61,11 @@ public class BestScoreScriptMenu : MonoBehaviour
         miliseconds = (int)(((scoreTime % 60f) * 100) % 100);
         counterText.text = bestScore.ToString("0") + "/" + minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
     }
+
+    public void dumbScoreFlag()
+    {
+        wereSavesDeleted = true;
+    }
+
+
 }
