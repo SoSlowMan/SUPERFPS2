@@ -17,6 +17,9 @@ public class WinTrigger : MonoBehaviour
             PlayerController.instance.winScreen.SetActive(true);
             PlayerController.instance.hasDied = true;
             PlayerController.instance.winCubeScreen.SetActive(false);
+            PlayerController.instance.deadScreen.SetActive(false);
+            PlayerController.instance.secretBossScreen.SetActive(false);
+            PlayerController.instance.kidRewardScreen.SetActive(false);
             AudioController.instance.backgroundMusic.Stop();
             AudioController.instance.winSound.Play();
         }

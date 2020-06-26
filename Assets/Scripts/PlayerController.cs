@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour
 
     public void Add3Damage()
     {
-        damage = damage + 3;
+        damage = damage + 2;
         damageText.text = damage.ToString();
     }
 }

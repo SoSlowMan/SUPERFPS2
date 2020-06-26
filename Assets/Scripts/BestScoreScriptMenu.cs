@@ -10,13 +10,16 @@ public class BestScoreScriptMenu : MonoBehaviour
 
     public int bestScore;
     public Text counterText;
+    public float seconds, minutes, miliseconds;
+    float scoreTime;
 
     private void Awake()
     {
         instance = this;
-        if (PlayerPrefs.HasKey("BestScore"))
+        if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
         {
             bestScore = PlayerPrefs.GetInt("BestScore");
+            scoreTime = PlayerPrefs.GetFloat("ScoreTime");
             updateScoreText();
         }
 
@@ -25,9 +28,10 @@ public class BestScoreScriptMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("BestScore"))
+        if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
         {
             bestScore = PlayerPrefs.GetInt("BestScore");
+            scoreTime = PlayerPrefs.GetFloat("ScoreTime");
             updateScoreText();
         }
         else
@@ -45,6 +49,9 @@ public class BestScoreScriptMenu : MonoBehaviour
 
     void updateScoreText()
     {
-        counterText.text = bestScore.ToString("0");
+        minutes = (int)(scoreTime / 60f);
+        seconds = (int)(scoreTime % 60f);
+        miliseconds = (int)(((scoreTime % 60f) * 100) % 100);
+        counterText.text = bestScore.ToString("0") + "/" + minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
     }
 }

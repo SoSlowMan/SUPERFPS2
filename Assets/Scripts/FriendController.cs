@@ -70,7 +70,7 @@ public class FriendController : MonoBehaviour
                     {
                         PlayerController.instance.AddDamage();
                     }
-                    PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.3f;
+                    PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.2f;
                     PlayerController.instance.AddMoveSpeed();
                     PlayerController.instance.Add3Damage();
                 }
