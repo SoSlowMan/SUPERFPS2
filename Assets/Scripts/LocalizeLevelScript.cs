@@ -65,6 +65,8 @@ public class LocalizeLevelScript : MonoBehaviour
         RusStrings[19] = "Выход открыт!";
         RusStrings[20] = "Секретный главарь появился!";
         RusStrings[21] = "Все дети спасены! \n +2 к урону и +0.2 к скорости!";
+        RusStrings[22] = "Детей спасено:";
+        RusStrings[23] = "Врагов уничтожено:";
     }
 
     void createEngList()
@@ -91,11 +93,13 @@ public class LocalizeLevelScript : MonoBehaviour
         EngStrings[19] = "Exit is opened!";
         EngStrings[20] = "Secret ash leader is here!";
         EngStrings[21] = "All kids are saved! \n +2 damage and +0.2 speed!";
+        RusStrings[22] = "Kids saved:";
+        RusStrings[23] = "Enemies defeated:";
     }
 
     public void translateToRussian()
     {
-        for (int i = 0; i <= 21; i++)
+        for (int i = 0; i <= 23; i++)
         {
             Texts[i].text = RusStrings[i];
             Texts[i].font = rusFont;
@@ -104,7 +108,7 @@ public class LocalizeLevelScript : MonoBehaviour
 
     public void translateToEnglish()
     {
-        for (int i = 0; i <= 21; i++)
+        for (int i = 0; i <= 23; i++)
         {
             Texts[i].text = EngStrings[i];
             Texts[i].font = engFont;

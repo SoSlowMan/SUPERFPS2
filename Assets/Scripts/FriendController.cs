@@ -59,7 +59,7 @@ public class FriendController : MonoBehaviour
             tutorial.SetActive(true);
             if (Input.GetKeyDown("e"))
             {
-                if (SceneManager.GetActiveScene().name == "jungle" && PlayerController.instance.kidCounter == 9)
+                if (SceneManager.GetActiveScene().name == "jungle" && PlayerController.instance.kidCounter == (PlayerController.instance.amountOfKidsJungle-1))
                 {
                     if (coin == 0)
                     {

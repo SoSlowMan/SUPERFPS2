@@ -57,7 +57,9 @@ public class PlayerController : MonoBehaviour
     public int amountOfSecrets;
 
     public int killCounter;
+    public int amountOfKillsJungle = 24;
     public int kidCounter;
+    public int amountOfKidsJungle = 10;
 
     public int score;
 
@@ -197,7 +199,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //поставлю второго босса в первый лвл
-            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= 24)
+            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= amountOfKillsJungle)
             {
                 if (secretBossSpawned == false)
                 {
@@ -217,7 +219,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //доп очки за сбор всех детей
-            if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= 10)
+            if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= amountOfKidsJungle)
             {
                 kidRewardScreen.SetActive(true);
                 areKidsSaved = true;
