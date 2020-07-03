@@ -49,7 +49,7 @@ public class LocalizeTutorScript : MonoBehaviour
         RusStrings[4] = "Время:";
         RusStrings[5] = "Ты нашел секрет!";
         RusStrings[6] = "Привет и добро пожаловать в JungleFever. Этот обучаюший уровень объяснит механики игры. Просто идите вперед и повеселитесь!";
-        RusStrings[7] = "Ваша задача в игре: найти самый быстрый путь к выходу и набрать как можно больше очков. Нажмите R чтобы перезапустить уровень и M чтобы выйти в главное меню.";
+        RusStrings[7] = "Ваша задача в игре: найти самый быстрый путь к выходу и набрать как можно больше очков. Нажмите F чтобы перезапустить уровень и Esc чтобы выйти в главное меню.";
         RusStrings[8] = "По пути вы найдете фрукты. Бананы дадут здоровье. Яблоки в 2 раза увеличат скорость на несколько секунд. А вишня добавит патронов.";
         RusStrings[9] = "Не беспокойтесь, перед вами не просто стена, это СЕКРЕТНАЯ СТЕНА. Через нее можно пройти!";
         RusStrings[10] = "Это шутер, так что придется стрелять по злым ребятам, вроде этого перед вами.";
@@ -58,7 +58,7 @@ public class LocalizeTutorScript : MonoBehaviour
         RusStrings[13] = "Поздравляем! Теперь вы готовы спасти мир! \n Время:";
         RusStrings[14] = "Секретов найдено:";
         RusStrings[15] = "Счет:";
-        RusStrings[16] = "Нажмите \"M\" чтобы вернуться в главное меню";
+        RusStrings[16] = "Нажмите \"Esc\" чтобы вернуться в главное меню";
     }
 
     void createEngList()
@@ -70,7 +70,7 @@ public class LocalizeTutorScript : MonoBehaviour
         EngStrings[4] = "Time:";
         EngStrings[5] = "YOU'VE DISCOVERED A SECRET!";
         EngStrings[6] = "Hello and welcome to JungleFever. This tutorial level will explain mechanics of the game. Just go forward and have fun!";
-        EngStrings[7] = "Your task in this game is to find the fastest route to the end and to get huge amount of points. Also, press R to restart level and M to exit to the main menu.";
+        EngStrings[7] = "Your task in this game is to find the fastest route to the end and to get huge amount of points. Also, press F to restart level and Esc to exit to the main menu.";
         EngStrings[8] = "On the way you'll find fruits. Bananas give you health. Apples give you X2 speed multiplier for a few seconds. And the cherry will refill your ammo.";
         EngStrings[9] = "Don't worry, this is not a wall in front of you, that's a SECRET WALL. You can go right through it!";
         EngStrings[10] = "This is a shooter, so you'll need to shoot bad guys, like this one in front of you!";
@@ -79,7 +79,7 @@ public class LocalizeTutorScript : MonoBehaviour
         EngStrings[13] = "Congratulaions! Now You're ready to save the world! \n Your time:";
         EngStrings[14] = "Secrets found:";
         EngStrings[15] = "SCORE:";
-        EngStrings[16] = "Press \"M\" to get back to the Main Menu";
+        EngStrings[16] = "Press \"Esc\" to get back to the Main Menu";
 
     }
 

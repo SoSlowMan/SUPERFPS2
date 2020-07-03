@@ -15,12 +15,7 @@ public class TutorialTextScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //if (transform.parent.name == "FuckShit")
             string current = transform.gameObject.name;
-            /*if (current == CubeNameChars.Fuck)
-            {
-                PlayerController.instance.startScreen.SetActive(true);
-            }*/
             switch (current)
             {
                 case "tutorStart":
@@ -53,10 +48,6 @@ public class TutorialTextScript : MonoBehaviour
         if (other.tag == "Player")
         {
             string current = transform.gameObject.name;
-            /*if (current == CubeNameChars.Fuck)
-            {
-                PlayerController.instance.startScreen.SetActive(false);
-            }*/
             switch (current)
             {
                 case "tutorStart":
@@ -82,11 +73,6 @@ public class TutorialTextScript : MonoBehaviour
                     break;
             }
 
-            /* public static class CubeNameChars
-             {
-                 public static string Fuck { get { return "Fuck"; } }
-                 public static string Fuck1 { get { return "Fuck1"; } }
-             }*/
         }
 
     }

@@ -9548,7 +9548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theRB: {fileID: 5191050869183761433}
-  moveSpeed: 5
+  moveSpeed: 300
+  defaultMoveSpeed: 300
   mouseSensitivity: 1
   viewCam: {fileID: 5191050870543938537}
   bulletImpact: {fileID: 3669608970549470910, guid: 3a45138fe10a9454690a937919c8d875,
@@ -9574,13 +9575,15 @@ MonoBehaviour:
   damage: 0
   speedTime: 3
   speedFlag: 0
-  defaultMoveSpeed: 5
+  defaultSpeedTime: 3
   moveSpeedMultiplier: 1
   currentSpeed: 0
   secretCounter: 0
   amountOfSecrets: 1
   killCounter: 0
+  amountOfKillsJungle: 24
   kidCounter: 0
+  amountOfKidsJungle: 10
   score: 0
   tutorialStartScreen: {fileID: 1203524547}
   tutorialUIScreen: {fileID: 1368809943}

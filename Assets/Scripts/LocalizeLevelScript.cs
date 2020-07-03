@@ -93,8 +93,8 @@ public class LocalizeLevelScript : MonoBehaviour
         EngStrings[19] = "Exit is opened!";
         EngStrings[20] = "Secret ash leader is here!";
         EngStrings[21] = "All kids are saved! \n +2 damage and +0.2 speed!";
-        RusStrings[22] = "Kids saved:";
-        RusStrings[23] = "Enemies defeated:";
+        EngStrings[22] = "Kids saved:";
+        EngStrings[23] = "Enemies defeated:";
     }
 
     public void translateToRussian()

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
-            if (PlayerController.instance.hasDied == true || Input.GetKeyDown(KeyCode.Escape))
+            if (PlayerController.instance.hasDied == true || Input.GetKeyDown(KeyCode.Q))
             {
                 UnlockCursor();
             }

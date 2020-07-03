@@ -536,8 +536,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -17.55, y: 71.2}
-  m_SizeDelta: {x: 289.24, y: 59}
+  m_AnchoredPosition: {x: -26.27, y: 71.2}
+  m_SizeDelta: {x: 324.1, y: 59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &106820846
 MonoBehaviour:
@@ -2948,8 +2948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -46.500008, y: 40.699997}
-  m_SizeDelta: {x: 407, y: 59}
+  m_AnchoredPosition: {x: -53.459976, y: 40.699997}
+  m_SizeDelta: {x: 434.84, y: 59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684374125
 MonoBehaviour:
@@ -6479,8 +6479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -46.299988, y: 102.899994}
-  m_SizeDelta: {x: 406.59998, y: 58.899994}
+  m_AnchoredPosition: {x: -51.7, y: 102.899994}
+  m_SizeDelta: {x: 428.18, y: 58.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303508476
 MonoBehaviour:
@@ -9507,7 +9507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044384436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12144,8 +12144,6 @@ MonoBehaviour:
   timer3: 0
   apocalypseTimer: 0
   secretBoss: {fileID: 1493905488}
-  areKidsSaved: 0
-  areEnemiesDead: 0
 --- !u!58 &8586325279838547100
 CircleCollider2D:
   m_ObjectHideFlags: 0

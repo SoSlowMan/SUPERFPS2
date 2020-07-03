@@ -81,6 +81,10 @@ public class LocalizationScript : MonoBehaviour
         EngStrings[26] = "Close";
         EngStrings[27] = "LOADING";
         EngStrings[28] = "Press any button to continue";
+        EngStrings[29] = "Movement: WSAD";
+        EngStrings[30] = "Save kids: E";
+        EngStrings[31] = "Restart level: F";
+        EngStrings[32] = "Back to menu: Esc";
     }
 
     void createRusList()
@@ -114,11 +118,15 @@ public class LocalizationScript : MonoBehaviour
         RusStrings[26] = "Закрыть";
         RusStrings[27] = "ЗАГРУЗКА";
         RusStrings[28] = "Нажмите любую клавишу чтобы продолжить";
+        RusStrings[29] = "Движение: WSAD";
+        RusStrings[30] = "Спасти ребенка: E";
+        RusStrings[31] = "Рестарт уровня: F";
+        RusStrings[32] = "Назад в меню: Esc";
     }
 
    public void translateToRussian()
     {
-        for (int i = 0; i <= 28; i++)
+        for (int i = 0; i <= 32; i++)
         {
             Texts[i].text = RusStrings[i];
             Texts[i].font = rusFont;
@@ -127,7 +135,7 @@ public class LocalizationScript : MonoBehaviour
 
     public void translateToEnglish()
     {
-        for (int i = 0; i <= 28; i++)
+        for (int i = 0; i <= 32; i++)
         {
             Texts[i].text = EngStrings[i];
             Texts[i].font = engFont;

@@ -81,10 +81,7 @@ public class PlayerController : MonoBehaviour
     public float timer = 0; public float timer2 = 0; public float timer3 = 0; //because i'm a dumbass
     public float apocalypseTimer;
 
-    public GameObject secretBoss;
-
-    public bool areKidsSaved;
-    public bool areEnemiesDead; 
+    public GameObject secretBoss; 
 
     bool secretBossSpawned = false; 
 
@@ -121,8 +118,6 @@ public class PlayerController : MonoBehaviour
         bossCounter = 0;
         winCube.SetActive(false);
         //AudioController.instance.PlayBackGroundMusic();
-        areKidsSaved = false;
-        areEnemiesDead = false;
     }
 
     // Update is called once per frame
@@ -207,7 +202,6 @@ public class PlayerController : MonoBehaviour
                     secretBoss.SetActive(true);
                 }              
                 secretBossScreen.SetActive(true);
-                areEnemiesDead = true;
                 if (timer2 < 3f)
                 {
                     timer2 += Time.deltaTime;
@@ -222,7 +216,6 @@ public class PlayerController : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= amountOfKidsJungle)
             {
                 kidRewardScreen.SetActive(true);
-                areKidsSaved = true;
                 if (timer3 < 3f)
                 {
                     timer3 += Time.deltaTime;
@@ -237,12 +230,12 @@ public class PlayerController : MonoBehaviour
 
 
         //рестарт левела
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         //возвращение в главное меню
-        if (Input.GetKeyDown("m"))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             hasDied = true;
             SceneManager.LoadScene("MainMenu");
