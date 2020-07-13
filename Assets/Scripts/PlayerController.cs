@@ -235,12 +235,12 @@ public class PlayerController : MonoBehaviour
 
 
         //рестарт левела
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Restart", "F"))))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         //возвращение в главное меню
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Exit", "Escape"))))
         {
             hasDied = true;
             SceneManager.LoadScene("MainMenu");
