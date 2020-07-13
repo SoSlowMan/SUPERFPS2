@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 mouseInput;
 
-    public float mouseSensitivity = 1f;
+    public float mouseSensitivity;
 
     public Camera viewCam;
 
@@ -117,6 +117,11 @@ public class PlayerController : MonoBehaviour
         kidCounter = 0;
         bossCounter = 0;
         winCube.SetActive(false);
+        if (PlayerPrefs.HasKey("MouseSens"))
+        {
+            mouseSensitivity = PlayerPrefs.GetFloat("MouseSens") / 100;
+        }
+        else mouseSensitivity = 1f;
         //AudioController.instance.PlayBackGroundMusic();
     }
 
