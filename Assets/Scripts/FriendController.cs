@@ -23,6 +23,8 @@ public class FriendController : MonoBehaviour
     public string[] RusStrings;
     public string[] EngStrings;
 
+    public bool specialKid;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +58,13 @@ public class FriendController : MonoBehaviour
         theRB.velocity = Vector2.zero;
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange) //добавить UI чтоб игрок понимал ч куда
         {
-            tutorial.SetActive(true);
-            if (Input.GetKeyDown("e"))
+            if (specialKid == true)
             {
+                coin = 0;
+            }
+            tutorial.SetActive(true);
+            if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SaveKids", "E"))))
+             {
                 if (SceneManager.GetActiveScene().name == "jungle" && PlayerController.instance.kidCounter == (PlayerController.instance.amountOfKidsJungle-1))
                 {
                     if (coin == 0)
@@ -104,12 +110,12 @@ public class FriendController : MonoBehaviour
 
     void createRusList()
     {
-        RusStrings[0] = "Нажми \"E\" чтобы спасти меня:";
+        RusStrings[0] = "Нажми \""+ PlayerPrefs.GetString("SaveKids", "E") + "\" чтобы спасти меня:";
     }
 
     void createEngList()
     {
-        EngStrings[0] = "Press \"E\" to save me:";
+        EngStrings[0] = "Press \"" + PlayerPrefs.GetString("SaveKids", "E") + "\" to save me:";
     }
 
     void translateToRussian()

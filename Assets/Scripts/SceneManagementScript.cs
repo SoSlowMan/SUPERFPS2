@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SceneManagementScript : MonoBehaviour
 {
-    public GameObject loadingScreen, loadingIcon, loadingText;
+    public GameObject loadingScreen, loadingIcon, loadingText, mainmenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +50,7 @@ public class SceneManagementScript : MonoBehaviour
     public IEnumerator LoadMain()
     {
         loadingScreen.SetActive(true);
+        mainmenu.SetActive(false);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");//грузит сцену в фоне, чтобы мог показаться товарищ лоудинг скрин
 

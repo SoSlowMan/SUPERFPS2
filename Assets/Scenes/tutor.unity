@@ -9559,12 +9559,12 @@ MonoBehaviour:
   anim: {fileID: 5191050869183761438}
   currentHealth: 75
   maxHealth: 100
-  deadScreen: {fileID: 0}
+  deadScreen: {fileID: 585885449}
   winScreen: {fileID: 7039189119170398349}
   startScreen: {fileID: 1203524547}
   secretScreen: {fileID: 5407727008633020340}
-  secretBossScreen: {fileID: 0}
-  kidRewardScreen: {fileID: 0}
+  secretBossScreen: {fileID: 585885449}
+  kidRewardScreen: {fileID: 585885449}
   hasDied: 0
   healthText: {fileID: 4790342494145403649}
   ammoText: {fileID: 4790342494885925349}

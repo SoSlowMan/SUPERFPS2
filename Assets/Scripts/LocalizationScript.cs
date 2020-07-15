@@ -81,11 +81,26 @@ public class LocalizationScript : MonoBehaviour
         EngStrings[26] = "Close";
         EngStrings[27] = "LOADING";
         EngStrings[28] = "Press any button to continue";
-        EngStrings[29] = "Movement: WSAD";
-        EngStrings[30] = "Save kids: E";
-        EngStrings[31] = "Restart level: F";
-        EngStrings[32] = "Back to menu: Esc";
+        EngStrings[29] = "Movement";
+        EngStrings[30] = "Save kids";
+        EngStrings[31] = "Restart level";
+        EngStrings[32] = "Back to menu";
         EngStrings[33] = " Mouse and keyboard options ";
+        EngStrings[34] = "KEYBOARD & MOUSE";
+        EngStrings[35] = "Mouse";
+        EngStrings[36] = "Sensitivity";
+        EngStrings[37] = "Keyboard";
+        EngStrings[38] = "Restart";
+        EngStrings[39] = "Exit";
+        EngStrings[40] = "Forward";
+        EngStrings[41] = "Backward";
+        EngStrings[42] = "Left";
+        EngStrings[43] = "Right";
+        EngStrings[44] = "Shoot";
+        EngStrings[45] = "Close & Save";
+        EngStrings[46] = "Movement";
+        EngStrings[47] = "Save kids";
+        EngStrings[48] = "ERROR: This key is already used!";
     }
 
     void createRusList()
@@ -119,16 +134,31 @@ public class LocalizationScript : MonoBehaviour
         RusStrings[26] = "Закрыть";
         RusStrings[27] = "ЗАГРУЗКА";
         RusStrings[28] = "Нажмите любую клавишу чтобы продолжить";
-        RusStrings[29] = "Движение: WSAD";
-        RusStrings[30] = "Спасти ребенка: E";
-        RusStrings[31] = "Рестарт уровня: F";
-        RusStrings[32] = "Назад в меню: Esc";
+        RusStrings[29] = "Движение";
+        RusStrings[30] = "Спасти ребенка";
+        RusStrings[31] = "Рестарт уровня";
+        RusStrings[32] = "Назад в меню";
         RusStrings[33] = " Настройки клавиатуры и мыши ";
+        RusStrings[34] = "КЛАВИАТУРА И МЫШЬ";
+        RusStrings[35] = "Мышь";
+        RusStrings[36] = "Чувствительность";
+        RusStrings[37] = "Клавиатура";
+        RusStrings[38] = "Рестарт";
+        RusStrings[39] = "Выход";
+        RusStrings[40] = "Вперед";
+        RusStrings[41] = "Назад";
+        RusStrings[42] = "Влево";
+        RusStrings[43] = "Вправо";
+        RusStrings[44] = "Стрелять";
+        RusStrings[45] = "Закрыть и сохранить";
+        RusStrings[46] = "Перемещение";
+        RusStrings[47] = "Спасти ребенка";
+        RusStrings[48] = "ОШИБКА! Клавиша уже занята!";
     }
 
    public void translateToRussian()
     {
-        for (int i = 0; i <= 33; i++)
+        for (int i = 0; i <= 48; i++)
         {
             Texts[i].text = RusStrings[i];
             Texts[i].font = rusFont;
@@ -137,7 +167,7 @@ public class LocalizationScript : MonoBehaviour
 
     public void translateToEnglish()
     {
-        for (int i = 0; i <= 33; i++)
+        for (int i = 0; i <= 48; i++)
         {
             Texts[i].text = EngStrings[i];
             Texts[i].font = engFont;

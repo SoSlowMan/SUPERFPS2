@@ -9,13 +9,15 @@ public class KeyboardMouseScript : MonoBehaviour
     public Text sensLabel;
     public float mouseSensitivity;
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    public Text forward, backward, left, right, restart, exit;
+    public Text forward, backward, left, right, savekids, restart, exit;
     //public GameObject forwardChange, backwardChange, leftChange, rightChange, restartChange, ExitChange;
 
-    public GameObject currentKey;
+    public GameObject currentKey, error;
 
     private Color32 normal = new Color32(249, 202, 74, 255);
     private Color32 selected = new Color32(209, 170, 60, 255);
+
+    private bool keyIsFree;
 
     // Start is called before the first frame update
     void Start()
@@ -27,28 +29,21 @@ public class KeyboardMouseScript : MonoBehaviour
         }
         sensLabel.text = (mouseSensitivity).ToString();
 
-        /*if (PlayerPrefs.HasKey("keyForward"))
-        {
-            forward.text = PlayerPrefs.GetString("keyForward");
-            backward.text = PlayerPrefs.GetString("keyBackward");
-            left.text = PlayerPrefs.GetString("keyLeft");
-            right.text = PlayerPrefs.GetString("keyRight");
-            restart.text = PlayerPrefs.GetString("keyRestart");
-            exit.text = PlayerPrefs.GetString("keyExit");
-        }
-        else FirstTime();*/
         keys.Add("Forward", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Forward", "W")));
         keys.Add("Backward", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Backward", "S")));
         keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
         keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
+        keys.Add("SaveKids", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SaveKids", "E")));
         keys.Add("Restart", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Restart", "F")));
         keys.Add("Exit", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Exit", "Escape")));
-        forward.text = PlayerPrefs.GetString("Forward");
-        backward.text = PlayerPrefs.GetString("Backward");
-        left.text = PlayerPrefs.GetString("Left");
-        right.text = PlayerPrefs.GetString("Right");
-        restart.text = PlayerPrefs.GetString("Restart");
-        exit.text = PlayerPrefs.GetString("Exit");
+
+        forward.text = PlayerPrefs.GetString("Forward","W");
+        backward.text = PlayerPrefs.GetString("Backward", "S");
+        left.text = PlayerPrefs.GetString("Left", "A");
+        right.text = PlayerPrefs.GetString("Right", "D");
+        savekids.text = PlayerPrefs.GetString("SaveKids", "E");
+        restart.text = PlayerPrefs.GetString("Restart", "F");
+        exit.text = PlayerPrefs.GetString("Exit", "Escape");
 
     }
 
@@ -62,49 +57,37 @@ public class KeyboardMouseScript : MonoBehaviour
     public void SetSensitivity()
     {
         mouseSensitivity = sensSlider.value;
-        sensLabel.text = (mouseSensitivity/100).ToString();
+        sensLabel.text = (mouseSensitivity).ToString() + "%";
         PlayerPrefs.SetFloat("MouseSens", sensSlider.value);
     }
 
-    private void FirstTime()
-    {
-        keys.Add("Forward", KeyCode.W);
-        //PlayerPrefs.SetString("keyForward",KeyCode.W.ToString());
-        keys.Add("Backward", KeyCode.S);
-        //PlayerPrefs.SetString("keyBackward", KeyCode.S.ToString());
-        keys.Add("Left", KeyCode.A);
-        //PlayerPrefs.SetString("keyLeft", KeyCode.A.ToString());
-        keys.Add("Right", KeyCode.D);
-        //PlayerPrefs.SetString("keyRight", KeyCode.D.ToString());
-        keys.Add("Restart", KeyCode.F);
-        //PlayerPrefs.SetString("keyRestart", KeyCode.F.ToString());
-        keys.Add("Exit", KeyCode.Escape);
-        //PlayerPrefs.SetString("keyExit", KeyCode.Escape.ToString());
-    }
-
-    /*public void ChangeForward()
-    {
-        forwardChange.SetActive(true);
-        //forward = Input.GetKeyDown();
-        OnGUI();
-        //newKey = Input..ToString();
-        PlayerPrefs.SetString("keyForward",newKey);
-        forward.text = PlayerPrefs.GetString("keyForward");
-        //newKey = null;
-        forwardChange.SetActive(false);
-    }*/
-
     void OnGUI()
     {
+        //error.SetActive(false);
         if (currentKey != null)
         {
             Event e = Event.current;
             if (e.isKey)
             {
-                keys[currentKey.name] = e.keyCode;
-                currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
-                currentKey.GetComponent<Image>().color = normal;
-                currentKey = null;
+                foreach (var key in keys)
+                {
+                    if (key.Value == e.keyCode)
+                    {
+                        error.SetActive(true);
+                        currentKey = null;
+                        keyIsFree = false;
+                        break;
+                    }
+                    else keyIsFree = true;
+                }
+                if (keyIsFree == true)
+                {
+                    keys[currentKey.name] = e.keyCode;
+                    currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
+                    currentKey.GetComponent<Image>().color = normal;
+                    error.SetActive(false);
+                    currentKey = null;
+                }
             }
         }
     }
@@ -127,5 +110,26 @@ public class KeyboardMouseScript : MonoBehaviour
             PlayerPrefs.SetString(key.Key, key.Value.ToString());
         }
         PlayerPrefs.Save();
+    }
+
+    public void BackToDefault()
+    {
+        PlayerPrefs.SetFloat("MouseSens", 100);
+        sensSlider.value = 100;
+        PlayerPrefs.SetString("Forward", "W");
+        PlayerPrefs.SetString("Backward", "S");
+        PlayerPrefs.SetString("Left", "A");
+        PlayerPrefs.SetString("Right", "D");
+        PlayerPrefs.SetString("SaveKids", "E");
+        PlayerPrefs.SetString("Restart", "F");
+        PlayerPrefs.SetString("Exit", "Escape");
+
+        forward.text = PlayerPrefs.GetString("Forward", "W");
+        backward.text = PlayerPrefs.GetString("Backward", "S");
+        left.text = PlayerPrefs.GetString("Left", "A");
+        right.text = PlayerPrefs.GetString("Right", "D");
+        savekids.text = PlayerPrefs.GetString("SaveKids", "E");
+        restart.text = PlayerPrefs.GetString("Restart", "F");
+        exit.text = PlayerPrefs.GetString("Exit", "Escape");
     }
 }
