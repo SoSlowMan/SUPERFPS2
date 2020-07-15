@@ -116,12 +116,12 @@ public class LocalizationScript : MonoBehaviour
         RusStrings[8] = "ОПЦИИ";
         RusStrings[9] = "ГРАФИКА";
         RusStrings[10] = "Полный экран";
-        RusStrings[11] = "Разрешение";
-        RusStrings[12] = "Верт. Синхронизация";
+        RusStrings[11] = "Верт. Синхронизация";
+        RusStrings[12] = "Разрешение";
         RusStrings[13] = " Применить ";
         RusStrings[14] = "Язык";
         RusStrings[15] = " Применить ";
-        RusStrings[16] = "АУДИО";
+        RusStrings[16] = "ЗВУК";
         RusStrings[17] = "Общая громкость";
         RusStrings[18] = "Громкость музыки";
         RusStrings[19] = "Громкость звуков";
