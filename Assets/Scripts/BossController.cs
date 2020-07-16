@@ -22,6 +22,7 @@ public class BossController : MonoBehaviour
     public Transform firePoint; //где спавнить пулю
 
     public GameObject healthBar;
+    public GameObject emerald;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,12 @@ public class BossController : MonoBehaviour
         {
             theRB.velocity = Vector2.zero;
         }
+
+        if ((PlayerController.instance.secretCounter < 2 && SceneManager.GetActiveScene().name == "jungle") || (SceneManager.GetActiveScene().name == "tutor"))
+        {
+            emerald.SetActive(true);
+        }
+        else emerald.SetActive(false);
     }
 
     public void TakeDamage()
