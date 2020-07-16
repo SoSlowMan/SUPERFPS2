@@ -19,6 +19,10 @@ public class KeyboardMouseScript : MonoBehaviour
 
     private bool keyIsFree;
 
+    public float timer;
+
+    public bool newButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +61,19 @@ public class KeyboardMouseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (keyIsFree == false)
+        {
+            if (timer < 3f && newButton == true)
+            {
+                timer += Time.deltaTime;
+            }
+            else if (timer >= 3f)
+            {
+                error.SetActive(false);
+                timer = 0f;
+                newButton = false;
+            }
+        }
     }
 
     public void SetSensitivity()
@@ -73,12 +89,14 @@ public class KeyboardMouseScript : MonoBehaviour
         if (currentKey != null)
         {
             Event e = Event.current;
+            newButton = true;
             if (e.isKey)
             {
                 foreach (var key in keys)
                 {
                     if (key.Value == e.keyCode)
                     {
+                        currentKey.GetComponent<Image>().color = normal;
                         error.SetActive(true);
                         currentKey = null;
                         keyIsFree = false;
