@@ -101,6 +101,7 @@ public class LocalizationScript : MonoBehaviour
         EngStrings[46] = "Movement";
         EngStrings[47] = "Save kids";
         EngStrings[48] = "ERROR: This key is already used!";
+        EngStrings[49] = " Return to default ";
     }
 
     void createRusList()
@@ -150,15 +151,16 @@ public class LocalizationScript : MonoBehaviour
         RusStrings[42] = "Влево";
         RusStrings[43] = "Вправо";
         RusStrings[44] = "Стрелять";
-        RusStrings[45] = "Закрыть и сохранить";
+        RusStrings[45] = " Закрыть и сохранить ";
         RusStrings[46] = "Перемещение";
         RusStrings[47] = "Спасти ребенка";
         RusStrings[48] = "ОШИБКА! Клавиша уже занята!";
+        RusStrings[49] = " По умолчанию ";
     }
 
    public void translateToRussian()
     {
-        for (int i = 0; i <= 48; i++)
+        for (int i = 0; i <= 49; i++)
         {
             Texts[i].text = RusStrings[i];
             Texts[i].font = rusFont;
@@ -167,7 +169,7 @@ public class LocalizationScript : MonoBehaviour
 
     public void translateToEnglish()
     {
-        for (int i = 0; i <= 48; i++)
+        for (int i = 0; i <= 49; i++)
         {
             Texts[i].text = EngStrings[i];
             Texts[i].font = engFont;
