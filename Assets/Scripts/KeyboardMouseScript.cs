@@ -36,6 +36,12 @@ public class KeyboardMouseScript : MonoBehaviour
         keys.Add("SaveKids", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SaveKids", "E")));
         keys.Add("Restart", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Restart", "F")));
         keys.Add("Exit", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Exit", "Escape")));
+        //еще не добавленные кнопы, чисто для того чтобы ошибка вылезла, если вдруг кто-то захочет на лкм кнопку повесить например
+        keys.Add("Shoot", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Shoot", "Mouse0")));
+        keys.Add("Forward2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Forward2", "UpArrow")));
+        keys.Add("Backward2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Backward2", "DownArrow")));
+        keys.Add("Left2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left2", "LeftArrow")));
+        keys.Add("Right2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right2", "RightArrow")));
 
         forward.text = PlayerPrefs.GetString("Forward","W");
         backward.text = PlayerPrefs.GetString("Backward", "S");
