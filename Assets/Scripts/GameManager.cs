@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
             {
                 LockCursor();
             }
-        }     
+        }
+        Application.targetFrameRate = 60;
     }
 
     private void LockCursor()

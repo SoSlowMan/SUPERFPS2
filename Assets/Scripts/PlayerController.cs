@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D theRB;
 
-    public float moveSpeed = 400f;
-    public float defaultMoveSpeed = 400f;
+    public float moveSpeed = 5f;
+    public float defaultMoveSpeed = 5f;
 
     private Vector2 moveInput;
     private Vector2 mouseInput;
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
             Vector3 moveHorizontal = transform.up * -moveInput.x;
             Vector3 moveVertical = transform.right * moveInput.y;
             //собсна движение
-            theRB.velocity = (moveHorizontal + moveVertical) * moveSpeed * Time.deltaTime;
+            theRB.velocity = (moveHorizontal + moveVertical) * moveSpeed; //* Time.deltaTime;
 
             //PLAYER VIEW CONTROL
             mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;

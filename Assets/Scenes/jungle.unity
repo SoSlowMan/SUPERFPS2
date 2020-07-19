@@ -1290,6 +1290,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   loadingIcon: {fileID: 0}
   loadingText: {fileID: 0}
+  mainmenu: {fileID: 0}
 --- !u!114 &237729700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2728,6 +2729,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   loadingIcon: {fileID: 0}
   loadingText: {fileID: 0}
+  mainmenu: {fileID: 0}
 --- !u!114 &650118375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5118,6 +5120,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   loadingIcon: {fileID: 0}
   loadingText: {fileID: 0}
+  mainmenu: {fileID: 0}
 --- !u!114 &1069830227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6784,6 +6787,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   loadingIcon: {fileID: 0}
   loadingText: {fileID: 0}
+  mainmenu: {fileID: 0}
 --- !u!114 &1370742605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9299,6 +9303,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   loadingIcon: {fileID: 0}
   loadingText: {fileID: 0}
+  mainmenu: {fileID: 0}
 --- !u!114 &2039632427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10977,6 +10982,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   loadingIcon: {fileID: 0}
   loadingText: {fileID: 0}
+  mainmenu: {fileID: 0}
 --- !u!114 &681921571785179346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12338,8 +12344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theRB: {fileID: 8586325279838547098}
-  moveSpeed: 300
-  defaultMoveSpeed: 300
+  moveSpeed: 5
+  defaultMoveSpeed: 5
   mouseSensitivity: 1
   viewCam: {fileID: 8586325281736037226}
   bulletImpact: {fileID: 3669608970549470910, guid: 3a45138fe10a9454690a937919c8d875,
