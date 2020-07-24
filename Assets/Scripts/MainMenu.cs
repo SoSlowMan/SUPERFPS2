@@ -65,7 +65,7 @@ public class MainMenu : MonoBehaviour
 
     public void closeKeyboard()
     {
-        MainMenuScreen.SetActive(true);
+        OptionsScreen.SetActive(true);
         KeyboardScreen.SetActive(false);
     }
 }

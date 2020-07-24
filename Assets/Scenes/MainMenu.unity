@@ -1914,7 +1914,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: JUNGLE FEVER 0.23
+  m_Text: JUNGLE FEVER 0.24
 --- !u!222 &225389254
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6106,6 +6106,8 @@ MonoBehaviour:
   exit: {fileID: 2125955831}
   currentKey: {fileID: 0}
   error: {fileID: 627137958}
+  timer: 0
+  newButton: 0
 --- !u!1 &809412176
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class FriendController : MonoBehaviour
     public Rigidbody2D theRB;
     //public float moveSpeed;
 
-    public int coin;
+    //public int coin;
 
     public string language;
     //public static LocalizeTutorScript instance;
@@ -23,13 +23,25 @@ public class FriendController : MonoBehaviour
     public string[] RusStrings;
     public string[] EngStrings;
 
-    public bool specialKid;
+    public bool speedKid, damageKid;
+
+    public GameObject speedSprite, damageSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         tutorial.SetActive(false);
-        coin = Random.Range(0, 2);
+        if (speedKid == true)
+        {
+            speedSprite.SetActive(true);
+            damageSprite.SetActive(false);
+        }
+        else
+        {
+            speedSprite.SetActive(false);
+            damageSprite.SetActive(true);
+        }
+        //coin = Random.Range(0, 2);
         theRB.velocity = Vector2.zero;
         createEngList();
         createRusList();
@@ -58,16 +70,12 @@ public class FriendController : MonoBehaviour
         theRB.velocity = Vector2.zero;
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange) //добавить UI чтоб игрок понимал ч куда
         {
-            if (specialKid == true)
-            {
-                coin = 0;
-            }
             tutorial.SetActive(true);
             if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SaveKids", "E"))))
              {
                 if (SceneManager.GetActiveScene().name == "jungle" && PlayerController.instance.kidCounter == (PlayerController.instance.amountOfKidsJungle-1))
                 {
-                    if (coin == 0)
+                    if (speedKid == true)
                     {
                         PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.1f;
                         PlayerController.instance.AddMoveSpeed();
@@ -82,7 +90,7 @@ public class FriendController : MonoBehaviour
                 }
                 else
                 {
-                    if (coin == 0)
+                    if (speedKid == true)
                     {
                         PlayerController.instance.moveSpeedMultiplier = PlayerController.instance.moveSpeedMultiplier + 0.1f;
                         PlayerController.instance.AddMoveSpeed();
@@ -110,12 +118,12 @@ public class FriendController : MonoBehaviour
 
     void createRusList()
     {
-        RusStrings[0] = "Нажми \""+ PlayerPrefs.GetString("SaveKids", "E") + "\" чтобы спасти меня:";
+        RusStrings[0] = "Нажми \""+ PlayerPrefs.GetString("SaveKids", "E") + "\" чтобы спасти меня!";
     }
 
     void createEngList()
     {
-        EngStrings[0] = "Press \"" + PlayerPrefs.GetString("SaveKids", "E") + "\" to save me:";
+        EngStrings[0] = "Press \"" + PlayerPrefs.GetString("SaveKids", "E") + "\" to save me!";
     }
 
     void translateToRussian()
