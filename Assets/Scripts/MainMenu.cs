@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerPrefs.DeleteKey("jungleKills100");
+        PlayerPrefs.DeleteKey("jungleKids100");
     }
 
     public void openOptions()

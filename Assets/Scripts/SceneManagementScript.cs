@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SceneManagementScript : MonoBehaviour
 {
-    public GameObject loadingScreen, loadingIcon, loadingText, mainmenu;
+    public GameObject loadingScreen, loadingText, mainmenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,11 @@ public class SceneManagementScript : MonoBehaviour
     {
         StartCoroutine(LoadJungle());
         //SceneManager.LoadScene("jungle");
+    }
+
+    public void StartLevel2()
+    {
+        StartCoroutine(LoadDreamcast());
     }
 
     public void StartTutorial()
@@ -61,7 +66,7 @@ public class SceneManagementScript : MonoBehaviour
             if (asyncLoad.progress >= .9f)
             {
                 loadingText.SetActive(true);
-                loadingIcon.SetActive(false);
+                //loadingIcon.SetActive(false);
                 if (Input.anyKeyDown)
                 {
                     asyncLoad.allowSceneActivation = true;
@@ -85,7 +90,7 @@ public class SceneManagementScript : MonoBehaviour
             if (asyncLoad.progress >= .9f)
             {
                 loadingText.SetActive(true);
-                loadingIcon.SetActive(false);
+                //loadingIcon.SetActive(false);
                 if (Input.anyKeyDown)
                 {
                     asyncLoad.allowSceneActivation = true;
@@ -109,7 +114,31 @@ public class SceneManagementScript : MonoBehaviour
             if (asyncLoad.progress >= .9f)
             {
                 loadingText.SetActive(true);
-                loadingIcon.SetActive(false);
+                //loadingIcon.SetActive(false);
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                    loadingScreen.SetActive(false);
+                }
+            }
+            yield return null;
+        }
+    }
+
+    public IEnumerator LoadDreamcast()
+    {
+        loadingScreen.SetActive(true);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("dreamcast");
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= .9f)
+            {
+                loadingText.SetActive(true);
+                //loadingIcon.SetActive(false);
                 if (Input.anyKeyDown)
                 {
                     asyncLoad.allowSceneActivation = true;

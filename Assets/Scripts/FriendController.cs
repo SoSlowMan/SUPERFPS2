@@ -73,7 +73,7 @@ public class FriendController : MonoBehaviour
             tutorial.SetActive(true);
             if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SaveKids", "E"))))
              {
-                if (SceneManager.GetActiveScene().name == "jungle" && PlayerController.instance.kidCounter == (PlayerController.instance.amountOfKidsJungle-1))
+                if (PlayerController.instance.kidCounter == (PlayerController.instance.amountOfKids-1))
                 {
                     if (speedKid == true)
                     {

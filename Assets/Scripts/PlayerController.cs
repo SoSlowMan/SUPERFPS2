@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviour
     public int amountOfSecrets;
 
     public int killCounter;
-    public int amountOfKillsJungle = 24;
+    public int amountOfKills = 24;
     public int kidCounter;
-    public int amountOfKidsJungle = 10;
+    public int amountOfKids = 10;
 
     public int score;
 
@@ -83,7 +83,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject secretBoss; 
 
-    bool secretBossSpawned = false; 
+    bool secretBossSpawned = false;
+
+    public string currentLevel;
 
     private void Awake()
     {
@@ -94,25 +96,42 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         damage = 1;
-        if (SceneManager.GetActiveScene().name == "tutor")
-        {
-            currentHealth = 75;
-        }
-        else
-        {
-            currentHealth = maxHealth;
-        }
-        //winScreen.SetActive(false);
-        //deadScreen.SetActive(false);
+        currentHealth = maxHealth;
         healthText.text = currentHealth.ToString() + "%";
         ammoText.text = currentAmmo.ToString();
         speedText.text = moveSpeedMultiplier.ToString() + "X";
-        secretCounter = 0;
-        if (SceneManager.GetActiveScene().name == "jungle")
+        currentLevel = SceneManager.GetActiveScene().name;
+        switch (currentLevel)
         {
-            amountOfSecrets = 2;
-            bossAmount = 1;
+            case "jungle":
+                amountOfSecrets = 2;
+                bossAmount = 1;
+                amountOfKids = 10;
+                amountOfKills = 24;
+                PlayerPrefs.DeleteKey("jungleKills100");
+                PlayerPrefs.DeleteKey("jungleKids100");
+                break;
+            case "dreamcast":
+                amountOfSecrets = 3;
+                bossAmount = 1;
+                if (PlayerPrefs.HasKey("jungleKids100") && PlayerPrefs.HasKey("jungleKills100"))
+                {
+                    damage += 2;
+                    moveSpeedMultiplier += 0.2f;
+                    speedText.text = moveSpeedMultiplier.ToString() + "X";
+                    damageText.text = damage.ToString();
+                    startScreen.SetActive(true);
+                }
+                amountOfKills = 1;
+                amountOfKids = 2;
+                killCounter = 0;
+                kidCounter = 0;
+                break;
+            case "tutor":
+                currentHealth = 75;
+                break;
         }
+        secretCounter = 0;
         killCounter = 0;
         kidCounter = 0;
         bossCounter = 0;
@@ -198,13 +217,15 @@ public class PlayerController : MonoBehaviour
                     timer = 3.1f;
                 }
             }
-            //поставлю второго босса в первый лвл
-            if (SceneManager.GetActiveScene().name == "jungle" && killCounter >= amountOfKillsJungle)
+            //второй босс
+            if (killCounter >= amountOfKills)
             {
                 if (secretBossSpawned == false)
                 {
                     secretBossSpawned = true;
                     secretBoss.SetActive(true);
+                    //jungleKills100 = true;
+                    PlayerPrefs.SetInt("jungleKills100", 1);
                 }              
                 secretBossScreen.SetActive(true);
                 if (timer2 < 3f)
@@ -217,10 +238,12 @@ public class PlayerController : MonoBehaviour
                     timer2 = 3.1f;
                 }
             }
-            //доп очки за сбор всех детей
-            if (SceneManager.GetActiveScene().name == "jungle" && kidCounter >= amountOfKidsJungle)
+            //бонусы за сбор всех детей
+            if (kidCounter >= amountOfKids)
             {
                 kidRewardScreen.SetActive(true);
+                //jungleKids100 = true;
+                PlayerPrefs.SetInt("jungleKids100", 1);
                 if (timer3 < 3f)
                 {
                     timer3 += Time.deltaTime;
@@ -237,12 +260,27 @@ public class PlayerController : MonoBehaviour
         //рестарт левела
         if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Restart", "F"))))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            switch (currentLevel)
+            {
+                case "jungle":
+                    PlayerPrefs.DeleteKey("jungleKills100");
+                    PlayerPrefs.DeleteKey("jungleKids100");
+                    SceneManager.LoadScene(currentLevel);
+                    break;
+                case "dreamcast":
+                    SceneManager.LoadScene(currentLevel);
+                    break;
+                case "tutor":
+                    SceneManager.LoadScene(currentLevel);
+                    break;
+            }
         }
         //возвращение в главное меню
         if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Exit", "Escape"))))
         {
             hasDied = true;
+            PlayerPrefs.DeleteKey("jungleKills100");
+            PlayerPrefs.DeleteKey("jungleKids100");
             SceneManager.LoadScene("MainMenu");
         }
 

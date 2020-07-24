@@ -16,6 +16,6 @@ public class AreEnemiesKilledScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counterText.text = PlayerController.instance.killCounter.ToString("0") + "/" + PlayerController.instance.amountOfKillsJungle.ToString("0");
+        counterText.text = PlayerController.instance.killCounter.ToString("0") + "/" + PlayerController.instance.amountOfKills.ToString("0");
     }
 }

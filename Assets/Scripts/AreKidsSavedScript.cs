@@ -16,6 +16,6 @@ public class AreKidsSavedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counterText.text = PlayerController.instance.kidCounter.ToString("0") + "/" + PlayerController.instance.amountOfKidsJungle.ToString("0");
+        counterText.text = PlayerController.instance.kidCounter.ToString("0") + "/" + PlayerController.instance.amountOfKids.ToString("0");
     }
 }
