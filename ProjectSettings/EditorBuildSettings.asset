@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
-    guid: 1f98e5c92f42969489b52c513ebefd13
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 66387c55916d5a34fa424b3d5a578389
@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tutor.unity
     guid: c2f853e495eeb26478a6a1ea35273b0c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/dreamcast.unity
     guid: 51d8429d71198c242b4020ff87b49f6a
   m_configObjects: {}

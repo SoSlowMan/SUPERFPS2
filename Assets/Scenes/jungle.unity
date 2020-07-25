@@ -6997,16 +6997,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4682619966753253686, guid: 326b90452e368ee4399a8fedc18c51f9,
-        type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 1765567183}
-    - target: {fileID: 4682619966753253686, guid: 326b90452e368ee4399a8fedc18c51f9,
-        type: 3}
-      propertyPath: loadingText
-      value: 
-      objectReference: {fileID: 1584902256}
     - target: {fileID: 4073330184986511274, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_Name
@@ -7023,6 +7013,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073330183965483848, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682619966753253686, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 1765567183}
+    - target: {fileID: 4682619966753253686, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: loadingText
+      value: 
+      objectReference: {fileID: 1584902256}
+    - target: {fileID: 8610353064636138715, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7868,7 +7873,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &8586325279838547099
 MonoBehaviour:

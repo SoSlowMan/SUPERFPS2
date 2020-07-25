@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theRB: {fileID: 5191050869623688583}
   moveSpeed: 5
+  defaultMoveSpeed: 5
   mouseSensitivity: 1
   viewCam: {fileID: 5191050869902783095}
   bulletImpact: {fileID: 3669608970549470910, guid: 3a45138fe10a9454690a937919c8d875,
@@ -137,6 +138,8 @@ MonoBehaviour:
   winScreen: {fileID: 0}
   startScreen: {fileID: 0}
   secretScreen: {fileID: 0}
+  secretBossScreen: {fileID: 0}
+  kidRewardScreen: {fileID: 0}
   hasDied: 0
   healthText: {fileID: 0}
   ammoText: {fileID: 0}
@@ -147,14 +150,33 @@ MonoBehaviour:
   damage: 0
   speedTime: 3
   speedFlag: 0
-  defaultMoveSpeed: 5
+  defaultSpeedTime: 3
   moveSpeedMultiplier: 1
   currentSpeed: 0
   secretCounter: 0
   amountOfSecrets: 0
   killCounter: 0
+  amountOfKills: 24
   kidCounter: 0
+  amountOfKids: 10
   score: 0
+  tutorialStartScreen: {fileID: 0}
+  tutorialUIScreen: {fileID: 0}
+  tutorialFruitScreen: {fileID: 0}
+  tutorialSecretScreen: {fileID: 0}
+  tutorialEnemyScreen: {fileID: 0}
+  tutorialKidScreen: {fileID: 0}
+  tutorialBossScreen: {fileID: 0}
+  bossCounter: 0
+  bossAmount: 0
+  winCube: {fileID: 0}
+  winCubeScreen: {fileID: 0}
+  timer: 0
+  timer2: 0
+  timer3: 0
+  apocalypseTimer: 0
+  secretBoss: {fileID: 0}
+  currentLevel: 
 --- !u!50 &5191050869623688583
 Rigidbody2D:
   serializedVersion: 4
@@ -174,7 +196,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &5191050869623688577
 CircleCollider2D:
