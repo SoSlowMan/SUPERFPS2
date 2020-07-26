@@ -7894,7 +7894,7 @@ MonoBehaviour:
   viewCam: {fileID: 8586325281736037226}
   bulletImpact: {fileID: 3669608970549470910, guid: 3a45138fe10a9454690a937919c8d875,
     type: 3}
-  currentAmmo: 100
+  currentAmmo: 25
   gunAnim: {fileID: 681921570769264361}
   anim: {fileID: 8586325279838547101}
   currentHealth: 0

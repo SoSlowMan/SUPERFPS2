@@ -255,6 +255,15 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            winScreen.SetActive(false);
+            secretScreen.SetActive(false);
+            secretBossScreen.SetActive(false);
+            kidRewardScreen.SetActive(false);
+            winCubeScreen.SetActive(false);
+            startScreen.SetActive(false);
+        }
 
 
         //рестарт левела
@@ -286,10 +295,10 @@ public class PlayerController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "tutor" && hasDied == false)
         {
-            // gamover при достижении 3 минут
+            // gamover при достижении минуты
             apocalypseTimer = Time.timeSinceLevelLoad * 100;
 
-            if (apocalypseTimer > 18000)
+            if (apocalypseTimer > 6000)
             {
                 TakeDamage(101);
             }

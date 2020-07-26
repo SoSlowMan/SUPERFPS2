@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d388c3d44c17f45bcbdc253a01b0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 5
+  damageAmount: 10
   bulletSpeed: 3
   theRB: {fileID: 6370557538331269868}
 --- !u!50 &6370557538331269868

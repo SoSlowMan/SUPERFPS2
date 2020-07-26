@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5015277864827977850}
   - component: {fileID: 5015277864827977852}
   m_Layer: 0
-  m_Name: Ammo Pickup 2
+  m_Name: Ammo Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa3f479675b5cf429fdfbfa61ce0694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 25
+  ammoAmount: 5
 --- !u!1 &6392104909727619987
 GameObject:
   m_ObjectHideFlags: 0
