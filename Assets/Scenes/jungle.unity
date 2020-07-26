@@ -2673,6 +2673,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 958964885}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &978546396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5539670131467861058, guid: 326b90452e368ee4399a8fedc18c51f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3598882113647333839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &978939002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6997,6 +7003,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5539670131467861058, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907772770728705150, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4073330184986511274, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_Name
@@ -7152,8 +7168,29 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 40.69995
       objectReference: {fileID: 0}
+    - target: {fileID: 4073330184968341756, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073330184801775025, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000005722046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073330184801775025, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -26.46
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326b90452e368ee4399a8fedc18c51f9, type: 3}
+--- !u!1 &3598882113647333840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 907772770728705150, guid: 326b90452e368ee4399a8fedc18c51f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3598882113647333839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3653883582573401258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7900,6 +7937,8 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   deadScreen: {fileID: 681921571741725319}
+  deadApocScreen: {fileID: 978546396}
+  deadDamageScreen: {fileID: 3598882113647333840}
   winScreen: {fileID: 2044384435}
   startScreen: {fileID: 2085736224}
   secretScreen: {fileID: 2092120453}

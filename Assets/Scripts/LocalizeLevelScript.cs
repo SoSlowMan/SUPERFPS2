@@ -67,6 +67,8 @@ public class LocalizeLevelScript : MonoBehaviour
         RusStrings[21] = "Все дети спасены! \n +2 к урону и +0.2 к скорости!";
         RusStrings[22] = "Детей спасено:";
         RusStrings[23] = "Врагов уничтожено:";
+        RusStrings[24] = "АПОКАЛИПСИС НАЧАЛСЯ";
+        RusStrings[25] = "ЛЮДИ ПЕПЛА УБИЛИ ТЕБЯ";
     }
 
     void createEngList()
@@ -95,11 +97,13 @@ public class LocalizeLevelScript : MonoBehaviour
         EngStrings[21] = "All kids are saved! \n +2 damage and +0.2 speed!";
         EngStrings[22] = "Kids saved:";
         EngStrings[23] = "Enemies defeated:";
+        EngStrings[24] = "APOCALYPSE HAS STARTED";
+        EngStrings[25] = "ASH PEOPLE KILLED YOU";
     }
 
     public void translateToRussian()
     {
-        for (int i = 0; i <= 23; i++)
+        for (int i = 0; i <= 25; i++)
         {
             Texts[i].text = RusStrings[i];
             Texts[i].font = rusFont;
@@ -108,7 +112,7 @@ public class LocalizeLevelScript : MonoBehaviour
 
     public void translateToEnglish()
     {
-        for (int i = 0; i <= 23; i++)
+        for (int i = 0; i <= 25; i++)
         {
             Texts[i].text = EngStrings[i];
             Texts[i].font = engFont;

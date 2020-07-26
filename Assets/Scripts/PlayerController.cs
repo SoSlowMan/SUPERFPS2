@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
     public int maxHealth = 100;
     public GameObject deadScreen;
+    public GameObject deadApocScreen;
+    public GameObject deadDamageScreen;
     public GameObject winScreen;
     public GameObject startScreen;
     public GameObject secretScreen;
@@ -312,6 +314,12 @@ public class PlayerController : MonoBehaviour
         if(currentHealth <= 0)
         {
             deadScreen.SetActive(true);
+            deadDamageScreen.SetActive(true);
+            if (currentHealth == -1)
+            {
+                deadDamageScreen.SetActive(false);
+                deadApocScreen.SetActive(true);
+            }
             hasDied = true;
             currentHealth = 0;
             apocalypseTimer = 0;
