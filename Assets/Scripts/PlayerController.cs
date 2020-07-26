@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            winScreen.SetActive(false);
+            //winScreen.SetActive(false);
             secretScreen.SetActive(false);
             secretBossScreen.SetActive(false);
             kidRewardScreen.SetActive(false);

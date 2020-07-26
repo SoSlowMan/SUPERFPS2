@@ -9,10 +9,10 @@ public class KeyboardMouseScript : MonoBehaviour
     public Text sensLabel;
     public float mouseSensitivity;
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    public Text forward, backward, left, right, savekids, restart, exit;
+    public Text forward, backward, left, right, savekids, restart, exit, shoot;
     //public GameObject forwardChange, backwardChange, leftChange, rightChange, restartChange, ExitChange;
 
-    public GameObject currentKey, error;
+    public GameObject currentKey, error, press;
 
     private Color32 normal = new Color32(249, 202, 74, 255);
     private Color32 selected = new Color32(209, 170, 60, 255);
@@ -22,6 +22,7 @@ public class KeyboardMouseScript : MonoBehaviour
     public float timer;
 
     public bool newButton;
+    public KeyCode fuck;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,7 @@ public class KeyboardMouseScript : MonoBehaviour
         keys.Add("Backward2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Backward2", "DownArrow")));
         keys.Add("Left2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left2", "LeftArrow")));
         keys.Add("Right2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right2", "RightArrow")));
+        keys.Add("Unlock", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Unlock", "Q")));//удалить потом
 
         forward.text = PlayerPrefs.GetString("Forward","W");
         backward.text = PlayerPrefs.GetString("Backward", "S");
@@ -54,7 +56,7 @@ public class KeyboardMouseScript : MonoBehaviour
         savekids.text = PlayerPrefs.GetString("SaveKids", "E");
         restart.text = PlayerPrefs.GetString("Restart", "F");
         exit.text = PlayerPrefs.GetString("Exit", "Escape");
-
+        //shoot.text = PlayerPrefs.GetString("Shoot", "Mouse0");
     }
 
 
@@ -90,14 +92,19 @@ public class KeyboardMouseScript : MonoBehaviour
         {
             Event e = Event.current;
             newButton = true;
-            if (e.isKey)
+            press.SetActive(true);
+            if (e.isKey) //|| e.isMouse)
             {
                 foreach (var key in keys)
                 {
                     if (key.Value == e.keyCode)
                     {
+                        fuck = e.keyCode;
                         currentKey.GetComponent<Image>().color = normal;
                         error.SetActive(true);
+                        press.SetActive(false);
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
                         currentKey = null;
                         keyIsFree = false;
                         break;
@@ -110,7 +117,10 @@ public class KeyboardMouseScript : MonoBehaviour
                     currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                     currentKey.GetComponent<Image>().color = normal;
                     error.SetActive(false);
+                    press.SetActive(false);
                     currentKey = null;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
             }
         }
@@ -121,9 +131,14 @@ public class KeyboardMouseScript : MonoBehaviour
         if(currentKey != null)
         {
             currentKey.GetComponent<Image>().color = normal;
+            Cursor.lockState = CursorLockMode.None;
+            error.SetActive(false);
+            Cursor.visible = true;
         }
-
         currentKey = clicked;
+        error.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         currentKey.GetComponent<Image>().color = selected;
     }
 
@@ -147,6 +162,7 @@ public class KeyboardMouseScript : MonoBehaviour
         PlayerPrefs.SetString("SaveKids", "E");
         PlayerPrefs.SetString("Restart", "F");
         PlayerPrefs.SetString("Exit", "Escape");
+        PlayerPrefs.SetString("Shoot", "Mouse0");
 
         forward.text = PlayerPrefs.GetString("Forward", "W");
         backward.text = PlayerPrefs.GetString("Backward", "S");
@@ -155,5 +171,6 @@ public class KeyboardMouseScript : MonoBehaviour
         savekids.text = PlayerPrefs.GetString("SaveKids", "E");
         restart.text = PlayerPrefs.GetString("Restart", "F");
         exit.text = PlayerPrefs.GetString("Exit", "Escape");
+        //shoot.text = PlayerPrefs.GetString("Shoot", "Mouse0");
     }
 }

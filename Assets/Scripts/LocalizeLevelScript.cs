@@ -53,7 +53,7 @@ public class LocalizeLevelScript : MonoBehaviour
         RusStrings[7] = "ТЫ УМЕР";
         RusStrings[8] = "Еще раз?";
         RusStrings[9] = " Выйти из игры ";
-        RusStrings[10] = "Выйти в главное меню";
+        RusStrings[10] = " Выйти в главное меню ";
         RusStrings[11] = "  ПОБЕДА! \nВремя:";
         RusStrings[12] = "Лучшее время:";
         RusStrings[13] = "Еще раз?";
