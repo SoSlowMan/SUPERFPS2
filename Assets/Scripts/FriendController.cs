@@ -68,7 +68,7 @@ public class FriendController : MonoBehaviour
     void Update()
     {
         theRB.velocity = Vector2.zero;
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange) //добавить UI чтоб игрок понимал ч куда
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange && PlayerController.instance.hasDied == false) //добавить UI чтоб игрок понимал ч куда
         {
             tutorial.SetActive(true);
             if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SaveKids", "E"))))

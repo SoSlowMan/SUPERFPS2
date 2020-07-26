@@ -284,14 +284,14 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
 
-        if (SceneManager.GetActiveScene().name != "tutor")
+        if (SceneManager.GetActiveScene().name != "tutor" && hasDied == false)
         {
             // gamover при достижении 3 минут
             apocalypseTimer = Time.timeSinceLevelLoad * 100;
 
             if (apocalypseTimer > 18000)
             {
-                TakeDamage(999);
+                TakeDamage(101);
             }
         }
     }
@@ -305,14 +305,16 @@ public class PlayerController : MonoBehaviour
             deadScreen.SetActive(true);
             hasDied = true;
             currentHealth = 0;
+            apocalypseTimer = 0;
             theRB.velocity = Vector2.zero;
             AudioController.instance.backgroundMusic.Stop();
-            AudioController.instance.PlayLoseSound();
+            AudioController.instance.loseSound.Play();
         }
-
-        healthText.text = currentHealth.ToString() + "%";
-
-        AudioController.instance.PlayPlayerHurt();
+        else
+        {
+            healthText.text = currentHealth.ToString() + "%";
+            AudioController.instance.PlayPlayerHurt();
+        }
     }
 
     public void AddHealth(int healAmount)
