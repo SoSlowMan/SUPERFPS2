@@ -82,12 +82,15 @@ public class PlayerController : MonoBehaviour
 
     public float timer = 0; public float timer2 = 0; public float timer3 = 0; //because i'm a dumbass
     public float apocalypseTimer;
+    public float deathClock;
 
     public GameObject secretBoss; 
 
     bool secretBossSpawned = false;
 
     public string currentLevel;
+
+    public bool isTester;
 
     private void Awake()
     {
@@ -112,11 +115,13 @@ public class PlayerController : MonoBehaviour
                 amountOfKills = 24;
                 PlayerPrefs.DeleteKey("jungleKills100");
                 PlayerPrefs.DeleteKey("jungleKids100");
+                deathClock = 6000;
                 break;
             case "dreamcast":
-                amountOfSecrets = 3;
+                amountOfSecrets = 4;
                 bossAmount = 1;
-                if (PlayerPrefs.HasKey("jungleKids100") && PlayerPrefs.HasKey("jungleKills100"))
+                isTester = true;
+                if ((PlayerPrefs.HasKey("jungleKids100") && PlayerPrefs.HasKey("jungleKills100")) || isTester == true)
                 {
                     damage += 2;
                     moveSpeedMultiplier += 0.2f;
@@ -128,6 +133,7 @@ public class PlayerController : MonoBehaviour
                 amountOfKids = 2;
                 killCounter = 0;
                 kidCounter = 0;
+                deathClock = 60000;
                 break;
             case "tutor":
                 currentHealth = 75;

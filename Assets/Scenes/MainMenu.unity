@@ -5575,6 +5575,7 @@ MonoBehaviour:
   - {fileID: 853248018}
   - {fileID: 627137959}
   - {fileID: 1014784689}
+  - {fileID: 115316493}
   RusStrings:
   - 
   - 
@@ -5626,7 +5627,9 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
   EngStrings:
+  - 
   - 
   - 
   - 
