@@ -26,7 +26,7 @@ public class SecretTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -37,6 +37,25 @@ public class SecretTrigger : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerController.instance.secretScreen.SetActive(false);
+            Destroy(gameObject);
+        }
+    }
+    */
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            enterFlag = true;
+            PlayerController.instance.secretScreen.SetActive(true);
+            PlayerController.instance.secretCounter = PlayerController.instance.secretCounter + 1;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
