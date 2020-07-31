@@ -113,24 +113,26 @@ public class PlayerController : MonoBehaviour
                 bossAmount = 1;
                 amountOfKids = 10;
                 amountOfKills = 24;
+                moveSpeed = defaultMoveSpeed * moveSpeedMultiplier;
                 PlayerPrefs.DeleteKey("jungleKills100");
                 PlayerPrefs.DeleteKey("jungleKids100");
                 deathClock = 6000;
                 break;
             case "dreamcast":
                 amountOfSecrets = 4;
-                bossAmount = 1;
+                bossAmount = 2;
                 isTester = true;
                 if ((PlayerPrefs.HasKey("jungleKids100") && PlayerPrefs.HasKey("jungleKills100")) || isTester == true)
                 {
                     damage += 2;
                     moveSpeedMultiplier += 0.2f;
                     speedText.text = moveSpeedMultiplier.ToString() + "X";
+                    moveSpeed = defaultMoveSpeed * moveSpeedMultiplier;
                     damageText.text = damage.ToString();
                     startScreen.SetActive(true);
                 }
-                amountOfKills = 1;
-                amountOfKids = 2;
+                amountOfKills = 30;
+                amountOfKids = 12;
                 killCounter = 0;
                 kidCounter = 0;
                 deathClock = 60000;

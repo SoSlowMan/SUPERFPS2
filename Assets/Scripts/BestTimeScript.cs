@@ -14,14 +14,27 @@ public class BestTimeScript : MonoBehaviour
     public Text counterText;
     public float seconds, minutes, miliseconds;
     public GameObject successDeletionText;
+    public string currentLevel;
 
     private void Awake()
     {
         instance = this;
-        if (PlayerPrefs.HasKey("BestTime"))
+        switch (currentLevel)
         {
-            bestTime = PlayerPrefs.GetFloat("BestTime");
-            updateTimeText();
+            case "jungle":
+                if (PlayerPrefs.HasKey("BestTime"))
+                {
+                    bestTime = PlayerPrefs.GetInt("BestTime");
+                    updateTimeText();
+                }
+                break;
+            case "dreamcast":
+                if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
+                {
+                    bestTime = PlayerPrefs.GetInt("BestTime2");
+                    updateTimeText();
+                }
+                break;
         }
 
     }
@@ -29,40 +42,60 @@ public class BestTimeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "tutor")
+        currentLevel = SceneManager.GetActiveScene().name;
+        switch (currentLevel)
         {
-            time = Time.timeSinceLevelLoad; //время со старта лвла
-            if (bestTime == 0)
-            {
-                bestTime = time; //для первого запуска
-                PlayerPrefs.SetFloat("BestTime", bestTime);
-            }
-            //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
-            counterText = GetComponent<Text>() as Text;
+            case "jungle":
+                time = Time.timeSinceLevelLoad; //время со старта лвла
+                if (bestTime == 0)
+                {
+                    bestTime = time; //для первого запуска
+                    PlayerPrefs.SetFloat("BestTime", bestTime);
+                }
+                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+                counterText = GetComponent<Text>() as Text;
+                break;
+            case "dreamcast":
+                time = Time.timeSinceLevelLoad; //время со старта лвла
+                if (bestTime == 0)
+                {
+                    bestTime = time; //для первого запуска
+                    PlayerPrefs.SetFloat("BestTime2", bestTime);
+                }
+                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+                counterText = GetComponent<Text>() as Text;
+                break;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name != "tutor")
+        switch (currentLevel)
         {
-            if (time <= bestTime)
-            {
-                bestTime = time;
-
-                PlayerPrefs.SetFloat("BestTime", bestTime);
-            }
-
-            updateTimeText();
+            case "jungle":
+                time = Time.timeSinceLevelLoad; //время со старта лвла
+                if (time <= bestTime)
+                {
+                    bestTime = time; //для первого запуска
+                    PlayerPrefs.SetFloat("BestTime", bestTime);
+                }
+                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+                updateTimeText();
+                break;
+            case "dreamcast":
+                time = Time.timeSinceLevelLoad; //время со старта лвла
+                if (time <= bestTime)
+                {
+                    bestTime = time; //для первого запуска
+                    PlayerPrefs.SetFloat("BestTime2", bestTime);
+                }
+                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
+                updateTimeText();
+                break;
         }
-            
-    }
 
-    /*void newBestTime()
-    {
-        bestTime = time;
-    }*/
+    }
 
     void updateTimeText()
     {

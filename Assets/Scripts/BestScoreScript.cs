@@ -14,68 +14,71 @@ public class BestScoreScript : MonoBehaviour
     public Text counterText;
     public GameObject successDeletionText;
     public float seconds, minutes, miliseconds;
+    public string currentLevel;
 
     private void Awake()
     {
         instance = this;
-        //scoreTime = Time.timeSinceLevelLoad;
-        if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
+        switch (currentLevel)
         {
-            bestScore = PlayerPrefs.GetInt("BestScore");
-            scoreTime = PlayerPrefs.GetFloat("ScoreTime");
-            updateScoreText();
+            case "jungle":
+                if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
+                {
+                    bestScore = PlayerPrefs.GetInt("BestScore");
+                    scoreTime = PlayerPrefs.GetFloat("ScoreTime");
+                    updateScoreText();
+                }
+                break;
+            case "dreamcast":
+                if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
+                {
+                    bestScore = PlayerPrefs.GetInt("BestScore2");
+                    scoreTime = PlayerPrefs.GetFloat("ScoreTime2");
+                    updateScoreText();
+                }
+                break;
         }
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "tutor")
+        counterText = GetComponent<Text>() as Text;
+        currentLevel = SceneManager.GetActiveScene().name;
+        switch (currentLevel)
         {
-            score = PlayerController.instance.score;
-            if (bestScore == 0)
-            {
-                //для первого запуска
-                bestScore = score; 
-                PlayerPrefs.SetInt("BestScore", bestScore);
-                scoreTime = Time.timeSinceLevelLoad;
-                PlayerPrefs.SetFloat("ScoreTime", scoreTime);
-                updateScoreText();
-                //scoreTime = PlayerPrefs.GetFloat("ScoreTime");
-            }
-            else if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
-            {
-                if (score >= bestScore)
+            case "jungle":
+                score = PlayerController.instance.score;
+                if ((bestScore == 0) || (score >= bestScore))
                 {
                     bestScore = score;
                     PlayerPrefs.SetInt("BestScore", bestScore);
                     scoreTime = Time.timeSinceLevelLoad;
                     PlayerPrefs.SetFloat("ScoreTime", scoreTime);
-                    //scoreTime = PlayerPrefs.GetFloat("ScoreTime");
-                    //bestScore = PlayerPrefs.GetInt("BestScore");
+                    updateScoreText();
                 }
-                updateScoreText();
-            }
-            //successDeletionText.SetActive(false);
-            counterText = GetComponent<Text>() as Text;
+                //successDeletionText.SetActive(false);
+                counterText = GetComponent<Text>() as Text;
+                break;
+            case "dreamcast":
+                score = PlayerController.instance.score;
+                if ((bestScore == 0) || (score >= bestScore))
+                {
+                    //для первого запуска
+                    bestScore = score;
+                    PlayerPrefs.SetInt("BestScore2", bestScore);
+                    scoreTime = Time.timeSinceLevelLoad;
+                    PlayerPrefs.SetFloat("ScoreTime2", scoreTime);
+                    updateScoreText();
+                }
+                break;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-       /* if (SceneManager.GetActiveScene().name != "tutor")
-        {
-            if (score >= bestScore)
-            {
-                bestScore = score;
-                PlayerPrefs.SetInt("BestScore", bestScore);
-                //PlayerPrefs.SetFloat("ScoreTime", scoreTime);
-            }
-
-            updateScoreText();
-        }*/
+        
     }
 
     void updateScoreText()
