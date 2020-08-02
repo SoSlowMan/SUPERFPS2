@@ -8,10 +8,11 @@ public class BestScoreScriptMenu : MonoBehaviour
 
     public static BestScoreScriptMenu instance;
 
-    public int bestScore;
-    public Text counterText;
+    public int bestScore, bestScore2;
+    public Text counterText, counterText2;
     public float seconds, minutes, miliseconds;
-    float scoreTime;
+    public float seconds2, minutes2, miliseconds2;
+    float scoreTime, scoreTime2;
     bool wereSavesDeleted = false;
 
     private void Awake()
@@ -21,6 +22,12 @@ public class BestScoreScriptMenu : MonoBehaviour
         {
             bestScore = PlayerPrefs.GetInt("BestScore");
             scoreTime = PlayerPrefs.GetFloat("ScoreTime");
+            updateScoreText();
+        }
+        if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
+        {
+            bestScore2 = PlayerPrefs.GetInt("BestScore2");
+            scoreTime2 = PlayerPrefs.GetFloat("ScoreTime2");
             updateScoreText();
         }
 
@@ -35,9 +42,11 @@ public class BestScoreScriptMenu : MonoBehaviour
             scoreTime = PlayerPrefs.GetFloat("ScoreTime");
             updateScoreText();
         }
-        else
+        if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
         {
-
+            bestScore2 = PlayerPrefs.GetInt("BestScore2");
+            scoreTime2 = PlayerPrefs.GetFloat("ScoreTime2");
+            updateScoreText();
         }
         counterText = GetComponent<Text>() as Text;
     }
@@ -48,7 +57,9 @@ public class BestScoreScriptMenu : MonoBehaviour
         if (wereSavesDeleted == true)
         {
             bestScore = 0;
+            bestScore2 = 0;
             scoreTime = 0;
+            scoreTime2 = 0;
             updateScoreText();
             wereSavesDeleted = false;
         }
@@ -60,6 +71,11 @@ public class BestScoreScriptMenu : MonoBehaviour
         seconds = (int)(scoreTime % 60f);
         miliseconds = (int)(((scoreTime % 60f) * 100) % 100);
         counterText.text = bestScore.ToString("0") + "/" + minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
+
+        minutes2 = (int)(scoreTime2 / 60f);
+        seconds2 = (int)(scoreTime2 % 60f);
+        miliseconds2 = (int)(((scoreTime2 % 60f) * 100) % 100);
+        counterText2.text = bestScore2.ToString("0") + "/" + minutes2.ToString("00") + ":" + seconds2.ToString("00") + ":" + miliseconds2.ToString("00");
     }
 
     public void dumbScoreFlag()

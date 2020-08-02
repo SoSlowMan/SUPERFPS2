@@ -12,7 +12,6 @@ public class BestScoreScript : MonoBehaviour
     float scoreTime = 0;
     public int bestScore = 0;
     public Text counterText;
-    public GameObject successDeletionText;
     public float seconds, minutes, miliseconds;
     public string currentLevel;
 
@@ -57,7 +56,6 @@ public class BestScoreScript : MonoBehaviour
                     PlayerPrefs.SetFloat("ScoreTime", scoreTime);
                     updateScoreText();
                 }
-                //successDeletionText.SetActive(false);
                 counterText = GetComponent<Text>() as Text;
                 break;
             case "dreamcast":

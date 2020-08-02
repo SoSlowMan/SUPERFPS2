@@ -13,7 +13,6 @@ public class BestTimeScript : MonoBehaviour
     public float bestTime = 0;
     public Text counterText;
     public float seconds, minutes, miliseconds;
-    public GameObject successDeletionText;
     public string currentLevel;
 
     private void Awake()
@@ -29,7 +28,7 @@ public class BestTimeScript : MonoBehaviour
                 }
                 break;
             case "dreamcast":
-                if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
+                if (PlayerPrefs.HasKey("BestTime2"))
                 {
                     bestTime = PlayerPrefs.GetInt("BestTime2");
                     updateTimeText();
@@ -52,7 +51,6 @@ public class BestTimeScript : MonoBehaviour
                     bestTime = time; //для первого запуска
                     PlayerPrefs.SetFloat("BestTime", bestTime);
                 }
-                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
                 counterText = GetComponent<Text>() as Text;
                 break;
             case "dreamcast":
@@ -62,7 +60,6 @@ public class BestTimeScript : MonoBehaviour
                     bestTime = time; //для первого запуска
                     PlayerPrefs.SetFloat("BestTime2", bestTime);
                 }
-                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
                 counterText = GetComponent<Text>() as Text;
                 break;
         }
@@ -80,7 +77,6 @@ public class BestTimeScript : MonoBehaviour
                     bestTime = time; //для первого запуска
                     PlayerPrefs.SetFloat("BestTime", bestTime);
                 }
-                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
                 updateTimeText();
                 break;
             case "dreamcast":
@@ -90,7 +86,6 @@ public class BestTimeScript : MonoBehaviour
                     bestTime = time; //для первого запуска
                     PlayerPrefs.SetFloat("BestTime2", bestTime);
                 }
-                //successDeletionText.SetActive(false); //текст дающий понять что хайскор был удален, ставлю в фолс чтобы не светился если я текст не удалил
                 updateTimeText();
                 break;
         }

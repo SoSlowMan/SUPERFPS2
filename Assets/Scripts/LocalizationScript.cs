@@ -54,7 +54,7 @@ public class LocalizationScript : MonoBehaviour
     {
         EngStrings[0] = "Best time: ";
         EngStrings[1] = "Best score: ";
-        EngStrings[2] = " Start the game ";
+        EngStrings[2] = "Level select";
         EngStrings[3] = " Tutorial ";
         EngStrings[4] = " Story ";
         EngStrings[5] = " Credits ";
@@ -109,7 +109,7 @@ public class LocalizationScript : MonoBehaviour
     {
         RusStrings[0] = "Лучшее время: ";
         RusStrings[1] = "Лучший счет: ";
-        RusStrings[2] = " Начать игру ";
+        RusStrings[2] = "Выбор уровня";
         RusStrings[3] = " Обучение ";
         RusStrings[4] = " История ";
         RusStrings[5] = " Титры ";

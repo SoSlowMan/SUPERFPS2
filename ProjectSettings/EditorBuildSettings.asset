@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tutor.unity
     guid: c2f853e495eeb26478a6a1ea35273b0c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/dreamcast.unity
     guid: 51d8429d71198c242b4020ff87b49f6a
   m_configObjects: {}

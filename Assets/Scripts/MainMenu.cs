@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject OptionsScreen;
     public GameObject CreditsScreen;
     public GameObject StoryScreen;
-    public GameObject KeyboardScreen;
+    public GameObject KeyboardScreen, ScoresScreen, LevelScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,5 +68,29 @@ public class MainMenu : MonoBehaviour
     {
         OptionsScreen.SetActive(true);
         KeyboardScreen.SetActive(false);
+    }
+
+    public void openScores()
+    {
+        MainMenuScreen.SetActive(false);
+        ScoresScreen.SetActive(true);
+    }
+
+    public void closeScores()
+    {
+        MainMenuScreen.SetActive(true);
+        ScoresScreen.SetActive(false);
+    }
+
+    public void openLevels()
+    {
+        MainMenuScreen.SetActive(false);
+        LevelScreen.SetActive(true);
+    }
+
+    public void closeLevels()
+    {
+        MainMenuScreen.SetActive(true);
+        LevelScreen.SetActive(false);
     }
 }

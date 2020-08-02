@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
                 amountOfKids = 12;
                 killCounter = 0;
                 kidCounter = 0;
-                deathClock = 60000;
+                deathClock = 18000;
                 break;
             case "tutor":
                 currentHealth = 75;
@@ -173,8 +173,6 @@ public class PlayerController : MonoBehaviour
             //LEFTRIGHT
             //Quaterion тк в юнити ротейшон состоит из 4 значений, а не 2, поэтому Вектор2/3 не покатит
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
-            //UPDOWN
-            //viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
             firePoint.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
 
             //shooting
@@ -298,6 +296,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Exit", "Escape"))))
         {
             hasDied = true;
+            PlayerPrefs.SetInt("Storymode", 0);
             PlayerPrefs.DeleteKey("jungleKills100");
             PlayerPrefs.DeleteKey("jungleKids100");
             SceneManager.LoadScene("MainMenu");
@@ -359,20 +358,16 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void AddSpeed()
+    public void AddSpeed() //добавление скорости от яблока
     {
         speedFlag = true;
         moveSpeed *= appleBoost;
         speedText.text = (appleBoost*moveSpeedMultiplier).ToString() + "X";
     }
 
-    public void ReduceSpeed()
+    public void ReduceSpeed() //сброс скорости от яблока
     {
-        if (moveSpeed == defaultMoveSpeed * moveSpeedMultiplier)
-        {
-
-        }
-        else
+        if (moveSpeed != defaultMoveSpeed * moveSpeedMultiplier)
         {
             moveSpeed /= appleBoost;
             speedFlag = false;
@@ -382,11 +377,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void AddMoveSpeed()
+    public void AddMoveSpeed() //обновление скорости от детей
     {
         if (speedFlag == true)
         {
-            moveSpeed = moveSpeed * moveSpeedMultiplier;
+            moveSpeed = defaultMoveSpeed * moveSpeedMultiplier * appleBoost;
             speedText.text = (appleBoost * moveSpeedMultiplier).ToString() + "X";
         }
         else

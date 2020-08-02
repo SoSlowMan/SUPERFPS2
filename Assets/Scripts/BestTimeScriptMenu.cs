@@ -9,8 +9,10 @@ public class BestTimeScriptMenu : MonoBehaviour
     public static BestTimeScriptMenu instance;
 
     public float bestTime = 0;
-    public Text counterText;
+    public float bestTime2 = 0;
+    public Text counterText, counterText2;
     public float seconds, minutes, miliseconds;
+    public float seconds2, minutes2, miliseconds2;
     bool wereSavesDeleted = false;
 
     private void Awake()
@@ -19,6 +21,11 @@ public class BestTimeScriptMenu : MonoBehaviour
         if (PlayerPrefs.HasKey("BestTime"))
         {
             bestTime = PlayerPrefs.GetFloat("BestTime");
+            updateTimeText();
+        }
+        if (PlayerPrefs.HasKey("BestTime2"))
+        {
+            bestTime2 = PlayerPrefs.GetFloat("BestTime2");
             updateTimeText();
         }
 
@@ -32,9 +39,10 @@ public class BestTimeScriptMenu : MonoBehaviour
             bestTime = PlayerPrefs.GetFloat("BestTime");
             updateTimeText();
         }
-        else
+        if (PlayerPrefs.HasKey("BestTime2"))
         {
-
+            bestTime2 = PlayerPrefs.GetFloat("BestTime2");
+            updateTimeText();
         }
         counterText = GetComponent<Text>() as Text;
     }
@@ -46,6 +54,7 @@ public class BestTimeScriptMenu : MonoBehaviour
         if (wereSavesDeleted == true)
         {
             bestTime = 0;
+            bestTime2 = 0;
             updateTimeText();
             wereSavesDeleted = false;
         }
@@ -57,6 +66,11 @@ public class BestTimeScriptMenu : MonoBehaviour
         seconds = (int)(bestTime % 60f);
         miliseconds = (int)(((bestTime % 60f) * 100) % 100);
         counterText.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
+
+        minutes2 = (int)(bestTime2 / 60f);
+        seconds2 = (int)(bestTime2 % 60f);
+        miliseconds2 = (int)(((bestTime2 % 60f) * 100) % 100);
+        counterText2.text = minutes2.ToString("00") + ":" + seconds2.ToString("00") + ":" + miliseconds2.ToString("00");
     }
 
     public void dumbScoreFlag()
