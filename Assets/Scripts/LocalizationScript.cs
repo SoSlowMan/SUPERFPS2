@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class LocalizationScript : MonoBehaviour
 {
-    //public Text bestTime, bestScore, buttonStart, buttonTutor, buttonStory, buttonCredits, buttonOptions, buttonExit;
-    //public Text optionsLabel, optionGraphics, optionFullscreen, optionVSync, optionResolution, optionApply, optionLanguage, optionApplyLanguage, optionAudio, optionMaster, optionMusic, optionSFX, optionDelete, optionClose;
     public string language;
     public static LocalizationScript instance;
     public Font rusFont, engFont;
@@ -75,7 +73,7 @@ public class LocalizationScript : MonoBehaviour
         EngStrings[20] = "Delete saves";
         EngStrings[21] = "Close options";
         EngStrings[22] = "THE STORY";
-        EngStrings[23] = "The cult of crazy ash people from Volcano island have only one goal in life: to start the apocalypse! To complete doomsday ritual they need to have big magic emerald and 10 innocent souls.  So, on one faithful night, they stole the emerald and 10 kids from nearby Fruit island and are ready to do the ultimate sacrifice: destroy everything in the heat of volcano. \n The Fruit island is in a big sorrow.Their only hope is you - the best warrior on the island!Ash people are dangerous and the time is running out, so you need to be careful and fast. Saved kids will help you along the way, the emerald will transfer them back home and give you boosts. Good luck!";
+        EngStrings[23] = "The cult of crazy ash people from Volcano island have only one goal in life: to start the apocalypse! To complete doomsday ritual they need to have big magic emerald and a lot of innocent souls.  So, on one faithful night, they stole the emerald and all kids from nearby Fruit island and are ready to do the ultimate sacrifice: destroy everything in the heat of volcano. \n The Fruit island is in a big sorrow.Their only hope is you - the best warrior on the island!Ash people are dangerous and the time is running out, so you need to be careful and fast. Saved kids will help you along the way, the emerald will transfer them back home and give you boosts. Good luck!";
         EngStrings[24] = "Close";
         EngStrings[25] = "CREDITS";
         EngStrings[26] = "Close";
@@ -103,6 +101,21 @@ public class LocalizationScript : MonoBehaviour
         EngStrings[48] = "ERROR: This key is already used!";
         EngStrings[49] = " Return to default ";
         EngStrings[50] = "Press any key";
+        EngStrings[51] = "LEVEL SELECT";
+        EngStrings[52] = "Level 1";
+        EngStrings[53] = "Level 2";
+        EngStrings[54] = "Story mode";
+        EngStrings[55] = "Scores";
+        EngStrings[56] = "SCORES";
+        EngStrings[57] = "Level 1";
+        EngStrings[58] = "Level 2";
+        EngStrings[59] = "Best time: ";
+        EngStrings[60] = "Best score: ";
+        EngStrings[61] = "Story mode";
+        EngStrings[62] = "Best time: ";
+        EngStrings[63] = "Best score: ";
+        EngStrings[64] = "Close scores";
+        EngStrings[65] = "Close level select";
     }
 
     void createRusList()
@@ -130,7 +143,7 @@ public class LocalizationScript : MonoBehaviour
         RusStrings[20] = " Удалить сохранения ";
         RusStrings[21] = " Закрыть опции ";
         RusStrings[22] = "ИСТОРИЯ";
-        RusStrings[23] = "Безумные культисты, живущие на острове Вулкана, называют себя народом пепла и имеют всего одну цель в жизни: устроить апокалипсис! Чтобы совершить ритуал конца света им нужен большой магический изумруд и 10 невинных душ. В одну роковую ночь они выкрали изумруд и 10 детей с острова Фруктов неподалеку, и теперь они готовы совершить великое жертвоприношение: скинуть все это в жерло вулкана. \n Остров Фруктов в трауре. Их единственная надежда - ты, лучший воин на острове. Народ пепла очень опасен, время на исходе, так что тебе нужно быть осторожным и быстрым. Спасенные дети помогут тебе по пути, изумруд отправит их домой и даст тебе бонусы. Удачи!";
+        RusStrings[23] = "Безумные культисты, живущие на острове Вулкана, называют себя народом пепла и имеют всего одну цель в жизни: устроить апокалипсис! Чтобы совершить ритуал конца света им нужен большой магический изумруд и куча невинных душ. В одну роковую ночь они выкрали изумруд и всех детей с острова Фруктов неподалеку, и теперь они готовы совершить великое жертвоприношение: скинуть все это в жерло вулкана. \n Остров Фруктов в трауре. Их единственная надежда - ты, лучший воин на острове. Народ пепла очень опасен, время на исходе, так что тебе нужно быть осторожным и быстрым. Спасенные дети помогут тебе по пути, изумруд отправит их домой и даст тебе бонусы. Удачи!";
         RusStrings[24] = "Закрыть";
         RusStrings[25] = "Титры";
         RusStrings[26] = "Закрыть";
@@ -158,11 +171,26 @@ public class LocalizationScript : MonoBehaviour
         RusStrings[48] = "ОШИБКА! Клавиша уже занята!";
         RusStrings[49] = " По умолчанию ";
         RusStrings[50] = "Нажмите клавишу";
+        RusStrings[51] = "ВЫБОР УРОВНЯ";
+        RusStrings[52] = "Уровень 1";
+        RusStrings[53] = "Уровень 2";
+        RusStrings[54] = "Режим истории";
+        RusStrings[55] = "Рекорды";
+        RusStrings[56] = "РЕКОРДЫ";
+        RusStrings[57] = "Уровень 1";
+        RusStrings[58] = "Уровень 2";
+        RusStrings[59] = "Лучшее время: ";
+        RusStrings[60] = "Лучший счет: ";
+        RusStrings[61] = "Режим истории";
+        RusStrings[62] = "Лучшее время: ";
+        RusStrings[63] = "Лучший счет: ";
+        RusStrings[64] = "Закрыть рекорды";
+        RusStrings[65] = "Закрыть выбор уровня";
     }
 
    public void translateToRussian()
     {
-        for (int i = 0; i <= 50; i++)
+        for (int i = 0; i <= 65; i++)
         {
             Texts[i].text = RusStrings[i];
             Texts[i].font = rusFont;
@@ -171,7 +199,7 @@ public class LocalizationScript : MonoBehaviour
 
     public void translateToEnglish()
     {
-        for (int i = 0; i <= 50; i++)
+        for (int i = 0; i <= 65; i++)
         {
             Texts[i].text = EngStrings[i];
             Texts[i].font = engFont;
