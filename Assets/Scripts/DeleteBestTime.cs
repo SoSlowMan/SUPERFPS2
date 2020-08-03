@@ -19,6 +19,11 @@ public class DeleteBestTime : MonoBehaviour
     public void deleteBestTime()
     {
         PlayerPrefs.DeleteKey("BestTime"); //удаляю из памяти компа лучшее время
-        //BestTimeScript.instance.successDeletionText.SetActive(true); //показываю надпись о том что лучшее время было удалено
+        PlayerPrefs.DeleteKey("BestTimeStory1");
+        PlayerPrefs.DeleteKey("BestTimeStory2");
+        PlayerPrefs.DeleteKey("BestTime2");
+        PlayerPrefs.DeleteKey("BestTimeStory");
+        PlayerPrefs.DeleteKey("TimeStory1");
+        PlayerPrefs.DeleteKey("TimeStory2");
     }
 }

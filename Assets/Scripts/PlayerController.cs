@@ -90,7 +90,9 @@ public class PlayerController : MonoBehaviour
 
     public string currentLevel;
 
-    public bool isTester;
+    public GameObject nextLevelButton;
+
+    public bool dafuck;
 
     private void Awake()
     {
@@ -106,6 +108,12 @@ public class PlayerController : MonoBehaviour
         ammoText.text = currentAmmo.ToString();
         speedText.text = moveSpeedMultiplier.ToString() + "X";
         currentLevel = SceneManager.GetActiveScene().name;
+        nextLevelButton.SetActive(false);
+        if (PlayerPrefs.HasKey("StoryMode"))
+        {
+            dafuck = true;
+        }
+        else dafuck = false;
         switch (currentLevel)
         {
             case "jungle":
@@ -121,8 +129,7 @@ public class PlayerController : MonoBehaviour
             case "dreamcast":
                 amountOfSecrets = 4;
                 bossAmount = 2;
-                isTester = true;
-                if ((PlayerPrefs.HasKey("jungleKids100") && PlayerPrefs.HasKey("jungleKills100")) || isTester == true)
+                if ((PlayerPrefs.HasKey("jungleKids100") && PlayerPrefs.HasKey("jungleKills100")) || PlayerPrefs.HasKey("StoryMode") != true)
                 {
                     damage += 2;
                     moveSpeedMultiplier += 0.2f;
@@ -285,7 +292,14 @@ public class PlayerController : MonoBehaviour
                     SceneManager.LoadScene(currentLevel);
                     break;
                 case "dreamcast":
-                    SceneManager.LoadScene(currentLevel);
+                    if (PlayerPrefs.HasKey("StoryMode"))
+                    {
+                        SceneManager.LoadScene("jungle");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(currentLevel);
+                    }
                     break;
                 case "tutor":
                     SceneManager.LoadScene(currentLevel);
@@ -296,7 +310,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Exit", "Escape"))))
         {
             hasDied = true;
-            PlayerPrefs.SetInt("Storymode", 0);
+            PlayerPrefs.DeleteKey("StoryMode");
             PlayerPrefs.DeleteKey("jungleKills100");
             PlayerPrefs.DeleteKey("jungleKids100");
             SceneManager.LoadScene("MainMenu");

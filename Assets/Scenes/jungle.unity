@@ -7050,7 +7050,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5539670131467861058, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3598882111923029372, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598882111840839754, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073330183965483848, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7175,16 +7190,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 40.69995
       objectReference: {fileID: 0}
-    - target: {fileID: 3598882111840839754, guid: 326b90452e368ee4399a8fedc18c51f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073330183965483848, guid: 326b90452e368ee4399a8fedc18c51f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4735435706221369292, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_IsActive
@@ -7245,11 +7250,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 438.1
       objectReference: {fileID: 0}
-    - target: {fileID: 5539670131467861058, guid: 326b90452e368ee4399a8fedc18c51f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3598882112012697003, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_EffectDistance.x
@@ -7290,6 +7290,12 @@ PrefabInstance:
 --- !u!1 &3598882113647333840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 907772770728705150, guid: 326b90452e368ee4399a8fedc18c51f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3598882113647333839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3598882113647333841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8610353064636138715, guid: 326b90452e368ee4399a8fedc18c51f9,
     type: 3}
   m_PrefabInstance: {fileID: 3598882113647333839}
   m_PrefabAsset: {fileID: 0}
@@ -8159,7 +8165,7 @@ MonoBehaviour:
   deathClock: 0
   secretBoss: {fileID: 1493905488}
   currentLevel: 
-  isTester: 0
+  nextLevelButton: {fileID: 3598882113647333841}
 --- !u!58 &8586325279838547100
 CircleCollider2D:
   m_ObjectHideFlags: 0

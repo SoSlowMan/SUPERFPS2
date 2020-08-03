@@ -32,9 +32,8 @@ public class SceneManagementScript : MonoBehaviour
 
     public void StartTheStory()
     {
+        PlayerPrefs.SetInt("StoryMode", 1);
         StartCoroutine(LoadJungle());
-        PlayerPrefs.SetInt("Storymode", 1);
-        //SceneManager.LoadScene("jungle");
     }
 
     public void StartTutorial()

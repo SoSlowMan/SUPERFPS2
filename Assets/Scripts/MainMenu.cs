@@ -13,13 +13,15 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         AudioController.instance.PlayMainMenuMusic();
+        PlayerPrefs.DeleteKey("StoryMode");
+        PlayerPrefs.DeleteKey("jungleKills100");
+        PlayerPrefs.DeleteKey("jungleKids100");
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.DeleteKey("jungleKills100");
-        PlayerPrefs.DeleteKey("jungleKids100");
+
     }
 
     public void openOptions()

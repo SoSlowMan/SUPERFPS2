@@ -22,6 +22,10 @@ public class WinTrigger : MonoBehaviour
             PlayerController.instance.kidRewardScreen.SetActive(false);
             AudioController.instance.backgroundMusic.Stop();
             AudioController.instance.winSound.Play();
+            if (PlayerPrefs.HasKey("StoryMode"))
+            {
+                PlayerController.instance.nextLevelButton.SetActive(true);
+            }
         }
     }
 }

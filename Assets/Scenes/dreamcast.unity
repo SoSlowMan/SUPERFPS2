@@ -58096,6 +58096,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4073330183965483848, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4073330184986511270, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58216,19 +58221,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 40.69995
       objectReference: {fileID: 0}
-    - target: {fileID: 3598882113352471302, guid: 326b90452e368ee4399a8fedc18c51f9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8610353064636138715, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4073330183965483848, guid: 326b90452e368ee4399a8fedc18c51f9,
+    - target: {fileID: 3598882113352471302, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -86133,6 +86133,11 @@ PrefabInstance:
       propertyPath: currentAmmo
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 5191050869623688582, guid: e5c9810d4e414904aac51b4bf5152bb3,
+        type: 3}
+      propertyPath: nextLevelButton
+      value: 
+      objectReference: {fileID: 825019037}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5c9810d4e414904aac51b4bf5152bb3, type: 3}
 --- !u!1001 &5102481573776665736
