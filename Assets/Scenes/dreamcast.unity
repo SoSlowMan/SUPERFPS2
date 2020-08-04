@@ -58140,6 +58140,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3598882111830171375, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4073330183965483848, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_IsActive
@@ -58273,7 +58278,13 @@ PrefabInstance:
     - target: {fileID: 3598882113352471302, guid: 326b90452e368ee4399a8fedc18c51f9,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598882113352471302, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_Text
+      value: "YOU'VE SAVED ALL KIDS AND KILLED ALL BAD GUYS ON LEVEL 1. \nYOU GET
+        +2 DMG AND +0.2 SPD!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326b90452e368ee4399a8fedc18c51f9, type: 3}
@@ -86704,7 +86715,6 @@ MonoBehaviour:
   deathClock: 0
   secretBoss: {fileID: 1493905488}
   currentLevel: 
-  nextLevelButton: {fileID: 825019037}
   dafuck: 0
 --- !u!58 &8586325279838547100
 CircleCollider2D:

@@ -15,5 +15,8 @@ public class DeleteTheHighScore : MonoBehaviour
         PlayerPrefs.DeleteKey("BestScore2");
         PlayerPrefs.DeleteKey("ScoreTime2");
         PlayerPrefs.DeleteKey("BestTime2");
+        PlayerPrefs.DeleteKey("BestTimeScoreStory");
+        PlayerPrefs.DeleteKey("BestScoreStory");
+        PlayerPrefs.DeleteKey("BestTimeStory");
     }
 }

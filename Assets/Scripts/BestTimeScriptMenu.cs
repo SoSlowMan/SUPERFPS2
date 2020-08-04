@@ -40,7 +40,6 @@ public class BestTimeScriptMenu : MonoBehaviour
             bestTime2 = PlayerPrefs.GetFloat("BestTimeStory");
             updateTimeText();
         }
-        counterText = GetComponent<Text>() as Text;
     }
 
     // Update is called once per frame
