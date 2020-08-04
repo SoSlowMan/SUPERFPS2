@@ -18,6 +18,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("jungleKids100");
         PlayerPrefs.DeleteKey("TimeStory1");
         PlayerPrefs.DeleteKey("TimeStory2");
+        PlayerPrefs.DeleteKey("ScoreTimeStory1");
+        PlayerPrefs.DeleteKey("ScoreTimeStory2");
+        PlayerPrefs.DeleteKey("ScoreStory1");
+        PlayerPrefs.DeleteKey("ScoreStory2");
     }
 
     // Update is called once per frame

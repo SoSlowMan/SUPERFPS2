@@ -1734,7 +1734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &268426034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2325,9 +2325,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 386725046}
   - {fileID: 593663289}
   - {fileID: 2104527471}
-  - {fileID: 386725046}
   m_Father: {fileID: 1434507828}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2604,7 +2604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &386725046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2618,12 +2618,12 @@ RectTransform:
   m_Children:
   - {fileID: 806052899}
   m_Father: {fileID: 331632828}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 54.5, y: 21}
-  m_SizeDelta: {x: 250.9, y: 44.9}
+  m_AnchoredPosition: {x: 54.5, y: 150}
+  m_SizeDelta: {x: 250.9, y: 42.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386725047
 MonoBehaviour:
@@ -4038,11 +4038,11 @@ RectTransform:
   m_Children:
   - {fileID: 472281636}
   m_Father: {fileID: 331632828}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 54.5, y: 147.60004}
+  m_AnchoredPosition: {x: 54.5, y: 75}
   m_SizeDelta: {x: 250.9, y: 42.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593663290
@@ -8609,7 +8609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1037210527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8682,9 +8682,8 @@ GameObject:
   - component: {fileID: 1060837596}
   - component: {fileID: 1060837600}
   - component: {fileID: 1060837599}
-  - component: {fileID: 1060837597}
   m_Layer: 5
-  m_Name: BestTimeText
+  m_Name: BestTimeTextStory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8709,28 +8708,6 @@ RectTransform:
   m_AnchoredPosition: {x: 160.8, y: -15.26}
   m_SizeDelta: {x: 148.71, y: 38.74}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1060837597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060837595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fdb989688bbc1e4f8c6edecfab3c5fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bestTime: 0
-  bestTime2: 0
-  counterText: {fileID: 1060837599}
-  counterText2: {fileID: 0}
-  seconds: 0
-  minutes: 0
-  miliseconds: 0
-  seconds2: 0
-  minutes2: 0
-  miliseconds2: 0
 --- !u!114 &1060837599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10054,14 +10031,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bestScore: 0
   bestScore2: 0
+  bestScoreStory: 0
   counterText: {fileID: 1266770672}
   counterText2: {fileID: 2001371437}
+  counterTextStory: {fileID: 1776039716}
   seconds: 0
   minutes: 0
   miliseconds: 0
   seconds2: 0
   minutes2: 0
   miliseconds2: 0
+  secondsStory: 0
+  minutesStory: 0
+  milisecondsStory: 0
 --- !u!114 &1247736746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10113,14 +10095,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bestTime: 0
   bestTime2: 0
+  bestTimeStory: 0
   counterText: {fileID: 1511978854}
   counterText2: {fileID: 47678415}
+  counterTextStory: {fileID: 1060837599}
   seconds: 0
   minutes: 0
   miliseconds: 0
   seconds2: 0
   minutes2: 0
   miliseconds2: 0
+  secondsStory: 0
+  minutesStory: 0
+  milisecondsStory: 0
 --- !u!1 &1249524772
 GameObject:
   m_ObjectHideFlags: 0
@@ -10882,7 +10869,7 @@ GameObject:
   - component: {fileID: 1334216918}
   - component: {fileID: 1334216917}
   m_Layer: 5
-  m_Name: button close scoes
+  m_Name: button close scores
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13702,7 +13689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1601893738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15369,7 +15356,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0.0000013113, y: 48.1}
-  m_SizeDelta: {x: 250.36, y: 46.98}
+  m_SizeDelta: {x: 250, y: 42.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1747229302
 MonoBehaviour:
@@ -15490,9 +15477,8 @@ GameObject:
   - component: {fileID: 1776039713}
   - component: {fileID: 1776039717}
   - component: {fileID: 1776039716}
-  - component: {fileID: 1776039714}
   m_Layer: 5
-  m_Name: BestScoreText
+  m_Name: BestScoreTextStory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15517,28 +15503,6 @@ RectTransform:
   m_AnchoredPosition: {x: 228.7, y: -16.05}
   m_SizeDelta: {x: 259.4, y: 39.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1776039714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776039712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f719c195a846df5499825319d83fefe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bestScore: 0
-  bestScore2: 0
-  counterText: {fileID: 1776039716}
-  counterText2: {fileID: 0}
-  seconds: 0
-  minutes: 0
-  miliseconds: 0
-  seconds2: 0
-  minutes2: 0
-  miliseconds2: 0
 --- !u!114 &1776039716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18018,12 +17982,12 @@ RectTransform:
   m_Children:
   - {fileID: 1869093513}
   m_Father: {fileID: 331632828}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 54.499, y: 85}
-  m_SizeDelta: {x: 250.9, y: 42.5}
+  m_AnchoredPosition: {x: 54.499, y: 0}
+  m_SizeDelta: {x: 250.9, y: 42.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104527472
 MonoBehaviour:

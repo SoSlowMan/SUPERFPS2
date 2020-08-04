@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public GameObject deadApocScreen;
     public GameObject deadDamageScreen;
     public GameObject winScreen;
+    public GameObject winScreenStory;
     public GameObject startScreen;
     public GameObject secretScreen;
     public GameObject secretBossScreen;
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     public string currentLevel;
 
-    public GameObject nextLevelButton;
+    //public GameObject nextLevelButton;
 
     public bool dafuck;
 
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
         ammoText.text = currentAmmo.ToString();
         speedText.text = moveSpeedMultiplier.ToString() + "X";
         currentLevel = SceneManager.GetActiveScene().name;
-        nextLevelButton.SetActive(false);
+        //nextLevelButton.SetActive(false);
         if (PlayerPrefs.HasKey("StoryMode"))
         {
             dafuck = true;
@@ -291,6 +292,10 @@ public class PlayerController : MonoBehaviour
                     PlayerPrefs.DeleteKey("jungleKids100");
                     PlayerPrefs.DeleteKey("TimeStory1");
                     PlayerPrefs.DeleteKey("TimeStory2");
+                    PlayerPrefs.DeleteKey("ScoreTimeStory1");
+                    PlayerPrefs.DeleteKey("ScoreTimeStory2");
+                    PlayerPrefs.DeleteKey("ScoreStory1");
+                    PlayerPrefs.DeleteKey("ScoreStory2");
                     SceneManager.LoadScene(currentLevel);
                     break;
                 case "dreamcast":
@@ -300,6 +305,10 @@ public class PlayerController : MonoBehaviour
                         PlayerPrefs.DeleteKey("jungleKids100");
                         PlayerPrefs.DeleteKey("TimeStory1");
                         PlayerPrefs.DeleteKey("TimeStory2");
+                        PlayerPrefs.DeleteKey("ScoreTimeStory1");
+                        PlayerPrefs.DeleteKey("ScoreTimeStory2");
+                        PlayerPrefs.DeleteKey("ScoreStory1");
+                        PlayerPrefs.DeleteKey("ScoreStory2");
                         SceneManager.LoadScene("jungle");
                     }
                     else
@@ -321,6 +330,10 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.DeleteKey("jungleKids100");
             PlayerPrefs.DeleteKey("TimeStory1");
             PlayerPrefs.DeleteKey("TimeStory2");
+            PlayerPrefs.DeleteKey("ScoreTimeStory1");
+            PlayerPrefs.DeleteKey("ScoreTimeStory2");
+            PlayerPrefs.DeleteKey("ScoreStory1");
+            PlayerPrefs.DeleteKey("ScoreStory2");
             SceneManager.LoadScene("MainMenu");
         }
 

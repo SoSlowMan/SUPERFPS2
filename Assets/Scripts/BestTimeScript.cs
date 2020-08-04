@@ -12,8 +12,8 @@ public class BestTimeScript : MonoBehaviour
     public float time;
     public float bestTime = 0;
     public float bestTimeStory = 0;
-    public Text counterText;
-    public float seconds, minutes, miliseconds;
+    public Text counterText, counterText2;
+    public float seconds, minutes, miliseconds, secondsStory, minutesStory, milisecondsStory;
     public string currentLevel;
 
     private void Awake()
@@ -69,7 +69,7 @@ public class BestTimeScript : MonoBehaviour
                 }
               
                 updateTimeText();
-                counterText = GetComponent<Text>() as Text;
+                //counterText = GetComponent<Text>() as Text;
                 break;
 
                 //то же самое для второго уровня
@@ -132,7 +132,6 @@ public class BestTimeScript : MonoBehaviour
                 }
             
                 updateTimeText();
-                counterText = GetComponent<Text>() as Text;
                 break;
         }
     }
@@ -143,5 +142,12 @@ public class BestTimeScript : MonoBehaviour
         seconds = (int)(bestTime % 60f);
         miliseconds = (int)(((bestTime % 60f) * 100) % 100);
         counterText.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + miliseconds.ToString("00");
+        if (PlayerPrefs.HasKey("StoryMode"))
+        {
+            minutesStory = (int)(bestTimeStory / 60f);
+            secondsStory = (int)(bestTimeStory % 60f);
+            milisecondsStory = (int)(((bestTimeStory % 60f) * 100) % 100);
+            counterText2.text = minutesStory.ToString("00") + ":" + secondsStory.ToString("00") + ":" + milisecondsStory.ToString("00");
+        }    
     }
 }

@@ -8,29 +8,17 @@ public class BestScoreScriptMenu : MonoBehaviour
 
     public static BestScoreScriptMenu instance;
 
-    public int bestScore, bestScore2;
-    public Text counterText, counterText2;
+    public int bestScore, bestScore2, bestScoreStory;
+    public Text counterText, counterText2, counterTextStory;
     public float seconds, minutes, miliseconds;
     public float seconds2, minutes2, miliseconds2;
-    float scoreTime, scoreTime2;
+    public float secondsStory, minutesStory, milisecondsStory;
+    float scoreTime, scoreTime2, bestTimeScoreStory;
     bool wereSavesDeleted = false;
 
     private void Awake()
     {
         instance = this;
-        if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
-        {
-            bestScore = PlayerPrefs.GetInt("BestScore");
-            scoreTime = PlayerPrefs.GetFloat("ScoreTime");
-            updateScoreText();
-        }
-        if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
-        {
-            bestScore2 = PlayerPrefs.GetInt("BestScore2");
-            scoreTime2 = PlayerPrefs.GetFloat("ScoreTime2");
-            updateScoreText();
-        }
-
     }
 
     // Start is called before the first frame update
@@ -48,6 +36,12 @@ public class BestScoreScriptMenu : MonoBehaviour
             scoreTime2 = PlayerPrefs.GetFloat("ScoreTime2");
             updateScoreText();
         }
+        if (PlayerPrefs.HasKey("BestScoreStory") || (PlayerPrefs.HasKey("BestTimeScoreStory")))
+        {
+            bestScore2 = PlayerPrefs.GetInt("BestScoreStory");
+            scoreTime2 = PlayerPrefs.GetFloat("BestTimeScoreStory");
+            updateScoreText();
+        }
         counterText = GetComponent<Text>() as Text;
     }
 
@@ -60,6 +54,8 @@ public class BestScoreScriptMenu : MonoBehaviour
             bestScore2 = 0;
             scoreTime = 0;
             scoreTime2 = 0;
+            bestTimeScoreStory = 0;
+            bestScoreStory = 0;
             updateScoreText();
             wereSavesDeleted = false;
         }
@@ -76,12 +72,15 @@ public class BestScoreScriptMenu : MonoBehaviour
         seconds2 = (int)(scoreTime2 % 60f);
         miliseconds2 = (int)(((scoreTime2 % 60f) * 100) % 100);
         counterText2.text = bestScore2.ToString("0") + "/" + minutes2.ToString("00") + ":" + seconds2.ToString("00") + ":" + miliseconds2.ToString("00");
+
+        minutesStory = (int)(bestTimeScoreStory / 60f);
+        secondsStory = (int)(bestTimeScoreStory % 60f);
+        milisecondsStory = (int)(((bestTimeScoreStory % 60f) * 100) % 100);
+        counterTextStory.text = bestScoreStory.ToString("0") + "/" + minutesStory.ToString("00") + ":" + secondsStory.ToString("00") + ":" + milisecondsStory.ToString("00");
     }
 
     public void dumbScoreFlag()
     {
         wereSavesDeleted = true;
     }
-
-
 }

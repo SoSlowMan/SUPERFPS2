@@ -54,7 +54,7 @@ public class LocalizeLevelScript : MonoBehaviour
         RusStrings[8] = "Еще раз?";
         RusStrings[9] = " Выйти из игры ";
         RusStrings[10] = " Выйти в главное меню ";
-        RusStrings[11] = "  ПОБЕДА! \nВремя:";
+        RusStrings[11] = " ПОБЕДА!\nВремя:";
         RusStrings[12] = "Лучшее время:";
         RusStrings[13] = "Еще раз?";
         RusStrings[14] = " Выйти из игры ";
@@ -85,7 +85,7 @@ public class LocalizeLevelScript : MonoBehaviour
         EngStrings[8] = "Try again?";
         EngStrings[9] = "Return to Windows";
         EngStrings[10] = "Return to Main Menu";
-        EngStrings[11] = "YOU WIN! \n Your time:";
+        EngStrings[11] = "YOU WIN!\n Your time:";
         EngStrings[12] = "Your best time:";
         EngStrings[13] = "Try again?";
         EngStrings[14] = "Return to Windows";

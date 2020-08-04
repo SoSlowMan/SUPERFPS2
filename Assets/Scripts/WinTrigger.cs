@@ -13,8 +13,7 @@ public class WinTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        {
-            PlayerController.instance.winScreen.SetActive(true);
+        {         
             PlayerController.instance.hasDied = true;
             PlayerController.instance.winCubeScreen.SetActive(false);
             PlayerController.instance.deadScreen.SetActive(false);
@@ -22,10 +21,13 @@ public class WinTrigger : MonoBehaviour
             PlayerController.instance.kidRewardScreen.SetActive(false);
             AudioController.instance.backgroundMusic.Stop();
             AudioController.instance.winSound.Play();
+
             if (PlayerPrefs.HasKey("StoryMode"))
             {
-                PlayerController.instance.nextLevelButton.SetActive(true);
+                PlayerController.instance.winScreenStory.SetActive(true);
+                //PlayerController.instance.nextLevelButton.SetActive(true);
             }
+            else PlayerController.instance.winScreen.SetActive(true);
         }
     }
 }

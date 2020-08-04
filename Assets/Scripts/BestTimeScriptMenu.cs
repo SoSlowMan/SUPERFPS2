@@ -10,25 +10,16 @@ public class BestTimeScriptMenu : MonoBehaviour
 
     public float bestTime = 0;
     public float bestTime2 = 0;
-    public Text counterText, counterText2;
+    public float bestTimeStory = 0;
+    public Text counterText, counterText2, counterTextStory;
     public float seconds, minutes, miliseconds;
     public float seconds2, minutes2, miliseconds2;
+    public float secondsStory, minutesStory, milisecondsStory;
     bool wereSavesDeleted = false;
 
     private void Awake()
     {
         instance = this;
-        if (PlayerPrefs.HasKey("BestTime"))
-        {
-            bestTime = PlayerPrefs.GetFloat("BestTime");
-            updateTimeText();
-        }
-        if (PlayerPrefs.HasKey("BestTime2"))
-        {
-            bestTime2 = PlayerPrefs.GetFloat("BestTime2");
-            updateTimeText();
-        }
-
     }
 
     // Start is called before the first frame update
@@ -44,6 +35,11 @@ public class BestTimeScriptMenu : MonoBehaviour
             bestTime2 = PlayerPrefs.GetFloat("BestTime2");
             updateTimeText();
         }
+        if (PlayerPrefs.HasKey("BestTimeStory"))
+        {
+            bestTime2 = PlayerPrefs.GetFloat("BestTimeStory");
+            updateTimeText();
+        }
         counterText = GetComponent<Text>() as Text;
     }
 
@@ -55,6 +51,7 @@ public class BestTimeScriptMenu : MonoBehaviour
         {
             bestTime = 0;
             bestTime2 = 0;
+            bestTimeStory = 0;
             updateTimeText();
             wereSavesDeleted = false;
         }
@@ -71,6 +68,11 @@ public class BestTimeScriptMenu : MonoBehaviour
         seconds2 = (int)(bestTime2 % 60f);
         miliseconds2 = (int)(((bestTime2 % 60f) * 100) % 100);
         counterText2.text = minutes2.ToString("00") + ":" + seconds2.ToString("00") + ":" + miliseconds2.ToString("00");
+
+        minutesStory = (int)(bestTimeStory / 60f);
+        secondsStory = (int)(bestTimeStory % 60f);
+        milisecondsStory = (int)(((bestTimeStory % 60f) * 100) % 100);
+        counterTextStory.text = minutesStory.ToString("00") + ":" + secondsStory.ToString("00") + ":" + milisecondsStory.ToString("00");
     }
 
     public void dumbScoreFlag()
