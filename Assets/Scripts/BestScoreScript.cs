@@ -18,25 +18,6 @@ public class BestScoreScript : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        switch (currentLevel)
-        {
-            case "jungle":
-                if (PlayerPrefs.HasKey("BestScore") || (PlayerPrefs.HasKey("ScoreTime")))
-                {
-                    bestScore = PlayerPrefs.GetInt("BestScore");
-                    scoreTime = PlayerPrefs.GetFloat("ScoreTime");
-                    updateScoreText();
-                }
-                break;
-            case "dreamcast":
-                if (PlayerPrefs.HasKey("BestScore2") || (PlayerPrefs.HasKey("ScoreTime2")))
-                {
-                    bestScore = PlayerPrefs.GetInt("BestScore2");
-                    scoreTime = PlayerPrefs.GetFloat("ScoreTime2");
-                    updateScoreText();
-                }
-                break;
-        }
     }
 
     // Start is called before the first frame update
@@ -48,35 +29,57 @@ public class BestScoreScript : MonoBehaviour
         {
             case "jungle":
                 score = PlayerController.instance.score;
-                if ((bestScore == 0) || (score >= bestScore))
+                if (PlayerPrefs.HasKey("BestScore") != true || (PlayerPrefs.HasKey("ScoreTime") != true)) //если сохранений рекордов нет, то просто записываем получившийся результат
                 {
                     bestScore = score;
                     PlayerPrefs.SetInt("BestScore", bestScore);
                     scoreTime = Time.timeSinceLevelLoad;
                     PlayerPrefs.SetFloat("ScoreTime", scoreTime);
-                    updateScoreText();
                 }
+                else //если сохранения есть, то показываем их
+                {
+                    bestScore = PlayerPrefs.GetInt("BestScore");
+                    scoreTime = PlayerPrefs.GetFloat("ScoreTime");                  
+                }
+
+                if (score >= bestScore) //если полученные очки лучше рекордов, то записываем и показываем новый рекорд
+                {
+                    bestScore = score;
+                    PlayerPrefs.SetInt("BestScore", bestScore);
+                    scoreTime = Time.timeSinceLevelLoad;
+                    PlayerPrefs.SetFloat("ScoreTime", scoreTime);
+                }
+                updateScoreText();
                 counterText = GetComponent<Text>() as Text;
                 break;
+
+                //то же самое для второго уровня
             case "dreamcast":
                 score = PlayerController.instance.score;
-                if ((bestScore == 0) || (score >= bestScore))
+                if (PlayerPrefs.HasKey("BestScore2") != true || (PlayerPrefs.HasKey("ScoreTime2") != true)) //если сохранений рекордов нет, то просто записываем получившийся результат
                 {
-                    //для первого запуска
                     bestScore = score;
                     PlayerPrefs.SetInt("BestScore2", bestScore);
                     scoreTime = Time.timeSinceLevelLoad;
                     PlayerPrefs.SetFloat("ScoreTime2", scoreTime);
-                    updateScoreText();
                 }
+                else //если сохранения есть, то показываем их
+                {
+                    bestScore = PlayerPrefs.GetInt("BestScore2");
+                    scoreTime = PlayerPrefs.GetFloat("ScoreTime2");
+                }
+
+                if (score >= bestScore) //если полученные очки лучше рекордов, то записываем и показываем новый рекорд
+                {
+                    bestScore = score;
+                    PlayerPrefs.SetInt("BestScore2", bestScore);
+                    scoreTime = Time.timeSinceLevelLoad;
+                    PlayerPrefs.SetFloat("ScoreTime2", scoreTime);
+                }
+                updateScoreText();
+                counterText = GetComponent<Text>() as Text;
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void updateScoreText()

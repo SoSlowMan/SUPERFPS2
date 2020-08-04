@@ -19,42 +19,6 @@ public class BestTimeScript : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        switch (currentLevel)
-        {
-            case "jungle":
-                if (PlayerPrefs.HasKey("BestTime") && PlayerPrefs.HasKey("StoryMode") != true)
-                {
-                    bestTime = PlayerPrefs.GetFloat("BestTime");
-                    updateTimeText();
-                }
-                if (PlayerPrefs.HasKey("StoryMode"))
-                {
-                    if (PlayerPrefs.HasKey("BestTimeStory1"))
-                    {
-                        bestTime = PlayerPrefs.GetFloat("BestTimeStory1");
-                        updateTimeText();
-                    }
-                }
-                updateTimeText();
-                break;
-            case "dreamcast":
-                if (PlayerPrefs.HasKey("BestTime2") && PlayerPrefs.HasKey("StoryMode") != true)
-                {
-                    bestTime = PlayerPrefs.GetFloat("BestTime2");
-                    updateTimeText();
-                }
-                if (PlayerPrefs.HasKey("StoryMode"))
-                {
-                    if (PlayerPrefs.HasKey("BestTimeStory2"))
-                    {
-                        bestTime = PlayerPrefs.GetFloat("BestTimeStory2");
-                        updateTimeText();
-                    }
-                }
-                updateTimeText();
-                break;
-        }
-
     }
 
     // Start is called before the first frame update
@@ -64,103 +28,48 @@ public class BestTimeScript : MonoBehaviour
         switch (currentLevel)
         {
             case "jungle":
-                time = Time.timeSinceLevelLoad; //время со старта лвла
-                if (bestTime == 0 && PlayerPrefs.HasKey("StoryMode") != true)
+                time = Time.timeSinceLevelLoad;
+                if (PlayerPrefs.HasKey("BestTime") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                {
+                    bestTime = time; 
+                    PlayerPrefs.SetFloat("BestTime", bestTime);
+                }
+                else //если рекорд в памяти все-таки есть, то показываем его как лучший
+                {
+                    bestTime = PlayerPrefs.GetFloat("BestTime");
+                }
+
+                if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
                 {
                     bestTime = time; //для первого запуска
                     PlayerPrefs.SetFloat("BestTime", bestTime);
                 }
-                if (PlayerPrefs.HasKey("StoryMode"))
-                {
-                    if (PlayerPrefs.HasKey("BestTimeStory1"))
-                    {
-                        bestTime = PlayerPrefs.GetFloat("BestTimeStory1");
-                        updateTimeText();
-                    }
-                }
                 updateTimeText();
                 counterText = GetComponent<Text>() as Text;
                 break;
+
+                //то же самое для второго уровня
             case "dreamcast":
-                time = Time.timeSinceLevelLoad; //время со старта лвла
-                if (bestTime == 0 && PlayerPrefs.HasKey("StoryMode") != true)
+                time = Time.timeSinceLevelLoad;
+                if (PlayerPrefs.HasKey("BestTime2") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                {
+                    bestTime = time;
+                    PlayerPrefs.SetFloat("BestTime2", bestTime);
+                }
+                else //если рекорд в памяти все-таки есть, то показываем его как лучший
+                {
+                    bestTime = PlayerPrefs.GetFloat("BestTime2");
+                }
+
+                if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
                 {
                     bestTime = time; //для первого запуска
                     PlayerPrefs.SetFloat("BestTime2", bestTime);
-                }
-                if (PlayerPrefs.HasKey("StoryMode"))
-                {
-                    if (PlayerPrefs.HasKey("BestTimeStory2"))
-                    {
-                        bestTime = PlayerPrefs.GetFloat("BestTimeStory2");
-                        updateTimeText();
-                    }
-                    if (PlayerPrefs.HasKey("BestTimeStory"))
-                    {
-                        bestTimeStory = PlayerPrefs.GetFloat("BestTimeStory");
-                        updateTimeText();
-                    }
-                    else
-                    {
-                        bestTimeStory = PlayerPrefs.GetFloat("TimeStory1") + PlayerPrefs.GetFloat("TimeStory2"); // для записи первого рекорда для всего режима
-                    }
                 }
                 updateTimeText();
                 counterText = GetComponent<Text>() as Text;
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        switch (currentLevel)
-        {
-            case "jungle":
-                time = Time.timeSinceLevelLoad; //время со старта лвла
-                if (time <= bestTime && PlayerPrefs.HasKey("StoryMode") != true)
-                {
-                    bestTime = time; //для первого запуска
-                    PlayerPrefs.SetFloat("BestTime", bestTime);
-                }
-                if (PlayerPrefs.HasKey("StoryMode"))
-                {
-                    PlayerPrefs.SetFloat("TimeStory1", time); //записываю результат пробежки первого уровня, чтобы потом получить лучший по истории
-                    if(time <= bestTime)
-                    {
-                        bestTime = time; //записываю резултат в лучший, если он лучший
-                        PlayerPrefs.SetFloat("BestTimeStory1", bestTime);
-                    }
-                }
-                updateTimeText();
-                break;
-            case "dreamcast":
-                time = Time.timeSinceLevelLoad; //время со старта лвла
-                if (time <= bestTime && PlayerPrefs.HasKey("StoryMode") != true)
-                {
-                    bestTime = time; //для первого запуска
-                    PlayerPrefs.SetFloat("BestTime2", bestTime);
-                }
-                if (PlayerPrefs.HasKey("StoryMode"))
-                {
-                    PlayerPrefs.SetFloat("TimeStory2", time); //записываю результат пробежки второго уровня, чтобы потом получить лучший по истории
-                    if (time <= bestTime)
-                    {
-                        bestTime = time; //записываю резултат в лучший, если он лучший
-                        PlayerPrefs.SetFloat("BestTimeStory2", bestTime);
-                    }
-                    //записывать рекорды всей истории тута
-                    if (PlayerPrefs.GetFloat("BestTimeStory") >= (PlayerPrefs.GetFloat("TimeStory1") + PlayerPrefs.GetFloat("TimeStory2")))
-                    {
-                        bestTimeStory = PlayerPrefs.GetFloat("TimeStory1") + PlayerPrefs.GetFloat("TimeStory2");
-                        PlayerPrefs.SetFloat("BestTimeStory", bestTimeStory);
-                    }
-
-                }
-                updateTimeText();
-                break;
-        }
-
     }
 
     void updateTimeText()

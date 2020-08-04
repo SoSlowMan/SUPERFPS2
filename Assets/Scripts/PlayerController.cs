@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
                 moveSpeed = defaultMoveSpeed * moveSpeedMultiplier;
                 PlayerPrefs.DeleteKey("jungleKills100");
                 PlayerPrefs.DeleteKey("jungleKids100");
-                deathClock = 6000;
+                deathClock = 12000;
                 break;
             case "dreamcast":
                 amountOfSecrets = 4;
@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour
             // gamover при достижении минуты
             apocalypseTimer = Time.timeSinceLevelLoad * 100;
 
-            if (apocalypseTimer > 6000)
+            if (apocalypseTimer > deathClock)
             {
                 TakeDamage(101);
             }
