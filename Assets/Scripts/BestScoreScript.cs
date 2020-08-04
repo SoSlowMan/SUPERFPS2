@@ -29,25 +29,32 @@ public class BestScoreScript : MonoBehaviour
         {
             case "jungle":
                 score = PlayerController.instance.score;
-                if (PlayerPrefs.HasKey("BestScore") != true || (PlayerPrefs.HasKey("ScoreTime") != true)) //если сохранений рекордов нет, то просто записываем получившийся результат
+                if (PlayerPrefs.HasKey("StoryMode"))
                 {
-                    bestScore = score;
-                    PlayerPrefs.SetInt("BestScore", bestScore);
-                    scoreTime = Time.timeSinceLevelLoad;
-                    PlayerPrefs.SetFloat("ScoreTime", scoreTime);
-                }
-                else //если сохранения есть, то показываем их
-                {
-                    bestScore = PlayerPrefs.GetInt("BestScore");
-                    scoreTime = PlayerPrefs.GetFloat("ScoreTime");                  
-                }
 
-                if (score >= bestScore) //если полученные очки лучше рекордов, то записываем и показываем новый рекорд
+                }
+                else
                 {
-                    bestScore = score;
-                    PlayerPrefs.SetInt("BestScore", bestScore);
-                    scoreTime = Time.timeSinceLevelLoad;
-                    PlayerPrefs.SetFloat("ScoreTime", scoreTime);
+                    if (PlayerPrefs.HasKey("BestScore") != true || (PlayerPrefs.HasKey("ScoreTime") != true)) //если сохранений рекордов нет, то просто записываем получившийся результат
+                    {
+                        bestScore = score;
+                        PlayerPrefs.SetInt("BestScore", bestScore);
+                        scoreTime = Time.timeSinceLevelLoad;
+                        PlayerPrefs.SetFloat("ScoreTime", scoreTime);
+                    }
+                    else //если сохранения есть, то показываем их
+                    {
+                        bestScore = PlayerPrefs.GetInt("BestScore");
+                        scoreTime = PlayerPrefs.GetFloat("ScoreTime");
+                    }
+
+                    if (score >= bestScore) //если полученные очки лучше рекордов, то записываем и показываем новый рекорд
+                    {
+                        bestScore = score;
+                        PlayerPrefs.SetInt("BestScore", bestScore);
+                        scoreTime = Time.timeSinceLevelLoad;
+                        PlayerPrefs.SetFloat("ScoreTime", scoreTime);
+                    }
                 }
                 updateScoreText();
                 counterText = GetComponent<Text>() as Text;

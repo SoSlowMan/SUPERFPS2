@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("StoryMode");
         PlayerPrefs.DeleteKey("jungleKills100");
         PlayerPrefs.DeleteKey("jungleKids100");
+        PlayerPrefs.DeleteKey("TimeStory1");
+        PlayerPrefs.DeleteKey("TimeStory2");
     }
 
     // Update is called once per frame

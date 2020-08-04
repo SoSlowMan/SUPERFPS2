@@ -29,21 +29,45 @@ public class BestTimeScript : MonoBehaviour
         {
             case "jungle":
                 time = Time.timeSinceLevelLoad;
-                if (PlayerPrefs.HasKey("BestTime") != true) //если рекорда нет в памяти, то записываем результат как рекорд
-                {
-                    bestTime = time; 
-                    PlayerPrefs.SetFloat("BestTime", bestTime);
-                }
-                else //если рекорд в памяти все-таки есть, то показываем его как лучший
-                {
-                    bestTime = PlayerPrefs.GetFloat("BestTime");
-                }
 
-                if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
+                if (PlayerPrefs.HasKey("StoryMode"))
                 {
-                    bestTime = time; //для первого запуска
-                    PlayerPrefs.SetFloat("BestTime", bestTime);
+                    if (PlayerPrefs.HasKey("BestTimeStory1") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                    {
+                        bestTime = time;
+                        PlayerPrefs.SetFloat("BestTimeStory1", bestTime);
+                    }
+                    else //если рекорд в памяти все-таки есть, то показываем его как лучший
+                    {
+                        bestTime = PlayerPrefs.GetFloat("BestTimeStory1");
+                    }
+
+                    if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
+                    {
+                        bestTime = time; //для первого запуска
+                        PlayerPrefs.SetFloat("BestTimeStory1", bestTime);
+                    }
+                    PlayerPrefs.SetFloat("TimeStory1", time); //записываю результат первого левела
                 }
+                else
+                {
+                    if (PlayerPrefs.HasKey("BestTime") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                    {
+                        bestTime = time;
+                        PlayerPrefs.SetFloat("BestTime", bestTime);
+                    }
+                    else //если рекорд в памяти все-таки есть, то показываем его как лучший
+                    {
+                        bestTime = PlayerPrefs.GetFloat("BestTime");
+                    }
+
+                    if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
+                    {
+                        bestTime = time; //для первого запуска
+                        PlayerPrefs.SetFloat("BestTime", bestTime);
+                    }
+                }
+              
                 updateTimeText();
                 counterText = GetComponent<Text>() as Text;
                 break;
@@ -51,21 +75,62 @@ public class BestTimeScript : MonoBehaviour
                 //то же самое для второго уровня
             case "dreamcast":
                 time = Time.timeSinceLevelLoad;
-                if (PlayerPrefs.HasKey("BestTime2") != true) //если рекорда нет в памяти, то записываем результат как рекорд
-                {
-                    bestTime = time;
-                    PlayerPrefs.SetFloat("BestTime2", bestTime);
-                }
-                else //если рекорд в памяти все-таки есть, то показываем его как лучший
-                {
-                    bestTime = PlayerPrefs.GetFloat("BestTime2");
-                }
 
-                if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
+                if (PlayerPrefs.HasKey("StoryMode"))
                 {
-                    bestTime = time; //для первого запуска
-                    PlayerPrefs.SetFloat("BestTime2", bestTime);
+                    if (PlayerPrefs.HasKey("BestTimeStory2") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                    {
+                        bestTime = time;
+                        PlayerPrefs.SetFloat("BestTimeStory2", bestTime);
+                    }
+                    else //если рекорд в памяти все-таки есть, то показываем его как лучший
+                    {
+                        bestTime = PlayerPrefs.GetFloat("BestTimeStory2");
+                    }
+
+                    if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
+                    {
+                        bestTime = time; //для первого запуска
+                        PlayerPrefs.SetFloat("BestTimeStory2", bestTime);
+                    }
+
+                    PlayerPrefs.SetFloat("TimeStory2", time);
+
+                    if (PlayerPrefs.HasKey("BestTimeStory") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                    {
+                        bestTimeStory = PlayerPrefs.GetFloat("TimeStory1") + PlayerPrefs.GetFloat("TimeStory2");
+                        PlayerPrefs.SetFloat("BestTimeStory", bestTimeStory);
+                    }
+                    else
+                    {
+                        bestTimeStory = PlayerPrefs.GetFloat("BestTimeStory");
+                    }
+
+                    if ((PlayerPrefs.GetFloat("TimeStory1") + PlayerPrefs.GetFloat("TimeStory2")) < PlayerPrefs.GetFloat("BestTimeStory")) 
+                    {
+                        bestTimeStory = PlayerPrefs.GetFloat("TimeStory1") + PlayerPrefs.GetFloat("TimeStory2");
+                        PlayerPrefs.SetFloat("BestTimeStory", bestTimeStory);
+                    }
                 }
+                else
+                {
+                    if (PlayerPrefs.HasKey("BestTime2") != true) //если рекорда нет в памяти, то записываем результат как рекорд
+                    {
+                        bestTime = time;
+                        PlayerPrefs.SetFloat("BestTime2", bestTime);
+                    }
+                    else //если рекорд в памяти все-таки есть, то показываем его как лучший
+                    {
+                        bestTime = PlayerPrefs.GetFloat("BestTime2");
+                    }
+
+                    if (time < bestTime) //если время сейчас лучше чем рекордное, то меняем
+                    {
+                        bestTime = time; //для первого запуска
+                        PlayerPrefs.SetFloat("BestTime2", bestTime);
+                    }
+                }
+            
                 updateTimeText();
                 counterText = GetComponent<Text>() as Text;
                 break;

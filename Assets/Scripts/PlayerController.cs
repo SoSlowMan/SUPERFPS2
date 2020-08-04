@@ -289,11 +289,17 @@ public class PlayerController : MonoBehaviour
                 case "jungle":
                     PlayerPrefs.DeleteKey("jungleKills100");
                     PlayerPrefs.DeleteKey("jungleKids100");
+                    PlayerPrefs.DeleteKey("TimeStory1");
+                    PlayerPrefs.DeleteKey("TimeStory2");
                     SceneManager.LoadScene(currentLevel);
                     break;
                 case "dreamcast":
                     if (PlayerPrefs.HasKey("StoryMode"))
                     {
+                        PlayerPrefs.DeleteKey("jungleKills100");
+                        PlayerPrefs.DeleteKey("jungleKids100");
+                        PlayerPrefs.DeleteKey("TimeStory1");
+                        PlayerPrefs.DeleteKey("TimeStory2");
                         SceneManager.LoadScene("jungle");
                     }
                     else
@@ -313,6 +319,8 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.DeleteKey("StoryMode");
             PlayerPrefs.DeleteKey("jungleKills100");
             PlayerPrefs.DeleteKey("jungleKids100");
+            PlayerPrefs.DeleteKey("TimeStory1");
+            PlayerPrefs.DeleteKey("TimeStory2");
             SceneManager.LoadScene("MainMenu");
         }
 
