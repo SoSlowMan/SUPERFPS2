@@ -8507,7 +8507,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 880050491797582284}
-        m_MethodName: ResetScene
+        m_MethodName: ResetStory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8553,7 +8553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6396720788306428844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10677,8 +10677,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -2.17, y: 182}
-  m_SizeDelta: {x: 320, y: 38}
+  m_AnchoredPosition: {x: -2.17, y: 166.68}
+  m_SizeDelta: {x: 320, y: 68.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3130538631117606253
 CanvasRenderer:
@@ -10761,7 +10761,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2942404577549078565}
-        m_MethodName: ResetScene
+        m_MethodName: ResetStory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

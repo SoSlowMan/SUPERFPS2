@@ -25,6 +25,19 @@ public class SceneManagementScript : MonoBehaviour
         //SceneManager.LoadScene("jungle");
     }
 
+    public void ResetStory()
+    {
+        PlayerPrefs.DeleteKey("jungleKills100");
+        PlayerPrefs.DeleteKey("jungleKids100");
+        PlayerPrefs.DeleteKey("TimeStory1");
+        PlayerPrefs.DeleteKey("TimeStory2");
+        PlayerPrefs.DeleteKey("ScoreTimeStory1");
+        PlayerPrefs.DeleteKey("ScoreTimeStory2");
+        PlayerPrefs.DeleteKey("ScoreStory1");
+        PlayerPrefs.DeleteKey("ScoreStory2");
+        SceneManager.LoadScene("jungle");
+    }
+
     public void StartLevel2()
     {
         StartCoroutine(LoadDreamcast());
