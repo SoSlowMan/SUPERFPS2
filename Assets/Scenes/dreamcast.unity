@@ -58391,6 +58391,16 @@ PrefabInstance:
       value: "YOU'VE SAVED ALL KIDS AND KILLED ALL BAD GUYS ON LEVEL 1. \nYOU GET
         +2 DMG AND +0.2 SPD!"
       objectReference: {fileID: 0}
+    - target: {fileID: 941897572529145170, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367724846231664316, guid: 326b90452e368ee4399a8fedc18c51f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326b90452e368ee4399a8fedc18c51f9, type: 3}
 --- !u!1 &1402697068 stripped
